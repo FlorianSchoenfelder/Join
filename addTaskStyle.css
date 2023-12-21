@@ -17,10 +17,6 @@ a:hover {
     cursor: pointer;
 }
 
-#general-header{
-
-
-}
 
 #frame-3{
    background-color: #2A3647;
@@ -30,4 +26,101 @@ a:hover {
    display: flex;
    justify-content: space-between;
    padding: 64px 0px 64px 0px;
+   flex-direction: column;
+   align-items:center;
+}
+
+#capa-1{
+    width:100.03px;
+    height: 121.97px;
+    top: 64px;
+    left:65px;
+    
+}
+
+nav{
+    display: flex;
+    width:232px ;
+    height:229px;
+    
+    gap:15px;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.nav-button-div{
+    display: flex;
+    width: 232px;
+    height: 46px;
+    border-radius: 8px;
+   
+}
+
+.nav-button:hover{
+
+}
+
+.nav-button:active{
+
+}
+
+
+.nav-button{
+    background-color: #2A3647;
+    /* background-color: #2A3647; */
+    border: none;
+    color:white;
+    height: 46px;
+    width: 232px;
+    display: flex;
+   
+    align-items: center;
+    justify-content: center;
+}
+
+#summary-nav-div{
+   
+gap: 20px;
+padding: 8px 53px 8px 53px;
+
+
+}
+
+#summary-nav-button{
+  
+gap: 8px;
+padding: 8px 56px 8px 56px;
+}
+
+#add-task-nav-div{
+   
+}
+
+#add-task-nav-button{
+   
+gap: 8px;
+padding: 8px 56px 8px 56px;
+}
+
+#board-nav-div{
+
+gap: 20px;
+
+}
+
+#board-nav-button{
+  
+
+    gap: 20px;
+    padding: 8px 56px 8px 56px;   
+}
+
+#contacts-nav-div{
+    
+}
+
+#contacts-nav-button{
+    
 }
