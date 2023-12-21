@@ -6,11 +6,11 @@
 }
 
 .d-none {
-    display: none ;
+    display: none;
 }
 
 a {
-    text-decoration: none;  
+    text-decoration: none;
 }
 
 a:hover {
@@ -18,124 +18,175 @@ a:hover {
 }
 
 
-#frame-3{
-   background-color: #2A3647;
- 
-   width: 232px;
-   height: 1024px;
-   display: flex;
-   justify-content: space-between;
-   padding: 64px 0px 64px 0px;
-   flex-direction: column;
-   align-items:center;
-}
-
-#capa-1{
-    width:100.03px;
-    height: 121,97px;
-    top: 64px;
-    left:65px;
-    
-}
-
-nav{
+#frame-3 {
+    background-color: #2A3647;
+   position: fixed;
+    width: 232px;
+    height: 1024px;
     display: flex;
-    width:232px;
-    height:229px;
-    
-    gap:15px;
+    justify-content: space-between;
+    padding: 64px 0px 64px 0px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#capa-1 {
+    width: 100.03px;
+    height: 121, 97px;
+    top: 64px;
+    left: 65px;
+
+}
+
+nav {
+    display: flex;
+    width: 232px;
+    height: 229px;
+
+    gap: 15px;
     flex-direction: column;
     /* align-items: center; */
 
 
 }
 
-.nav-button-div{
+.nav-button-div {
     display: flex;
     width: 232px;
     height: 46px;
     border-radius: 8px;
 }
 
-.nav-button:hover{
-cursor: pointer;
+.nav-button:hover {
+    cursor: pointer;
 }
 
-.nav-button:active{
+.nav-button:active {
 
- background-color:  #091931;
+    background-color: #091931;
 }
 
 
-.nav-button{
-   
-    background-color:rgba(0, 0, 0, 0);
-  
+.nav-button {
+    background-color: rgba(0, 0, 0, 0);
     border: none;
-    color:white;
+    color: white;
     height: 46px;
     width: 232px;
     display: flex;
-   
+
     align-items: center;
     justify-content: center;
 }
 
-.nav-buttons-text{
+.nav-buttons-text {
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
 
 }
 
-#summary-nav-div{
-padding: 8px 53px 8px 53px;
-gap: 20px;
-}
-
-#summary-nav-button{
-gap: 8px;
-/* padding: 8px 56px 8px 56px; */
-}
-
-#add-task-nav-div{
-    padding: 8px 53px 8px 53px;
-   gap: 20px;
-}
-
-#add-task-nav-button{
-   
-gap: 8px;
-/* padding: 8px 56px 8px 56px; */
-}
-
-#board-nav-div{
-    padding: 8px 72px 8px 53px;
-gap: 20px;
-}
-
-#board-nav-button{
-gap: 8px;
-    /* padding: 8px 56px 8px 56px;    */
-}
-
-#contacts-nav-div{
+#summary-nav-div {
     padding: 8px 53px 8px 53px;
     gap: 20px;
 }
 
-#contacts-nav-button{
+#summary-nav-button {
+    gap: 8px;
     /* padding: 8px 56px 8px 56px; */
-    gap:8px
 }
 
-#general-header{
+#add-task-nav-div {
+    padding: 8px 53px 8px 53px;
+    gap: 20px;
+}
+
+#add-task-nav-button {
+
+    gap: 8px;
+    /* padding: 8px 56px 8px 56px; */
+}
+
+#board-nav-div {
+    padding: 8px 72px 8px 53px;
+    gap: 20px;
+}
+
+#board-nav-button {
+    gap: 8px;
+    /* padding: 8px 56px 8px 56px;    */
+}
+
+#contacts-nav-div {
+    padding: 8px 53px 8px 53px;
+    gap: 20px;
+}
+
+#contacts-nav-button {
+    /* padding: 8px 56px 8px 56px; */
+    gap: 8px
+}
+
+#general-header {
     position: fixed;
+
     width: 1440px;
+    height: 96px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px 20px 348px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+
+
+
 }
 
 
-#legal-links{
+
+
+
+#header-text {
+    width: 319px;
+    height: 24px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #000;
+
+}
+
+#header-image-div {
+    width: 104px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#help-button {
+    width: 32px;
+    height: 32px;
+}
+
+#header-userprofile {
+    height: 56px;
+    width: 56px;
+}
+
+#header-userprofile:hover{
+cursor: pointer;
+}
+
+#help-button:hover{
+    cursor: pointer;
+}
+
+
+#legal-links {
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -144,17 +195,16 @@ gap: 8px;
     height: 317px;
     padding: 243px 0px 0px 52px;
     gap: 4px;
-
-   
 }
 
-.legal-link-buttons{
-    background-color:rgba(0, 0, 0, 0);
+.legal-link-buttons {
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     border: none;
+    cursor: pointer;
 }
 
-#policy-button{
+#policy-button {
     width: 121px;
     height: 35px;
     display: flex;
@@ -162,17 +212,15 @@ gap: 8px;
     gap: 8px;
 }
 
-#legal-notice-button{
-width: 109px;
-height: 35px;
-padding :8px;
-display: flex;
-gap:8px;
-
-
+#legal-notice-button {
+    width: 109px;
+    height: 35px;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
 }
 
-.legal-buttons-text{
+.legal-buttons-text {
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
