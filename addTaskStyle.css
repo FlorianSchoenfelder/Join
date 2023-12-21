@@ -32,7 +32,7 @@ a:hover {
 
 #capa-1{
     width:100.03px;
-    height: 121.97px;
+    height: 121,97px;
     top: 64px;
     left:65px;
     
@@ -40,7 +40,7 @@ a:hover {
 
 nav{
     display: flex;
-    width:232px ;
+    width:232px;
     height:229px;
     
     gap:15px;
@@ -68,8 +68,9 @@ nav{
 
 
 .nav-button{
-    background-color: #2A3647;
-    /* background-color: #2A3647; */
+   
+    background-color:rgba(0, 0, 0, 0);
+  
     border: none;
     color:white;
     height: 46px;
@@ -81,46 +82,42 @@ nav{
 }
 
 #summary-nav-div{
-   
-gap: 20px;
 padding: 8px 53px 8px 53px;
-
-
+gap: 20px;
 }
 
 #summary-nav-button{
-  
 gap: 8px;
-padding: 8px 56px 8px 56px;
+/* padding: 8px 56px 8px 56px; */
 }
 
 #add-task-nav-div{
-   
+    padding: 8px 53px 8px 53px;
+   gap: 20px;
 }
 
 #add-task-nav-button{
    
 gap: 8px;
-padding: 8px 56px 8px 56px;
+/* padding: 8px 56px 8px 56px; */
 }
 
 #board-nav-div{
-
+    padding: 08px 72px 8px 53px;
 gap: 20px;
-
 }
 
 #board-nav-button{
-  
-
-    gap: 20px;
-    padding: 8px 56px 8px 56px;   
+gap: 8px;
+    /* padding: 8px 56px 8px 56px;    */
 }
 
 #contacts-nav-div{
-    
+    padding: 8px 53px 8px 53px;
+    gap: 20px;
 }
 
 #contacts-nav-button{
-    
+    /* padding: 8px 56px 8px 56px; */
+    gap:8px
 }
