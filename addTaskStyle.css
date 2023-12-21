@@ -16,3 +16,18 @@ a {
 a:hover {
     cursor: pointer;
 }
+
+#general-header{
+
+
+}
+
+#frame-3{
+   background-color: #2A3647;
+   position: fixed;
+   width: 232px;
+   height: 1024px;
+   display: flex;
+   justify-content: space-between;
+   padding: 64px 0px 64px 0px;
+}
