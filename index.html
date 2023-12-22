@@ -13,6 +13,11 @@
     
         <img class="logoLoginImage" src="./assets/img/logoLoginPage.svg" alt="">
 
+        <div class="signUpFromLoginPage">
+            <p>Not a Join User?</p>
+            <button class="signUpButton"><a href="signUp.html">Sign up</a></button>
+        </div>
+
         <div class="loginFrame">
             <div class="loginHeadline">
                 <p>Log in</p>
@@ -20,12 +25,18 @@
             <div class="loginInputs">
                 <div class="inputField">
                     <div class="EmailField">
-                        <input required type="email" placeholder="Email" >
-                        <img src="./assets/img/mail.svg" alt="">
+                        <div class="inputFrame">
+                            <input required type="email" placeholder="Email">
+                            <img src="./assets/img/mail.svg">
+                        </div>
+    
                     </div>
                     <div class="passwordField">
-                        <input required type="password" placeholder="Password">
-                        <img src="./assets/img/lock.svg" alt="">
+                        <div class="inputFrame">
+                            <input required type="password" placeholder="Password">
+                            <img src="./assets/img/lock.svg">
+                        </div>
+    
                     </div>
                     
                 </div>
@@ -38,6 +49,11 @@
                 <button class="loginButton">Log in</button>
                 <button class="guestLoginButton">Guest Log in</button>
             </div>
+        </div>
+
+        <div class="privacyPolicyContainer">
+            <p>Privacy Policy</p>
+            <p>Legal notice</p>
         </div>
 
 </body>
