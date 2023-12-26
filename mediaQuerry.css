@@ -1,0 +1,6 @@
+@media (max-height: 700px) {
+    .privacyPolicyContainer{
+        position: absolute;
+        bottom: 0px;
+    }
+}
