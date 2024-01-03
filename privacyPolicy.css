@@ -1,0 +1,42 @@
+
+body {
+font-family: 'Inter', sans-serif;
+font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    position: absolute;
+    top: 206px;
+    left: 328px;
+    gap: 30px;
+    font-weight: 700;
+    font-size: 61px;
+}
+
+h2 {
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+   
+}
+
+.privacyPolicy {
+    position: absolute;
+    top: 311px;
+    left: 328px;
+    gap: 35px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: 24px;
+}
+
+#arrowLeft {
+    position: absolute;
+    top: 225px;
+    right: 60px;
+}
