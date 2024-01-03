@@ -22,32 +22,43 @@ let currentDraggedElement;
 function updateHTML() {
     let open = todos.filter(t => t['category'] == 'open');
 
-    document.getElementById('open').innerHTML = '';
-    document.getElementById('open').innerHTML = `<h2 class="underline">Open</h2>`;
+    document.getElementById('open').innerHTML = ''; //Div mit der ID open hat Column
+    document.getElementById('open').innerHTML = 
+    `<h2 class="underline">Open</h2>
+    <div id="openDropContainer" class="flex-grow"  ondrop="moveTo('${todos["category"]}')" ondragover="allowDrop(event)"> </div>
+    `; //Diese Div mit der id neu hat flex grow
 
     for (let index = 0; index < open.length; index++) {
         const element = open[index];
-        document.getElementById('open').innerHTML += generateTodoHTML(element);
+        
+        document.getElementById('openDropContainer').innerHTML += generateTodoHTML(element);
+        // document.getElementById('open').innerHTML += generateTodoHTML(element);
     }
 
     let closed = todos.filter(t => t['category'] == 'closed');
 
     document.getElementById('closed').innerHTML = '';
-    document.getElementById('closed').innerHTML = `<h2 class="underline">Closed</h2>`;
+    document.getElementById('closed').innerHTML = 
+    `<h2 class="underline">Closed</h2>
+    <div id="closeDropContainer" class="flex-grow"  ondrop="moveTo('${todos["category"]}')" ondragover="allowDrop(event)"> </div>
+    `; //Diese Div mit der id neu hat flex grow
 
     for (let index = 0; index < closed.length; index++) {
         const element = closed[index];
-        document.getElementById('closed').innerHTML += generateTodoHTML(element);
+        document.getElementById('closeDropContainer').innerHTML += generateTodoHTML(element);
     }
 
     let reviewed = todos.filter(t => t['category'] == 'reviewed');
 
     document.getElementById('reviewed').innerHTML = '';
-    document.getElementById('reviewed').innerHTML = `<h2 class=""underline">Reviewed</h2>`;
+    document.getElementById('reviewed').innerHTML = 
+    `<h2 class="underline">Reviewed</h2>
+    <div id="reviewedDropContainer" class="flex-grow"  ondrop="moveTo('${todos["category"]}')" ondragover="allowDrop(event)"> </div>
+    `; //Diese Div mit der id neu hat flex grow
 
     for (let index = 0; index < reviewed.length; index++) {
         const element = reviewed[index];
-        document.getElementById('reviewed').innerHTML += generateTodoHTML(element);
+        document.getElementById('reviewedDropContainer').innerHTML += generateTodoHTML(element);
     }
 
 }
@@ -61,11 +72,20 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
+    console.log(category);
     todos[currentDraggedElement]['category'] = category;
     updateHTML();
 }
 
 function generateTodoHTML(element) {
-    return `<div draggable="true" ondragstart="startdragging(${element['id']})" ondrop="moveTo(category)" ondragover="allowdrop(ev)" class="todo">${element['title']}</div>`;
+    return `
+<div draggable="true" ondragstart="startdragging(${element['id']})" class="todo">${element['title']}</div> 
+    `;
 
 }
+
+// function highlight(id) {
+//     document.getElementById(id).classList.add('drag-area-highlight');
+// }
+
+/*  ondrop="moveTo('${element['category']}')" ondragover="allowDrop(event)"*/
