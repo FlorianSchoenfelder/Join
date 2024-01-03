@@ -1,0 +1,28 @@
+#board-section {
+
+    margin-left: 328px;
+    margin-top: 206px;
+
+}
+
+.flex-container {
+    display: flex;
+  }
+
+  .sub-container {
+    flex: 1;
+    border: 1px solid black;
+    margin: 0 10px;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    height: 60vh;
+  }
+
+  .todo {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}

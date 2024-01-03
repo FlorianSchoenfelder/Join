@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+
+</head>
+
+<body onload="updateHTML()">
+
+ <header>
+    
+    <span id="kanban-heading">Kanban Project Management Tool</span>
+    <div id="header-right-side">
+        <img id="help-logo" src="/assets/img/aside_and_header/header-help-button.svg">
+        <img id="header-userprofile" src="/assets/img/aside_and_header/header-userprofile.png">
+    </div>
+
+ </header>
+
+ <aside>
+
+    <img id="join-logo-light" src="/assets/img/aside_and_header/join_logo_light.png" alt="join logo">
+
+    <nav>
+        <ul id="flex-list-container">
+            <li id="summary-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img src="/assets/img/aside_and_header/summary-icon.png"><span class="nav-list-span">Summary</span></a></li>
+            <li id="addTask-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img src="/assets/img/aside_and_header/addTask-icons.png"><span class="nav-list-span">Add Task</span></a></li>
+            <li id="board-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img src="/assets/img/aside_and_header/board-icons .png"><span class="nav-list-span">Board</span></a></li>
+            <li id="contacts-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img src="/assets/img/aside_and_header/contacts-icons.png"><span class="nav-list-span">Contacts</span></a></li>
+        </ul>
+    </nav>
+
+    <div id="legal-section">
+        <ul id="legal-section-flex">
+            <li class="legal-list-element hover-darkblue"><a href="#"><span class="legal-list-span">Privacy Policy</span></a></li>
+            <li class="legal-list-element hover-darkblue"><a href="#"><span class="legal-list-span">Legal Notice</span></a></li>
+        </ul>
+    </div>
+
+ </aside>
+
+ <main id="board-section">
+    <div class="flex-container">
+        <div id="open" class="sub-container">
+          <h2>Open</h2>
+          <!-- Weitere Inhalte für den Container 1 -->
+        </div>
+      
+        <div id="closed" class="sub-container">
+          <h2>Closed</h2>
+          <!-- Weitere Inhalte für den Container 2 -->
+        </div>
+      
+        <div id="reviewed" class="sub-container">
+          <h2>Reviewed</h2>
+         
+        </div>
+       
+ </main>
+
+
+
+
+    <link rel="stylesheet" href="/aside_and_head_style.css">
+    <link rel="stylesheet" href="/board.css">
+    <script src="/JavaScript/board.js"></script>
+</body>
+
+</html>
