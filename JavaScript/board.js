@@ -52,8 +52,20 @@ function updateHTML() {
 
 }
 
+function startdragging(id) {
+    currentDraggedElement = id;
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function moveTo(category) {
+    todos[currentDraggedElement]['category'] = category;
+    updateHTML();
+}
 
 function generateTodoHTML(element) {
-    return `<div   class="todo">${element['title']}</div>`;
+    return `<div draggable="true" ondragstart="startdragging(${element['id']})" ondrop="moveTo(category)" ondragover="allowdrop(ev)" class="todo">${element['title']}</div>`;
 
 }

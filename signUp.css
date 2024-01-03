@@ -90,7 +90,7 @@
     /* box-sizing: border-box; */
 }
 
-.EmailField div{
+.emailField div{
     position: relative;
     display: flex;
     justify-content: center;
@@ -110,4 +110,25 @@
     display: flex;
     align-items: start;
     height: 70px;
+}
+
+.acceptPrivacyPolicyContainer {
+    box-sizing: content-box;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.acceptPrivacyPolicyContainer p a{
+    color: #29ABE2;
+    text-decoration: none;
+}
+
+.acceptPrivacyPolicyContainer p a:hover{
+    text-decoration: underline;
+}
+
+.acceptPrivacyPolicyContainer:hover input{
+    /* box-shadow:inset 2px 2px 1px #29ABE2; */
+    filter: drop-shadow( 5px 5px 5px #29ABE2);
 }

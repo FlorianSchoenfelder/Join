@@ -28,32 +28,32 @@
         <div class="signUpHeadline">
             <p>Sign up</p>
         </div>
-        <div class="signUpInputs">
+        <form class="signUpInputs">
             <div class="signUpinputField">
-                <div class="EmailField">
+                <div class="passwordField">
                     <div class="inputFrame">
-                        <input required type="email" placeholder="Email">
+                        <input required type="email" placeholder="Name">
+                        <img src="./assets/img/signUpNameIcon.svg">
+                    </div>
+
+                </div>
+                <div class="emailField">
+                    <div class="inputFrame">
+                        <input required type="password" placeholder="Email">
                         <img src="./assets/img/mail.svg">
                     </div>
 
                 </div>
                 <div class="passwordField">
                     <div class="inputFrame">
-                        <input required type="password" placeholder="Password">
+                        <input required type="email" placeholder="Password">
                         <img src="./assets/img/lock.svg">
                     </div>
 
                 </div>
-                <div class="EmailField">
-                    <div class="inputFrame">
-                        <input required type="email" placeholder="Email">
-                        <img src="./assets/img/mail.svg">
-                    </div>
-
-                </div>
                 <div class="passwordField">
                     <div class="inputFrame">
-                        <input required type="password" placeholder="Password">
+                        <input required type="password" placeholder="Confirm Password">
                         <img src="./assets/img/lock.svg">
                     </div>
 
@@ -61,10 +61,13 @@
 
             </div>
             <div class="acceptPrivacyPolicyContainer">
-                <input type="checkbox" name="" id="">
-                <p>I accept the Privacy policy</p>
+                <div>
+                    <input class="test" type="checkbox" name="" id="">
+                    <p>I accept the <a href="privacyPolicy.html">Privacy policy</a></p>
+                </div>
+                
             </div>
-        </div>
+        </form>
         <div class="signUpButtonContainer">
             <button class="loginButton">Sign up</button>
 
