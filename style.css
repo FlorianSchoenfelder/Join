@@ -51,6 +51,13 @@ body {
     gap: 16px;
 }
 
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
 .loginHeadline {
     display: flex;
     justify-content: center;

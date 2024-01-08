@@ -24,7 +24,7 @@
         <div>
             <a href="signUp.html"><button class="signUpButton">Sign up</button></a>
         </div>
-        
+
     </div>
 
     <div class="loginFrame">
@@ -33,37 +33,41 @@
             <p>Log in</p>
         </div>
 
-        <form action="" class="loginInputs">
-            <div class="inputField">
-                <div class="emailField">
-                    <div class="inputFrame">
-                        <input required type="email" placeholder="Email">
-                        <img src="./assets/img/mail.svg">
+        <form onsubmit="XXX(); return false;" class="loginForm">
+            <div class="loginInputs">
+                <div class="inputField">
+                    <div class="emailField">
+                        <div class="inputFrame">
+                            <input required type="email" placeholder="Email">
+                            <img src="./assets/img/mail.svg">
+                        </div>
+                    </div>
+                    <div class="passwordField">
+                        <div class="inputFrame">
+                            <input required type="password" placeholder="Password">
+                            <img src="./assets/img/lock.svg">
+                        </div>
                     </div>
                 </div>
-                <div class="passwordField">
-                    <div class="inputFrame">
-                        <input required type="password" placeholder="Password">
-                        <img src="./assets/img/lock.svg">
-                    </div>
+                <div class="remeberMeSection">
+                    <input type="checkbox" name="" id="">
+                    <p>Remember me</p>
                 </div>
             </div>
-            <div class="remeberMeSection">
-                <input type="checkbox" name="" id="">
-                <p>Remember me</p>
+
+            <div class="loginButtons">
+                <button class="loginButton">Log in</button>
+                <button class="guestLoginButton">Guest Log in</button>
             </div>
+
         </form>
 
-        <div class="loginButtons">
-            <button class="loginButton">Log in</button>
-            <button class="guestLoginButton">Guest Log in</button>
-        </div>
 
     </div>
 
     <div class="privacyPolicyContainer">
-        <button>Privacy Policy</button>
-        <button>Legal notice</button>
+        <a href="privacyPolicy.html"><button>Privacy Policy</button></a>
+        <a href="legalNotice.html"><button>Legal notice</button></a>
     </div>
 
 </body>

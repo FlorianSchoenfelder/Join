@@ -24,29 +24,29 @@
         <div class="backToLoginPageContainer">
             <a href="index.html"><img src="./assets/img/arrowLeft.svg"></a>
         </div>
+        <form onsubmit="XXX(); return false;" class="signUpInputs">
+            <div class="signUpHeadline">
+                <p>Sign up</p>
+            </div>
 
-        <div class="signUpHeadline">
-            <p>Sign up</p>
-        </div>
-        <form class="signUpInputs">
             <div class="signUpinputField">
                 <div class="passwordField">
                     <div class="inputFrame">
-                        <input required type="email" placeholder="Name">
+                        <input required type="text" placeholder="Name">
                         <img src="./assets/img/signUpNameIcon.svg">
                     </div>
 
                 </div>
                 <div class="emailField">
                     <div class="inputFrame">
-                        <input required type="password" placeholder="Email">
+                        <input required type="email" placeholder="Email">
                         <img src="./assets/img/mail.svg">
                     </div>
 
                 </div>
                 <div class="passwordField">
                     <div class="inputFrame">
-                        <input required type="email" placeholder="Password">
+                        <input required type="password" min="8" placeholder="Password">
                         <img src="./assets/img/lock.svg">
                     </div>
 
@@ -62,21 +62,24 @@
             </div>
             <div class="acceptPrivacyPolicyContainer">
                 <div>
-                    <input class="test" type="checkbox" name="" id="">
+                    <input required class="test" type="checkbox" name="" id="">
                     <p>I accept the <a href="privacyPolicy.html">Privacy policy</a></p>
                 </div>
-                
+
+            </div>
+            <div class="signUpButtonContainer">
+                <button class="loginButton">Sign up</button>
+
             </div>
         </form>
-        <div class="signUpButtonContainer">
-            <button class="loginButton">Sign up</button>
 
-        </div>
     </div>
 
     <div class="privacyPolicyContainer">
-        <button>Privacy Policy</button>
-        <button>Legal notice</button>
+        <a href="privacyPolicy.html"><button>Privacy Policy</button></a>
+        <a href="legalNotice.html"><button>Legal notice</button></a>
+        
+        
     </div>
 
 </body>

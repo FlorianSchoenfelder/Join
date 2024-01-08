@@ -25,7 +25,7 @@ function updateHTML() {
     document.getElementById('open').innerHTML = ''; //Div mit der ID open hat Column
     document.getElementById('open').innerHTML = 
     `<h2 class="underline">Open</h2>
-    <div id="openDropContainer" class="flex-grow"  ondrop="moveTo('${todos["category"]}')" ondragover="allowDrop(event)"> </div>
+    <div id="openDropContainer" class="flex-grow"  ondrop="moveTo('open')" ondragover="allowDrop(event)"> </div>
     `; //Diese Div mit der id neu hat flex grow
 
     for (let index = 0; index < open.length; index++) {
@@ -40,7 +40,7 @@ function updateHTML() {
     document.getElementById('closed').innerHTML = '';
     document.getElementById('closed').innerHTML = 
     `<h2 class="underline">Closed</h2>
-    <div id="closeDropContainer" class="flex-grow"  ondrop="moveTo('${todos["category"]}')" ondragover="allowDrop(event)"> </div>
+    <div id="closeDropContainer" class="flex-grow"  ondrop="moveTo('closed')" ondragover="allowDrop(event)"> </div>
     `; //Diese Div mit der id neu hat flex grow
 
     for (let index = 0; index < closed.length; index++) {
@@ -53,7 +53,7 @@ function updateHTML() {
     document.getElementById('reviewed').innerHTML = '';
     document.getElementById('reviewed').innerHTML = 
     `<h2 class="underline">Reviewed</h2>
-    <div id="reviewedDropContainer" class="flex-grow"  ondrop="moveTo('${todos["category"]}')" ondragover="allowDrop(event)"> </div>
+    <div id="reviewedDropContainer" class="flex-grow"  ondrop="moveTo('reviewed')" ondragover="allowDrop(event)"> </div>
     `; //Diese Div mit der id neu hat flex grow
 
     for (let index = 0; index < reviewed.length; index++) {
