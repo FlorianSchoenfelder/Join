@@ -30,3 +30,7 @@
 .drag-area{
 background-color: lightgray;
 }
+
+.active {
+  background-color: #091931;
+}
