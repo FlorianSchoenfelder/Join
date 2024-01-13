@@ -41,6 +41,10 @@ header{
 
 }
 
+.active {
+    background-color: #091931;
+}
+
 #kanban-heading{
     font-weight: 400;
     size: 20px;

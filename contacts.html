@@ -31,17 +31,18 @@
 
         <nav>
             <ul id="flex-list-container">
-                <li id="summary-list-element" class="hover-darkblue"><a class="list-nav-element" href="summary.html"><img
-                            src="/assets/img/aside_and_header/summary-icon.png"><span
+                <li id="summary-list-element" class="hover-darkblue"><a class="list-nav-element"
+                        href="summary.html"><img src="/assets/img/aside_and_header/summary-icon.png"><span
                             class="nav-list-span">Summary</span></a></li>
-                <li id="addTask-list-element" class="hover-darkblue"><a class="list-nav-element" href="add_task_n_include.html"><img
-                            src="/assets/img/aside_and_header/addTask-icons.png"><span class="nav-list-span">Add
+                <li id="addTask-list-element" class="hover-darkblue"><a class="list-nav-element"
+                        href="add_task_n_include.html"><img src="/assets/img/aside_and_header/addTask-icons.png"><span
+                            class="nav-list-span">Add
                             Task</span></a></li>
-                <li id="board-list-element" class="hover-darkblue"><a class="list-nav-element" href="board_new.html"><img
-                            src="/assets/img/aside_and_header/board-icons .png"><span
+                <li id="board-list-element" class="hover-darkblue"><a class="list-nav-element"
+                        href="board_new.html"><img src="/assets/img/aside_and_header/board-icons .png"><span
                             class="nav-list-span">Board</span></a></li>
-                <li class="active" id="contacts-list-element" class="hover-darkblue"><a class="list-nav-element"  href="contacts.html"><img
-                            src="/assets/img/aside_and_header/contacts-icons.png"><span
+                <li class="active" id="contacts-list-element" class="hover-darkblue"><a class="list-nav-element"
+                        href="contacts.html"><img src="/assets/img/aside_and_header/contacts-icons.png"><span
                             class="nav-list-span">Contacts</span></a></li>
             </ul>
         </nav>
@@ -61,22 +62,24 @@
         Add new contact
     </button>
 
-    
-        <div class="addContactPopupContainer" id="addContactPopupContainer" onclick="closeAddContactPopup()">
-        <div class="addContactPopup" onclick="stopPropagation(event)">
+
+    <div class="addContactPopupContainer d-none" id="addContactPopupContainer" >
+
+
+    </div>
+    <div id="addContactPopup" onclick="closeAddContactPopup()">
+        <div class="addContactPopup"  onclick="stopPropagation(event)">
             <div class="addContactLeftSide">
 
             </div>
             <div class="addContactRightSide">
-                
+
             </div>
         </div>
-    
     </div>
-    
 
 
-    
+
 
 
 </body>
