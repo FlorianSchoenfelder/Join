@@ -20,6 +20,7 @@ h2 {
 .subtitle {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
    
 }
@@ -39,4 +40,9 @@ h2 {
     position: absolute;
     top: 225px;
     right: 60px;
+}
+
+.imprint {
+    list-style: disc;
+    margin-left: 24px;
 }
