@@ -3,22 +3,20 @@ function stopPropagation(event) {
 }
 
 function openAddContactPopup() {
-    document.getElementById('addContactPopupContainer').classList.add('darkBackground');
-    document.getElementById('addContactPopupContainer').classList.remove('d-none');
+    document.getElementById('darkBackgroundContainer').classList.add('darkBackground');
+    document.getElementById('darkBackgroundContainer').classList.remove('d-none');
     document.getElementById('addContactPopup').style = 'transform: translateX(0)';
 }
 
 
 function closeAddContactPopup() {
-    document.getElementById('addContactPopupContainer').classList.remove('darkBackground');
-    // dela(myStopFunction(), 5000);
-    setTimeout(() => myStopFunction(), 2000)
+    setTimeout(() => myStopFunction(), 250)
     document.getElementById('addContactPopup').style = 'transform: translateX(100%)';
 }
 
 
 
 function myStopFunction() {
-    document.getElementById('addContactPopupContainer').classList.add('d-none');
-//   clearTimeout(myTimeout);
+    document.getElementById('darkBackgroundContainer').classList.add('d-none');
+    document.getElementById('darkBackgroundContainer').classList.remove('darkBackground');
 }
