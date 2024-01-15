@@ -41,6 +41,11 @@ header{
 
 }
 
+#join-logo-light{
+    height: 121.97px;
+    width: 100.03px;
+}
+
 .active {
     background-color: #091931;
 }
@@ -67,6 +72,8 @@ header{
 /* header */
 
 /* aside */
+
+
 
 #legal-section{
     padding: 243px 0px 0px 0px; 
@@ -126,7 +133,9 @@ padding: 8px 56px 8px 56px;
 nav{
     font-weight: 400;
     font-size: 16px;
+    padding-top: 80px;
 }
+
 
 .nav-list-span{
     line-height: 19.2px;
