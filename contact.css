@@ -2,6 +2,19 @@ body {
     overflow: hidden;
 }
 
+::placeholder {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    height: 24px;
+    color: #D1D1D1;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #29ABE2 !important;
+}
+
 .darkBackgroundContainer {
     height: 100vh;
     width: 100vw;
@@ -24,6 +37,12 @@ body {
     animation: identifier 500ms ease-in-out;
 }
 
+.swipeOut {
+    transition: all 500ms ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: swipeOut 500ms ease-in-out; 
+}
+
 @keyframes identifier {
     from {
         background-color: transparent;
@@ -33,29 +52,42 @@ body {
     }
 }
 
+@keyframes swipeOut {
+    from {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    to {
+    background-color: transparent;
+    }
+}
+
 #addContactPopup {
     height: 100vh;
     width: 100vw;
     position: absolute;
     top: 0;
-    transition: all 500ms ease-in-out;
-    transform: translateX(100%);
     display: flex;
     justify-content: center;
     align-items: center;
+    /* remove to work on */
+
+    /* transition: all 500ms ease-in-out;
+    transform: translateX(100%); */
+    
 }
 
 .addContactPopup {
-    /* box-shadow: 4px 4px 9px 19px  black;
-    border-radius: 30px; */
+    display: flex;
     width: 1212px;
     height: 592px;
     position: absolute;
-    top: 50%;
+    /* remove to work on */
+
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    /* z-index: 999; */
+    transform: translate(-50%, -50%); */
+    box-shadow: 4px 4px 9px 19px  black;
+    border-radius: 30px;
 }
 
 .addContactLeftSide {
@@ -125,7 +157,174 @@ body {
     flex: 1;
     height: 100%;
     background-color: white;
-    border-radius: 0 30px 30px 0 ;
+    border-radius: 0 30px 30px 0;
+    padding: 0 48px;
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+
+.closePopup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 48px;
+    width: 32px;
+    height: 32px;
+    border-radius: 56px;
+}
+
+.closePopup:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+.createContactSection {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 137px;
+    width: 422px;
+    height: 215px;
+    gap: 32px;
+}
+
+.createContactSection div {
+    height: 50px;
+    display: flex;
+}
+
+.createContactSection div input {
+    height: 48px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    padding: 12px 21px;
+    /* box-sizing: border-box; */
+}
+
+.inputContainer div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.inputContainer img {
+    position: absolute;
+    right: 16px;
+}
+
+.inputFrame input {
+    height: 48px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #D1D1D1;
+    padding: 12px 21px;
+    /* box-sizing: border-box; */
+}
+
+.passwordField div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.passwordField img {
+    position: absolute;
+    right: 14px;
+}
+
+.buttonsForAddContact {
+    width: 364px;
+    height: 57px;
+    gap: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createContactButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 214px;
+    height: 57px;
+    border-radius: 10px;
+    padding: 16px;
+    gap: 4px;
+    background-color: #2A3647;
+    color: white;
+    border: none;
+    font-size: 21px;
+    line-height: 25.2px;
+    font-weight: 700;
+}
+
+.createContactButton:hover {
+    background-color: #29ABE2;
+    box-shadow: 0px 2px 3px gray;
+}
+
+.cancelButton:hover div img {
+    filter: invert(53%) sepia(96%) saturate(1108%) hue-rotate(164deg) brightness(97%) contrast(82%)
+}
+
+.createContactButton img {
+    height: 24px;
+    width: 24px;
+}
+
+.createContactButton div {
+    display: flex;
+    align-items: center;
+}
+
+.cancelButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 126px;
+    height: 56px;
+    border-radius: 10px;
+    padding: 16px;
+    gap: 4px;
+    border: 1px solid #2A3647;
+    background-color: white;
+    color: #2A3647;
+    font-size: 21px;
+    line-height: 25.2px;
+    font-weight: 700;
+}
+
+.cancelButton:hover {
+    border: 2px solid #29ABE2;
+    box-shadow: 0px 2px 3px gray;
+    color: #29ABE2;
+}
+
+.cancelButton img {
+    height: 24px;
+    width: 24px;
+}
+
+.cancelButton div {
+    display: flex;
+    align-items: center;
+}
+
+.addContactIcon {
+    position: absolute;
+    top: 204px;
+    left: 70px;
+    height: 120px;
+    width: 120px;
 }
 
 .textbutton {
