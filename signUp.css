@@ -17,6 +17,14 @@
     bottom: 0;
 }
 
+.logoSignUpImage {
+    position: absolute;
+    top: 80px;
+    left: 77px;
+    width: 100px;
+    height: 122px;
+}
+
 .signUpFrame {
     width: 598px;
     height: 630px;

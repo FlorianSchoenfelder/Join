@@ -8,6 +8,8 @@ body {
     font-weight: 400;
     height: 24px;
     color: #D1D1D1;
+    position: fixed;
+    margin-top: -2px;
 }
 
 input:focus {
@@ -71,8 +73,8 @@ input:focus {
     align-items: center;
     /* remove to work on */
 
-    /* transition: all 500ms ease-in-out;
-    transform: translateX(100%); */
+    transition: all 500ms ease-in-out;
+    transform: translateX(100%);
     
 }
 
@@ -83,11 +85,11 @@ input:focus {
     position: absolute;
     /* remove to work on */
 
-    /* top: 50%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); */
-    box-shadow: 4px 4px 9px 19px  black;
-    border-radius: 30px;
+    transform: translate(-50%, -50%);
+    /* box-shadow: 4px 4px 9px 19px  black;
+    border-radius: 30px; */
 }
 
 .addContactLeftSide {

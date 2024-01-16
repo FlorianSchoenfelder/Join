@@ -7,6 +7,7 @@
     <title>Sign up</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="signUp.css">
+    <script src="script.js"></script>
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +19,7 @@
 <body>
     <!-- Login Page -->
 
-    <img class="logoLoginImage" src="./assets/img/logoLoginPage.svg">
+    <img class="logoSignUpImage" src="./assets/img/logoLoginPage.svg">
 
     <div class="signUpFrame">
         <div class="backToLoginPageContainer">
@@ -61,10 +62,14 @@
 
             </div>
             <div class="acceptPrivacyPolicyContainer">
-                <div>
-                    <input required class="test" type="checkbox" name="" id="">
-                    <p>I accept the <a href="privacyPolicy.html">Privacy policy</a></p>
+
+                <!-- <input required class="test" type="checkbox" name="" id=""> -->
+                <div class="checkboxImage">
+                    <img onclick="changeCheckbox()" id="notChecked" class="checkbox" src="./assets/img/checkboxEmpty.png" alt="">
+                    <img onclick="changeCheckbox()" id="checked" class="checkbox d-none" src="./assets/img/checkboxFilled.png" alt="">
                 </div>
+                <p>I accept the <a href="privacyPolicy.html">Privacy policy</a></p>
+
 
             </div>
             <div class="signUpButtonContainer">
@@ -78,8 +83,8 @@
     <div class="privacyPolicyContainer">
         <a href="privacyPolicy.html"><button>Privacy Policy</button></a>
         <a href="legalNotice.html"><button>Legal notice</button></a>
-        
-        
+
+
     </div>
 
 </body>

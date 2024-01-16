@@ -7,6 +7,7 @@
     <title>Join</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaQuerry.css">
+    <script src="script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +17,10 @@
 
 <body>
     <!-- Login Page -->
-
-    <img class="logoLoginImage" src="./assets/img/logoLoginPage.svg" alt="">
+    <div class="test1">
+       <img class="logoLoginImage" src="./assets/img/logoLoginPage.svg"> 
+    </div>
+    
 
     <div class="signUpFromLoginPage">
         <p>Not a Join User?</p>
@@ -27,7 +30,7 @@
 
     </div>
 
-    <div class="loginFrame">
+    <div class="loginFrame" id="loginFrame">
 
         <div class="loginHeadline">
             <p>Log in</p>
@@ -50,7 +53,10 @@
                     </div>
                 </div>
                 <div class="remeberMeSection">
-                    <input type="checkbox" name="" id="">
+                    <div class="checkboxImage">
+                        <img onclick="changeCheckbox()" id="notChecked" class="checkbox" src="./assets/img/checkboxEmpty.png" alt="">
+                        <img onclick="changeCheckbox()" id="checked" class="checkbox d-none" src="./assets/img/checkboxFilled.png" alt="">
+                    </div>
                     <p>Remember me</p>
                 </div>
             </div>
