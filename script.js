@@ -1,15 +1,5 @@
 let checkbox = false;
 
-// function inti() {
-//     changeOpacity();
-    
-// }
-
-// function changeOpacity() {
-//     document.getElementById('loginFrame').classList.add('opacityAnimation');
-//     document.getElementById('loginFrame').classList.remove('opacity');
-// }
-
 function changeCheckbox() {
     if (!checkbox == true) {
         checkbox = true;

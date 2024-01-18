@@ -44,14 +44,6 @@ body {
     }
 }
 
-.opacity {
-    opacity: 0;
-}
-
-.opacityAnimation {
-    animation: 2s opacity ease-in-out;
-}
-
 .loginFrame {
     width: 652px;
     height: 493px;
@@ -64,6 +56,9 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 32px;
+    opacity: 0;
+    animation: 1.5s opacity ease-in-out forwards;
+    animation-delay: 750ms;
     
 }
 
@@ -217,12 +212,14 @@ p {
 
 .logoLoginImage {
     position: absolute;
-    top: 80px;
-    left: 77px;
-    width: 100px;
-    height: 122px;
-    /* background-color: #F6F7F8; */
-    animation: 1.5s identifier ease-out;
+    width: 50vw;
+    height: 70vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: 750ms identifier cubic-bezier(.5,.02,.68,.62) forwards;
+    animation-delay: 0.5s;
+    z-index: 999;
 }
 
 @keyframes identifier {
@@ -233,8 +230,6 @@ p {
         transform: translate(-50%, -50%);
         width: 50vw;
         height: 70vh;
-        z-index: 999;
-        background-color: #F6F7F8;   
     }
     to  {
         position: absolute;
@@ -242,12 +237,13 @@ p {
         left: 77px;
         width: 100px;
         height: 122px;
-        background-color: transparent;
+        transform: none;
     }
 }
 
 .test1 {
-    background-color: #D1D1D1;
+    background-color: transparent;
+    z-index: 999;
 }
 
 .loginButtons {
@@ -310,8 +306,11 @@ p {
     display: flex;
     align-items: center;
     gap: 35px;
+    opacity: 0;
     /* width: 279px; */
     height: 49px;
+    animation: 1.5s opacity ease-in-out forwards;
+    animation-delay: 750ms;
 }
 
 .signUpFromLoginPage p {
@@ -352,6 +351,9 @@ p {
     transform: translate(-50%, -50%);
     display: flex;
     gap: 64px;
+    opacity: 0;
+    animation: 1.5s opacity ease-in-out forwards;
+    animation-delay: 750ms;
 }
 
 .privacyPolicyContainer button {
