@@ -23,3 +23,7 @@ function switchCheckboxImage(){
     }
 }
 
+function guestLogin(event) {
+    event.preventDefault();
+    location.href = "http://127.0.0.1:5502/summary.html";
+}
