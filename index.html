@@ -7,6 +7,9 @@
     <title>Join</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaQuerry.css">
+    
+    <script src="data.js"></script>
+    <script src="JavaScript/signUp.js"></script>
     <script src="script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,18 +39,18 @@
             <p>Log in</p>
         </div>
 
-        <form onsubmit="XXX(); return false;" class="loginForm">
+        <form onsubmit="loginUser(); return false;" class="loginForm">
             <div class="loginInputs">
                 <div class="inputField">
                     <div class="emailField">
                         <div class="inputFrame">
-                            <input required type="email" placeholder="Email">
+                            <input required type="email" placeholder="Email" id="loginEmail">
                             <img src="./assets/img/mail.svg">
                         </div>
                     </div>
                     <div class="passwordField">
                         <div class="inputFrame">
-                            <input required type="password" placeholder="Password">
+                            <input required type="password" placeholder="Password" id="loginPassword">
                             <img src="./assets/img/lock.svg">
                         </div>
                     </div>

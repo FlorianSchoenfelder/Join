@@ -7,7 +7,10 @@
     <title>Sign up</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="signUp.css">
+    <script src="data.js"></script>
     <script src="script.js"></script>
+    
+    <script src="JavaScript/signUp.js"></script>
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +19,7 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body onload="init()">
     <!-- Login Page -->
 
     <img class="logoSignUpImage" src="./assets/img/logoLoginPage.svg">
@@ -25,7 +28,7 @@
         <div class="backToLoginPageContainer">
             <a href="index.html"><img src="./assets/img/arrowLeft.svg"></a>
         </div>
-        <form onsubmit="XXX(); return false;" class="signUpInputs">
+        <form onsubmit="registerUser(); return false;" class="signUpInputs">
             <div class="signUpHeadline">
                 <p>Sign up</p>
             </div>
@@ -33,28 +36,28 @@
             <div class="signUpinputField">
                 <div class="passwordField">
                     <div class="inputFrame">
-                        <input required type="text" placeholder="Name">
+                        <input required type="text" placeholder="Name" id="userName">
                         <img src="./assets/img/signUpNameIcon.svg">
                     </div>
 
                 </div>
                 <div class="emailField">
                     <div class="inputFrame">
-                        <input required type="email" placeholder="Email">
+                        <input required type="email" placeholder="Email" id="email">
                         <img src="./assets/img/mail.svg">
                     </div>
 
                 </div>
                 <div class="passwordField">
                     <div class="inputFrame">
-                        <input required type="password" min="8" placeholder="Password">
+                        <input required type="password" min="8" placeholder="Password" id="password">
                         <img src="./assets/img/lock.svg">
                     </div>
 
                 </div>
                 <div class="passwordField">
                     <div class="inputFrame">
-                        <input required type="password" placeholder="Confirm Password">
+                        <input required type="password" id="confirmPassword" placeholder="Confirm Password">
                         <img src="./assets/img/lock.svg">
                     </div>
 
@@ -65,6 +68,7 @@
 
                 <!-- <input required class="test" type="checkbox" name="" id=""> -->
                 <div class="checkboxImage">
+                    <!-- <input type="image"> -->
                     <img onclick="changeCheckbox()" id="notChecked" class="checkbox" src="./assets/img/checkboxEmpty.png" alt="">
                     <img onclick="changeCheckbox()" id="checked" class="checkbox d-none" src="./assets/img/checkboxFilled.png" alt="">
                 </div>
@@ -73,7 +77,7 @@
 
             </div>
             <div class="signUpButtonContainer">
-                <button class="loginButton">Sign up</button>
+                <button id="registerButton" class="loginButton">Sign up</button>
 
             </div>
         </form>
