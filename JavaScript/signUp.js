@@ -1,6 +1,7 @@
+let users = [];
 
 async function init(){
-    loadUsers();
+    await loadUsers();
 }
 
 async function loadUsers(){
@@ -10,7 +11,6 @@ async function loadUsers(){
         console.error('Loading error:', e);
     }
 }
-
 
 async function registerUser() {
     if (password.value !== confirmPassword.value) {

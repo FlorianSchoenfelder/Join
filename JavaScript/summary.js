@@ -64,3 +64,17 @@ function delightSecondLine() {
     document.getElementById('date-deadline').classList.remove('color-white')
     document.getElementById('summary-deadline-span').classList.remove('color-white')
 }
+
+let currentLoggedUser = [];
+
+function initUser() {
+    loadCurrentUser();
+}
+
+async function loadCurrentUser() {
+    try {
+        currentLoggedUser = JSON.parse(await getItem('loggedUser'));
+    } catch(e){
+        console.error('Loading error:', e);
+    }
+}

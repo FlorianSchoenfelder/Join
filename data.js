@@ -60,7 +60,7 @@ let contactList = [
     },
 ]
 
-let users = [];
+
 
 async function setItem(key, value) {
     

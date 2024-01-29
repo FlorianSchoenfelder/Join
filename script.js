@@ -1,4 +1,5 @@
 let checkbox = false;
+let currentUser = [];
 
 function changeCheckbox() {
     if (!checkbox == true) {
@@ -31,9 +32,27 @@ function guestLogin(event) {
 function loginUser() {
     let email = document.getElementById('loginEmail').value;
     let password = document.getElementById('loginPassword').value;
-    let user = users.find(users => users.email == email.value && users.password == password.value);
-    console.log(user);
+    let user = users.find(users => users.email == email && users.password == password);
+    if (!user) {
+        alert('Wrong Email or Password');
+        loginEmail.style.border = '2px solid red';
+        loginPassword.style.border = '2px solid red';
+    } else {
+       console.log(user);
     if (user) {
         console.log('Gefunden');
+        getLoggedUser(user);
+    location.href = "http://127.0.0.1:5502/summary.html";
+    } 
     }
+    
+    
+}
+
+ async function getLoggedUser(user){
+    currentUser.push({
+        name: user.userName,
+        email: user.email
+        });
+        await setItem('loggedUser', JSON.stringify(currentUser));
 }
