@@ -1,146 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    
-    <link rel="stylesheet" href="/board.css">
-    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="/board.css" />
+    <link rel="stylesheet" href="contact.css" />
     <script src="/JavaScript/board.js"></script>
     <script src="/JavaScript/contact.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body onload="loadContacts()">
     <header>
-
-        <span id="kanban-heading">Kanban Project Management Tool</span>
-        <div id="header-right-side">
-            <img id="help-logo" src="/assets/img/aside_and_header/header-help-button.svg">
-            <img id="header-userprofile" src="/assets/img/aside_and_header/header-userprofile.png">
-        </div>
-
+      <span id="kanban-heading">Kanban Project Management Tool</span>
+      <div id="header-right-side">
+        <img
+          id="help-logo"
+          src="/assets/img/aside_and_header/header-help-button.svg"
+        />
+        <img
+          id="header-userprofile"
+          src="/assets/img/aside_and_header/header-userprofile.png"
+        />
+      </div>
     </header>
 
     <aside>
+      <img
+        id="join-logo-light"
+        src="/assets/img/aside_and_header/join_logo_light.png"
+        alt="join logo"
+      />
 
-        <img id="join-logo-light" src="/assets/img/aside_and_header/join_logo_light.png" alt="join logo">
+      <nav>
+        <ul id="flex-list-container">
+          <li id="summary-list-element" class="hover-darkblue">
+            <a class="list-nav-element" href="summary.html"
+              ><img src="/assets/img/aside_and_header/summary-icon.png" /><span
+                class="nav-list-span"
+                >Summary</span
+              ></a
+            >
+          </li>
+          <li id="addTask-list-element" class="hover-darkblue">
+            <a class="list-nav-element" href="add_task_n_include.html"
+              ><img src="/assets/img/aside_and_header/addTask-icons.png" /><span
+                class="nav-list-span"
+                >Add Task</span
+              ></a
+            >
+          </li>
+          <li id="board-list-element" class="hover-darkblue">
+            <a class="list-nav-element" href="board_new.html"
+              ><img src="/assets/img/aside_and_header/board-icons .png" /><span
+                class="nav-list-span"
+                >Board</span
+              ></a
+            >
+          </li>
+          <li class="active" id="contacts-list-element" class="hover-darkblue">
+            <a class="list-nav-element" href="contacts.html"
+              ><img
+                src="/assets/img/aside_and_header/contacts-icons.png"
+              /><span class="nav-list-span">Contacts</span></a
+            >
+          </li>
+        </ul>
+      </nav>
 
-        <nav>
-            <ul id="flex-list-container">
-                <li id="summary-list-element" class="hover-darkblue"><a class="list-nav-element"
-                        href="summary.html"><img src="/assets/img/aside_and_header/summary-icon.png"><span
-                            class="nav-list-span">Summary</span></a></li>
-                <li id="addTask-list-element" class="hover-darkblue"><a class="list-nav-element"
-                        href="add_task_n_include.html"><img src="/assets/img/aside_and_header/addTask-icons.png"><span
-                            class="nav-list-span">Add
-                            Task</span></a></li>
-                <li id="board-list-element" class="hover-darkblue"><a class="list-nav-element"
-                        href="board_new.html"><img src="/assets/img/aside_and_header/board-icons .png"><span
-                            class="nav-list-span">Board</span></a></li>
-                <li class="active" id="contacts-list-element" class="hover-darkblue"><a class="list-nav-element"
-                        href="contacts.html"><img src="/assets/img/aside_and_header/contacts-icons.png"><span
-                            class="nav-list-span">Contacts</span></a></li>
-            </ul>
-        </nav>
-
-        <div id="legal-section">
-            <ul id="legal-section-flex">
-                <li class="legal-list-element hover-darkblue"><a href="#"><span class="legal-list-span">Privacy
-                            Policy</span></a></li>
-                <li class="legal-list-element hover-darkblue"><a href="#"><span class="legal-list-span">Legal
-                            Notice</span></a></li>
-            </ul>
-        </div>
-
+      <div id="legal-section">
+        <ul id="legal-section-flex">
+          <li class="legal-list-element hover-darkblue">
+            <a href="#"><span class="legal-list-span">Privacy Policy</span></a>
+          </li>
+          <li class="legal-list-element hover-darkblue">
+            <a href="#"><span class="legal-list-span">Legal Notice</span></a>
+          </li>
+        </ul>
+      </div>
     </aside>
 
-    <button class="textbutton" onclick="openAddContactPopup()">
+    <div>
+      <button class="textbutton" onclick="openAddContactPopup()">
         Add new contact
-    </button>
+      </button>
+      <div id="contactList">
 
-
-    <div class="darkBackgroundContainer d-none" id="darkBackgroundContainer">
-
-
+      </div>
     </div>
+
+    <div
+      class="darkBackgroundContainer d-none"
+      id="darkBackgroundContainer"
+    ></div>
     <div id="addContactPopup" onclick="closeAddContactPopup()">
-        <div class="addContactPopup" onclick="stopPropagation(event)">
-            <div class="addContactLeftSide">
-                <div class="addContactLeftSideImage">
-                    <img src="./assets/img/joinLogoWhite.svg">
-                </div>
-                <div class="addContactLeftSideTextLine">
-                    <div class="addContactLeftSideText">
-                        <span>Add contact</span>
-                        <span>Tasks are better with a team!</span>
-                    </div>
-
-                </div>
+      <div class="addContactPopup" onclick="stopPropagation(event)">
+        <div class="addContactLeftSide">
+          <div class="addContactLeftSideImage">
+            <img src="./assets/img/joinLogoWhite.svg" />
+          </div>
+          <div class="addContactLeftSideTextLine">
+            <div class="addContactLeftSideText">
+              <span>Add contact</span>
+              <span>Tasks are better with a team!</span>
             </div>
-            <div class="addContactRightSide">
-
-                <div class="closePopup" onclick="closeAddContactPopup()">
-                    <img src="./assets/img/x.svg" alt="">
-                </div>
-
-
-
-                <div class="createContactSection">
-                    <div class="inputContainer">
-                        <div class="inputFrame">
-                            <input required type="text" placeholder="Name">
-                            <img src="./assets/img/signUpNameIcon.svg">
-                        </div>
-
-                    </div>
-                    <div class="inputContainer">
-                        <div class="inputFrame">
-                            <input required type="email" placeholder="Email">
-                            <img src="./assets/img/mail.svg">
-                        </div>
-
-                    </div>
-                    <div class="inputContainer">
-                        <div class="inputFrame">
-                            <input required type="tel" placeholder="Phone">
-                            <img src="./assets/img/Phone.svg">
-                        </div>
-
-                    </div>
-
-                    <div class="buttonsForAddContact">
-                        <button onclick="closeAddContactPopup()" class="cancelButton">
-                            <div>
-                                <p>Cancel</p>
-                                <img class="cancelX" src="./assets/img/x.svg" alt="">
-                            </div>
-                        </button>
-                        <button class="createContactButton">
-                            <div>
-                                <p>Create contact</p>
-                                <img src="./assets/img/check.svg" alt="">
-                            </div>
-                        </button>
-                    </div>
-
-                </div>
-
-                <div class="addContactIcon">
-                    <img src="./assets/img/contactProfileImage.svg" alt="">
-                </div>
-
-            </div>
+          </div>
         </div>
+        <div class="addContactRightSide">
+          <div class="closePopup" onclick="closeAddContactPopup()">
+            <img src="./assets/img/x.svg" alt="" />
+          </div>
+
+          <div class="createContactSection">
+            <div class="inputContainer">
+              <div class="inputFrame">
+                <input required type="text" placeholder="Name" />
+                <img src="./assets/img/signUpNameIcon.svg" />
+              </div>
+            </div>
+            <div class="inputContainer">
+              <div class="inputFrame">
+                <input required type="email" placeholder="Email" />
+                <img src="./assets/img/mail.svg" />
+              </div>
+            </div>
+            <div class="inputContainer">
+              <div class="inputFrame">
+                <input required type="tel" placeholder="Phone" />
+                <img src="./assets/img/Phone.svg" />
+              </div>
+            </div>
+
+            <div class="buttonsForAddContact">
+              <button onclick="closeAddContactPopup()" class="cancelButton">
+                <div>
+                  <p>Cancel</p>
+                  <img class="cancelX" src="./assets/img/x.svg" alt="" />
+                </div>
+              </button>
+              <button class="createContactButton">
+                <div>
+                  <p>Create contact</p>
+                  <img src="./assets/img/check.svg" alt="" />
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="addContactIcon">
+            <img src="./assets/img/contactProfileImage.svg" alt="" />
+          </div>
+        </div>
+      </div>
     </div>
 
-
-<link rel="stylesheet" href="/aside_and_head_style.css">
-
-
-</body>
-
+    <link rel="stylesheet" href="/aside_and_head_style.css" />
+  </body>
 </html>
