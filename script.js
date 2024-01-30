@@ -42,7 +42,7 @@ function loginUser() {
     if (user) {
         console.log('Gefunden');
         getLoggedUser(user);
-    location.href = "http://127.0.0.1:5502/summary.html";
+        location.href = "http://127.0.0.1:5502/summary.html";
     } 
     }
     

@@ -2,11 +2,13 @@ let users = [];
 
 async function init(){
     await loadUsers();
+    // console.log(users);
 }
 
 async function loadUsers(){
     try {
         users = JSON.parse(await getItem('users'));
+        // console.log(users);
     } catch(e){
         console.error('Loading error:', e);
     }
