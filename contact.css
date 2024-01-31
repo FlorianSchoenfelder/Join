@@ -344,3 +344,18 @@ input:focus {
 .textbutton:hover {
     cursor: pointer;
 }
+
+.contacts {
+    font-size: 24px;
+    display: flex;
+    margin-left: 250px;
+    padding: 16px;
+}
+
+.firstLetters {
+    margin-right: 24px;
+}
+
+.emailLink{
+    color: #007CEE;
+}
