@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board New</title>
-    <link rel="stylesheet" href="board.css">
-    <link rel="stylesheet" href="board_new.css">
-    <link rel="stylesheet" href="/board_new.css">
+
 </head>
 
 <body onload="updateHTML()">
@@ -54,7 +52,33 @@
 
     </aside>
 
-    <main id="board-section">
+    <div class="headSection">
+        <div class="headSectionInputs">
+            <div>
+                <p>Board</p>
+            </div>
+            <div class="searchAndAddSection">
+                <input type="text" placeholder="Find Task">
+                <button class="addTaskButton">Add task <img src="./assets/img/plusWhite.svg" alt=""></button>
+            </div>
+        </div>
+        <div class="addingTasksSection">
+            <div class="todoTasks">
+                <p>Todo</p> <img class="addImage" src="./assets/img/addButton.svg">
+            </div>
+            <div class="inprogressTasks">
+                <p>In Progress</p> <img src="./assets/img/addButton.svg">
+            </div>
+            <div class="awaitFeedbackTasks">
+                <p>Await Feedback</p> <img src="./assets/img/addButton.svg">
+            </div>
+            <div class="doneTasks">
+                <p>Done</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="board-section">
         <div class="flex-container">
             <div id="open" ondrop="moveTo('open')" ondragover="allowDrop(event)" class="sub-container drag-area">
 
@@ -70,10 +94,12 @@
 
             </div>
 
-    </main>
+    </section>
 
 
-
+    <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="board_new.css">
+    <!-- <link rel="stylesheet" href="/board_new.css"> -->
 
     <link rel="stylesheet" href="/aside_and_head_style.css">
 

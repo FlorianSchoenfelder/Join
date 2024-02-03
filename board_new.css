@@ -1,8 +1,100 @@
+*{
+  font-family: 'Inter', sans-serif;
+}
+
+
+.headSection {
+  /* box-sizing: border-box; */
+  /* width: 1208px; */
+  width: 100%;
+  height: 232px;
+  background-color: #F6F7F8;
+  margin-top: 96px;
+  padding-left: 216px;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.headSectionInputs {
+  display: flex;
+}
+
+.searchAndAddSection {
+  display: flex;
+  width: 504px;
+  height: 48px;
+  gap: 32px;
+}
+
+.addTaskButton {
+  width: 160px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: #2A3647;
+  color: white;
+  gap: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 25.2px;
+  border: 1px solid #2A3647;
+}
+
+.headSectionInputs div button:hover {
+  background-color: #29ABE2;
+  border: 1px solid #29ABE2;
+}
+
 #board-section {
 
-    margin-left: 328px;
-    margin-top: 206px;
+    margin-left: 216px;
+    /* margin-top: 206px; */
 
+}
+
+
+
+
+
+
+
+.addingTasksSection {
+  box-sizing: border-box;
+  position: absolute;
+  top: 201px;
+  display: flex;
+  width: 100%;
+  height: 24px;
+  justify-content: space-between;
+  padding: 0px 64px 0px 64px;
+  gap: 24px;
+}
+
+.addingTasksSection div {
+  width: 244px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addingTasksSection div p{
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #091931;
+}
+
+.addingTasksSection div img{
+  width: 24px;
+  height: 24px;
+}
+
+.addImage:hover {
+  cursor: pointer;
 }
 
 .flex-container {

@@ -6,7 +6,21 @@ let todos = [{
     'id': 1,
     'title': 'Kochen',
     'category': 'open'
+},
+{
+    'id': 1,
+    'title': 'Kochen',
+    'category': 'open'
 }, {
+    'id': 1,
+    'title': 'Kochen',
+    'category': 'open'
+}, {
+    'id': 1,
+    'title': 'Kochen',
+    'category': 'open'
+},
+ {
     'id': 2,
     'title': 'Backen',
     'category': 'closed'
