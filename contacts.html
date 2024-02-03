@@ -12,7 +12,7 @@
   </head>
 
   <body onload="render()">
-    <header>
+    <header class="background-color-white">
       <span id="kanban-heading">Kanban Project Management Tool</span>
       <div id="header-right-side">
         <img
@@ -81,11 +81,25 @@
       </div>
     </aside>
 
-    <div>
-      <button class="textbutton" onclick="openAddContactPopup()">
-        Add new contact
-      </button>
-      <div id="contactList"></div>
+    <div class="d-flex">
+      <div class="contact-left-side">
+        <button class="textbutton" onclick="openAddContactPopup()">
+          Add new contact
+        </button>
+        <div id="contactList"></div>
+      </div>
+
+      <div class="contact-right-side">
+        <div class="contact-header">
+          <h1 class="font-size-headline">Contacts</h1>
+          <div class="blue-line"></div>
+          <p class="font-size-paragraph">Better with a Team</p>
+        </div>
+
+        <div class="current-contact">
+          
+        </div>
+      </div>
     </div>
 
     <div
