@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board</title>
+    <script src="./assets/scripts/data.js"></script>
+    <script src="./assets/scripts/board.js"></script>
+    <link rel="stylesheet" href="./style_desktop.css">
+    <link rel="stylesheet" href="./style_mobile.css">
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Board</title>
+    </head>
+    <body onload="init()">
+        <header>
+            <span id="kanban-heading">Kanban Project Management Tool</span>
+            <div id="header-right-side">
+                <img id="help-logo" src="/assets/img/aside_and_header/header-help-button.svg">
+                <img id="header-userprofile" src="/assets/img/aside_and_header/header-userprofile.png">
+            </div>
+        </header>
+        <aside>
+            <img id="join-logo-light" src="/assets/img/aside_and_header/join_logo_light.png" alt="join logo">
+            <nav>
+                <ul id="flex-list-container">
+                    <li id="summary-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
+                                src="/assets/img/aside_and_header/summary-icon.png"><span
+                                class="nav-list-span">Summary</span></a></li>
+                    <li id="addTask-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
+                                src="/assets/img/aside_and_header/addTask-icons.png"><span class="nav-list-span">Add
+                                Task</span></a></li>
+                    <li id="board-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
+                                src="/assets/img/aside_and_header/board-icons .png"><span
+                                class="nav-list-span">Board</span></a></li>
+                    <li id="contacts-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
+                                src="/assets/img/aside_and_header/contacts-icons.png"><span
+                                class="nav-list-span">Contacts</span></a></li>
+                </ul>
+            </nav>
+            <div id="legal-section">
+                <ul id="legal-section-flex">
+                    <li class="legal-list-element hover-darkblue"><a href="#"><span class="legal-list-span">Privacy
+                                Policy</span></a></li>
+                    <li class="legal-list-element hover-darkblue"><a href="#"><span class="legal-list-span">Legal
+                                Notice</span></a></li>
+                </ul>
+            </div>
+        </aside>
+        <main id="content-bord">
+            <div id="upper-board-div">
+                <div id="upper-bord-first-line">
+                    <div id="heading-div">
+                        <h1 id="h1-board">Board</h1>
+                    </div>
+                    <div id="right-upper-board">
+                        <div id="board-input-div">
+                            <input placeholder="Find Task" id="board-input-field">
+                            <img id="image-mg-glass" src="/assets/img/board/search.svg">
+                        </div>
+                        <button id="add-task-button">
+                            <span id="add-task-span">Add task</span>
+                            <img id="add-task-image" src="/assets/img/board/add.svg">
+                        </button>
+                    </div>
+                </div>
+                <div id="upper-board-column-heading">
+                    <div id="to-do-heading-div">
+                        <span class="column-heading-span-style">To do</span>
+                        <img id="test" src="/assets/img/board/plus_button.svg">
+                    </div>
+                    <div id="in-progress-heading-div">
+                        <span class="column-heading-span-style">In progress</span>
+                        <img class="column-head-plus" src="/assets/img/board/plus_button.svg">
+                    </div>
+                    <div id="await-feedback-heading-div">
+                        <span class="column-heading-span-style">Await feedback</span>
+                        <img class="column-head-plus" src="/assets/img/board/plus_button.svg">
+                    </div>
+                    <div id="done-heading-div">
+                        <span class="column-heading-span-style">Done</span>
+                    </div>
+                </div>
+            </div>
+            <div id="tasks-div">
+                <div id="to-do-column" class="task-column">
+                    <div id="to-do-cardholder" class="no-task">
+                        <span class="no-task-span">No tasks To do</span>
+                    </div>
+                </div>
+                <div id="in-progress-column" class="task-column">
+                    <div id="in-progress-cardholder" class="no-task d-none">
+                        <span class="no-task-span">No tasks In progress</span>
+                    </div>
+                    <div class="card-for-task">
+                        <span class="task-category-span">
+                            User Story
+                        </span>
+                        <div class="task-board-div">
+                            <span class="task-heading-span">
+                                Kochwelt Page and Recipe Recommender
+                            </span>
+                            <span class="task-descriptio-span">
+                                Build start page with recipe recommendation...
+                            </span>
+                        </div>
+                        <div class="board-subtask-div">
+                            <div class="balken">
+                                <div class="fuellung" style="width: 50%;"></div>
+                            </div>
+                            <div class="sub-span-div">
+                                <div class="sub-span-subtasks">
+                                    <span class="subtask-number-class">1</span>
+                                    <span class="slash">/</span>
+                                    <span class="total-numbers-subtask-class">2</span>
+                                </div>
+                                &nbsp;
+                                <span class="subtasks-span">Subtasks</span>
+                            </div>
+                        </div>
+                        <div class="assigned-tasks-and-prio-div">
+                            <div id="assigned-users" class="assigned-users-div">
+                                <div class="testuser-orange">
+                                    <span class="assigned-testuser">AM</span>
+                                </div>
+                                <div class="testuser-cyan">
+                                    <span class="assigned-testuser">EM</span>
+                                </div>
+                                <div class="testuser-purple">
+                                    <span class="assigned-testuser">MB</span>
+                                </div>
+
+                            </div>
+                            <div id="priority-div-taskcard">
+                                <img class="priority-symbold-taskcard" src="./assets/img/board/prio_equation.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="await-feedback-column" class="task-column">
+                    <div id="await-feedback-cardholder" class="no-task ">
+                        <span class="no-task-span">No tasks Await feedback</span>
+                    </div>
+                </div>
+                <div id="done-column" class="task-column">
+
+                    <div id="done-cardholder" class="no-task">
+                        <span class="no-task-span">No tasks Done</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <link rel="stylesheet" href="/aside_and_head_style.css">
+        <link rel="stylesheet" href="/board.css">
+        <script src="/assets/scripts/board.js"></script>
+    </body>
+    </html>
