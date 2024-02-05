@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact List</title>
+  <style>
+    /* Einfaches Styling für bessere Lesbarkeit */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      margin-bottom: 5px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Platz für Anfangsbuchstaben und Namen -->
+<div id="contactGroups"></div>
+
+<script>
+  const contactList = [
+    {
+      firstname: "Anton",
+      name: "Mayer",
+      avatarColor: "orange",
+      phoneNumber: "491111111111",
+      email: "anton@gmail.com",
+    },
+    {
+    firstname: "Anja",
+    name: "Schulz",
+    avatarColor: "purple",
+    phoneNumber: "493333333333",
+    email: "schulz@hotmail.com",
+  },
+  {
+    firstname: "Benedikt",
+    name: "Ziegler",
+    avatarColor: "blue",
+    phoneNumber: "494444444444",
+    email: "benedikt@gmail.com",
+  },
+  {
+    firstname: "David",
+    name: "Berg",
+    avatarColor: "pink",
+    phoneNumber: "495555555555",
+    email: "davidberg@gmail.com",
+  },
+  {
+    firstname: "Eva",
+    name: "Fischer",
+    avatarColor: "yellow",
+    phoneNumber: "496666666666",
+    email: "eva@gmail.com",
+  },
+  {
+    firstname: "Emmanuel",
+    name: "Mauer",
+    avatarColor: "green",
+    phoneNumber: "497777777777",
+    email: "emmanuelma@gmail.com",
+  },
+  {
+    firstname: "Marcel",
+    name: "Bauer",
+    avatarColor: "darkpurple",
+    phoneNumber: "498888888888",
+    email: "bauer@gmail.com",
+  },
+  {
+    firstname: "Tatjana",
+    name: "Wolf",
+    avatarColor: "red",
+    phoneNumber: "492222222222",
+    email: "wolf@gmail.de",
+  }
+    // ... (restliche Daten hier eingefügt)
+  ];
+
+  function filterContactsByFirstLetter(contactArray, firstLetter) {
+    return contactArray.filter(contact => contact.firstname.charAt(0).toUpperCase() === firstLetter.toUpperCase());
+  }
+
+  // Alle Anfangsbuchstaben im Array finden
+  const initials = Array.from(new Set(contactList.map(contact => contact.firstname.charAt(0).toUpperCase())));
+
+  // Platz für Anfangsbuchstaben und Namen in HTML einfügen
+  const contactGroupsContainer = document.getElementById("contactGroups");
+  initials.forEach(initial => {
+    // Anfangsbuchstabe hinzufügen
+    const initialHeader = document.createElement("h2");
+    initialHeader.textContent = initial;
+    contactGroupsContainer.appendChild(initialHeader);
+
+    // Namen nach Anfangsbuchstaben filtern und in HTML einfügen
+    const filteredContacts = filterContactsByFirstLetter(contactList, initial);
+    const namesList = document.createElement("ul");
+    filteredContacts.forEach(contact => {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${contact.firstname} ${contact.name}`;
+      namesList.appendChild(listItem);
+    });
+
+    contactGroupsContainer.appendChild(namesList);
+  });
+
+</script>
+
+</body>
+</html>

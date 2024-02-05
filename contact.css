@@ -355,7 +355,16 @@ input:focus {
     font-size: 24px;
     display: flex;
     margin-left: 250px;
+    margin-right: 60px;
     padding: 16px;
+    border-radius: 10px;
+    gap: 35px;
+
+}
+
+.contacts:hover {
+    background-color: #F6F7F8;
+    cursor: pointer;
 }
 
 .firstLetters {
@@ -415,5 +424,4 @@ input:focus {
 
 .contact-left-side {
     height: 100vh;
-    
 }
