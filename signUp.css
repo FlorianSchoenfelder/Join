@@ -1,3 +1,7 @@
+*{
+    font-family: 'Inter', sans-serif;
+}
+
 .signUpHeadline {
     display: flex;
     justify-content: center;

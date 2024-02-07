@@ -1,3 +1,7 @@
+*{
+    font-family: 'Inter', sans-serif;
+}
+
 #content-summary {
     position: fixed;
     top: 206px;
