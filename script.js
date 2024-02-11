@@ -56,3 +56,11 @@ function loginUser() {
         });
         await setItem('loggedUser', JSON.stringify(currentUser));
 }
+
+function closeDropdownMenu() {
+    document.getElementById('submenuContainer').classList.add('d-none');
+  }
+  
+  function openDropdownMenu() {
+    document.getElementById('submenuContainer').classList.remove('d-none');
+  }

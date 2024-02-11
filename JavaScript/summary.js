@@ -96,3 +96,11 @@ async function loadCurrentUser() {
     console.error("Loading error:", e);
   }
 }
+
+// function closeDropdownMenu() {
+//   document.getElementById('submenuContainer').classList.add('d-none');
+// }
+
+// function openDropdownMenu() {
+//   document.getElementById('submenuContainer').classList.remove('d-none');
+// }

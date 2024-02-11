@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style_desktop.css">
     <link rel="stylesheet" href="./style_mobile.css">
     
+    <script src="script.js"></script>
     <script src="./assets/scripts/data.js"></script>
     <script src="./assets/scripts/add_task.js"></script>
     <!-- <link rel="stylesheet" href="add_task_n_include.css"> -->
@@ -18,9 +19,18 @@
         <span id="kanban-heading">Kanban Project Management Tool</span>
         <div id="header-right-side">
             <img id="help-logo" src="/assets/img/aside_and_header/header-help-button.svg">
-            <img id="header-userprofile" src="/assets/img/aside_and_header/header-userprofile.png">
+            <img onclick="openDropdownMenu()" id="header-userprofile" src="/assets/img/aside_and_header/header-userprofile.png">
         </div>
     </header>
+    <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
+        <div class="submenu" onclick="stopPropagation(event)">
+            <ul>
+                <a href="legalNotice.html">Legal Notice</a>
+                <a href="privacyPolicy.html">Privacy Policy</a>
+                <a href="index.html">Log Out</a>
+            </ul>
+        </div>
+    </div>
     <aside>
         <img id="join-logo-light" src="/assets/img/aside_and_header/join_logo_light.png" alt="join logo">
         <nav>
