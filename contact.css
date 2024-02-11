@@ -464,4 +464,5 @@ input:focus {
 
 .contact-left-side {
     height: 100vh;
+    overflow-y: scroll
 }
