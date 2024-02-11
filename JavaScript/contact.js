@@ -87,55 +87,44 @@ function myStopFunction() {
 }
 
 function render() {
-  let contacts = document.getElementById("contactList");
-  contacts.innerHTML = "";
-
-  for (let i = 0; i < contactList.length; i++) {
-    const contact = contactList[i];
-    const firstname = contact["firstname"];
-    const name = contact["name"];
-    const email = contact["email"];
-    const firstLetterFirstname = contact["firstname"].charAt(0);
-    const firstLetterName = contact["name"].charAt(0);
-
-    contacts.innerHTML += /*html*/ `
-        <div class="contacts">
-            <div class="firstLetters">
-                ${firstLetterFirstname}${firstLetterName} 
-            </div>
-
-            <div class="">
-                ${firstname} ${name} <br>
-                <a class="emailLink" href="#">${email}</a>
-            </div>
-        </div>
-       `;
-  } 
-}
-
-function filterContactsByFirstLetter(contactArray, firstLetter) {
-  return contactArray.filter(contact => contact.firstname.charAt(0).toUpperCase() === firstLetter.toUpperCase());
-}
-
-// Alle Anfangsbuchstaben im Array finden
-const initials = Array.from(new Set(contactList.map(contact => contact.firstname.charAt(0).toUpperCase())));
-
-// Platz für Anfangsbuchstaben und Namen in HTML einfügen
-const contactListContainer = document.getElementById("contactList");
-initials.forEach(initial => {
+  const initials = Array.from(new Set(contactList.map(contact => contact.firstname.charAt(0).toUpperCase())));
+  const contactListContainer = document.getElementById("contactList");
+for (let i = 0; i < initials.length; i++) {
+  const initial = initials[i];
   // Anfangsbuchstabe hinzufügen
   const initialHeader = document.createElement("h2");
   initialHeader.textContent = initial;
-  // contactListContainer.appendChild(initialHeader);
+  initialHeader.classList.add("initial-header");
+  contactListContainer.appendChild(initialHeader);
 
   // Namen nach Anfangsbuchstaben filtern und in HTML einfügen
   const filteredContacts = filterContactsByFirstLetter(contactList, initial);
   const namesList = document.createElement("ul");
-  filteredContacts.forEach(contact => {
+  namesList.classList.add("names-list");
+  for (let j = 0; j < filteredContacts.length; j++) {
+    const contact = filteredContacts[j];
     const listItem = document.createElement("li");
-    listItem.textContent = `${contact.firstname} ${contact.name}`;
+    listItem.innerHTML = /*html*/`
+     <div class="">
+                ${contact.firstname} ${contact.name} <br>
+                <a class="emailLink" href="#">${contact.email}</a>
+            </div>
+    `;
+    listItem.classList.add("contact-item");
     namesList.appendChild(listItem);
-  });
+  }
+  contactListContainer.appendChild(namesList);
+}
 
-  // contactListContainer.appendChild(namesList);
-});
+}
+
+function filterContactsByFirstLetter(contactList, firstLetter) {
+  const filteredContacts = [];
+  for (let i = 0; i < contactList.length; i++) {
+    const contact = contactList[i];
+    if (contact.firstname.charAt(0).toUpperCase() === firstLetter.toUpperCase()) {
+      filteredContacts.push(contact);
+    }
+  }
+  return filteredContacts;
+}

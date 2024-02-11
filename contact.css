@@ -366,6 +366,37 @@ input:focus {
 
 }
 
+.initial-header {
+    font-size: 24px;
+    display: flex;
+    margin-left: 250px;
+    margin-right: 60px;
+    padding: 16px;
+    border-radius: 10px;
+    gap: 35px;
+}
+
+.names-list {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    display: flex;
+    margin-left: 250px;
+    margin-right: 60px;
+    padding: 16px;
+    border-radius: 10px;
+    gap: 35px;
+}
+
+.names-list:hover {
+    background-color: #F6F7F8;
+    cursor: pointer;
+}
+
+.contact-item {
+    
+}
+
 .contacts:hover {
     background-color: #F6F7F8;
     cursor: pointer;
