@@ -87,42 +87,55 @@ function myStopFunction() {
 }
 
 function render() {
-  const initials = Array.from(new Set(contactList.map(contact => contact.firstname.charAt(0).toUpperCase())));
+  const initials = Array.from(
+    new Set(
+      contactList.map((contact) => contact.firstname.charAt(0).toUpperCase())
+    )
+  );
   const contactListContainer = document.getElementById("contactList");
-for (let i = 0; i < initials.length; i++) {
-  const initial = initials[i];
-  // Anfangsbuchstabe hinzufügen
-  const initialHeader = document.createElement("h2");
-  initialHeader.textContent = initial;
-  initialHeader.classList.add("initial-header");
-  contactListContainer.appendChild(initialHeader);
+  for (let i = 0; i < initials.length; i++) {
+    const initial = initials[i];
+    // Anfangsbuchstabe hinzufügen
+    const initialHeader = document.createElement("h2");
+    initialHeader.textContent = initial;
+    initialHeader.classList.add("initial-header");
+    contactListContainer.appendChild(initialHeader);
 
-  // Namen nach Anfangsbuchstaben filtern und in HTML einfügen
-  const filteredContacts = filterContactsByFirstLetter(contactList, initial);
-  const namesList = document.createElement("ul");
-  namesList.classList.add("names-list");
-  for (let j = 0; j < filteredContacts.length; j++) {
-    const contact = filteredContacts[j];
-    const listItem = document.createElement("li");
-    listItem.innerHTML = /*html*/`
-     <div class="">
-                ${contact.firstname} ${contact.name} <br>
-                <a class="emailLink" href="#">${contact.email}</a>
-            </div>
+    // Namen nach Anfangsbuchstaben filtern und in HTML einfügen
+    const filteredContacts = filterContactsByFirstLetter(contactList, initial);
+    const namesList = document.createElement("ul");
+    namesList.classList.add("names-list");
+    for (let j = 0; j < filteredContacts.length; j++) {
+      const contact = filteredContacts[j];
+      const listItem = document.createElement("li");
+      listItem.innerHTML = /*html*/ `
+      <div class="d-flex">
+        <div>
+          <img src="/assets/img/ellipse.svg" alt="">
+        
+        </div>
+      
+
+        <div class="contact">
+          ${contact.firstname} ${contact.name} <br>
+          <a class="emailLink" href="#">${contact.email}</a>
+        </div>
+      </div>
     `;
-    listItem.classList.add("contact-item");
-    namesList.appendChild(listItem);
+      listItem.classList.add("contact-item");
+      namesList.appendChild(listItem);
+    }
+    contactListContainer.appendChild(namesList);
   }
-  contactListContainer.appendChild(namesList);
-}
-
 }
 
 function filterContactsByFirstLetter(contactList, firstLetter) {
   const filteredContacts = [];
   for (let i = 0; i < contactList.length; i++) {
     const contact = contactList[i];
-    if (contact.firstname.charAt(0).toUpperCase() === firstLetter.toUpperCase()) {
+    if (
+      contact.firstname.charAt(0).toUpperCase() === firstLetter.toUpperCase()
+    ) {
       filteredContacts.push(contact);
     }
   }
