@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaQuerry.css">
     <link rel="stylesheet" href="fonts.css">
@@ -36,7 +37,7 @@
             <p>Log in</p>
         </div>
 
-        <form onsubmit="loginUser(); return false;" class="loginForm">
+        <form onsubmit="loginUser(); return false;" class="loginForm" id="loginForm">
             <div class="loginInputs">
                 <div class="inputField">
                     <div class="emailField">
@@ -50,6 +51,9 @@
                             <input required type="password" placeholder="Password" id="loginPassword">
                             <img src="./assets/img/lock.svg">
                         </div>
+                    </div>
+                    <div class="wrongPassword d-none" id="wrongPassword">
+                        <span>Wrong E-Mail or Password. Please try again!</span>
                     </div>
                 </div>
                 <div class="remeberMeSection">

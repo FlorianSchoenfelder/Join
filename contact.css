@@ -30,7 +30,7 @@ input:focus {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .active {
@@ -464,4 +464,46 @@ input:focus {
 
 .contact-left-side {
     height: 100vh;
+}
+
+.submenuContainer {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    padding: 96px 24px 0 0;
+    z-index: 1;
+}
+
+.submenu {
+    width: 150px;
+    height: 158px;
+    background-color: #2A3647;
+    color: #CDCDCD;
+    border-radius: 20px 0 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submenu ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu ul a {
+    height: 46px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.submenu ul a{
+    color: #CDCDCD;
+}
+
+.submenu ul a:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
 }

@@ -34,19 +34,19 @@ function loginUser() {
     let password = document.getElementById('loginPassword').value;
     let user = users.find(users => users.email == email && users.password == password);
     if (!user) {
-        alert('Wrong Email or Password');
+        // alert('Wrong Email or Password');
         loginEmail.style.border = '2px solid red';
         loginPassword.style.border = '2px solid red';
+        document.getElementById('wrongPassword').classList.remove('d-none');
+        document.getElementById("loginForm").addEventListener("click", function(event){
+            event.stopPropagation()
+          });
+          console.log('Falsch');
     } else {
-       console.log(user);
-    if (user) {
         console.log('Gefunden');
         getLoggedUser(user);
         location.href = "http://127.0.0.1:5502/summary.html";
-    } 
-    }
-    
-    
+    }    
 }
 
  async function getLoggedUser(user){
