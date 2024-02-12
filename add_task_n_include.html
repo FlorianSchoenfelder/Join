@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="JavaScript/signUp.js"></script>
+    <script src="JavaScript/summary.js"></script>
+</head>
+</head>
 </head>
 
 <body>
@@ -12,32 +19,41 @@
         <span id="kanban-heading">Kanban Project Management Tool</span>
         <div id="header-right-side">
             <img id="help-logo" src="/assets/img/aside_and_header/header-help-button.svg">
-            <img id="header-userprofile" src="/assets/img/aside_and_header/header-userprofile.png">
+            <img onclick="openDropdownMenu()" id="header-userprofile" src="/assets/img/aside_and_header/header-userprofile.png">
         </div>
     </header>
+    <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
+        <div class="submenu" onclick="stopPropagation(event)">
+            <ul>
+                <a href="legalNotice.html">Legal Notice</a>
+                <a href="privacyPolicy.html">Privacy Policy</a>
+                <a href="index.html">Log Out</a>
+            </ul>
+        </div>
+    </div>
     <aside>
         <img id="join-logo-light" src="/assets/img/aside_and_header/join_logo_light.png" alt="join logo">
         <nav>
             <ul id="flex-list-container">
-                <li id="summary-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
+                <li id="summary-list-element" class="hover-darkblue"><a class="list-nav-element" href="summary.html"><img
                             src="/assets/img/aside_and_header/summary-icon.png"><span
                             class="nav-list-span">Summary</span></a></li>
-                <li id="addTask-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
+                <li id="addTask-list-element" class="hover-darkblue"><a class="list-nav-element" href="add_task_n_include.html"><img
                             src="/assets/img/aside_and_header/addTask-icons.png"><span class="nav-list-span">Add
                             Task</span></a></li>
-                <li id="board-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
+                <li id="board-list-element" class="hover-darkblue"><a class="list-nav-element" href="board.html"><img
                             src="/assets/img/aside_and_header/board-icons .png"><span
                             class="nav-list-span">Board</span></a></li>
-                <li id="contacts-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
+                <li id="contacts-list-element" class="hover-darkblue"><a class="list-nav-element" href="contacts.html"><img
                             src="/assets/img/aside_and_header/contacts-icons.png"><span
                             class="nav-list-span">Contacts</span></a></li>
             </ul>
         </nav>
         <div id="legal-section">
             <ul id="legal-section-flex">
-                <li class="legal-list-element hover-darkblue"><a href="#"><span class="legal-list-span">Privacy
+                <li class="legal-list-element hover-darkblue"><a href="privacyPolicy.html"><span class="legal-list-span">Privacy
                             Policy</span></a></li>
-                <li class="legal-list-element hover-darkblue"><a href="#"><span class="legal-list-span">Legal
+                <li class="legal-list-element hover-darkblue"><a href="legalNotice.html"><span class="legal-list-span">Legal
                             Notice</span></a></li>
             </ul>
         </div>
@@ -141,8 +157,9 @@
             </div>
         </form>
     </main>
-    <script src="./assets/scripts/data.js"></script>
-    <script src="./assets/scripts/add_task.js"></script>
+    <script src="script.js"></script>
+    <script src="JavaScript/dataR.js"></script>
+    <script src="JavaScript/add_task.js"></script>
     <link rel="stylesheet" href="./style_desktop.css">
     <link rel="stylesheet" href="./style_mobile.css">
     <link rel="stylesheet" href="/aside_and_head_style.css">
