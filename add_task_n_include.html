@@ -1,18 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
-    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./style_desktop.css">
-    <link rel="stylesheet" href="./style_mobile.css">
-    
-    <script src="script.js"></script>
-    <script src="./assets/scripts/data.js"></script>
-    <script src="./assets/scripts/add_task.js"></script>
-    <!-- <link rel="stylesheet" href="add_task_n_include.css"> -->
 </head>
 
 <body>
@@ -20,32 +12,23 @@
         <span id="kanban-heading">Kanban Project Management Tool</span>
         <div id="header-right-side">
             <img id="help-logo" src="/assets/img/aside_and_header/header-help-button.svg">
-            <img onclick="openDropdownMenu()" id="header-userprofile" src="/assets/img/aside_and_header/header-userprofile.png">
+            <img id="header-userprofile" src="/assets/img/aside_and_header/header-userprofile.png">
         </div>
     </header>
-    <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
-        <div class="submenu" onclick="stopPropagation(event)">
-            <ul>
-                <a href="legalNotice.html">Legal Notice</a>
-                <a href="privacyPolicy.html">Privacy Policy</a>
-                <a href="index.html">Log Out</a>
-            </ul>
-        </div>
-    </div>
     <aside>
         <img id="join-logo-light" src="/assets/img/aside_and_header/join_logo_light.png" alt="join logo">
         <nav>
             <ul id="flex-list-container">
-                <li id="summary-list-element" class="hover-darkblue"><a class="list-nav-element" href="summary.html"><img
+                <li id="summary-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
                             src="/assets/img/aside_and_header/summary-icon.png"><span
                             class="nav-list-span">Summary</span></a></li>
-                <li class="active" id="addTask-list-element" class="hover-darkblue"><a class="list-nav-element" href="add_task_n_include.html"><img
+                <li id="addTask-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
                             src="/assets/img/aside_and_header/addTask-icons.png"><span class="nav-list-span">Add
                             Task</span></a></li>
-                <li id="board-list-element" class="hover-darkblue"><a class="list-nav-element" href="board_new.html"><img
+                <li id="board-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
                             src="/assets/img/aside_and_header/board-icons .png"><span
                             class="nav-list-span">Board</span></a></li>
-                <li id="contacts-list-element" class="hover-darkblue"><a class="list-nav-element" href="contacts.html"><img
+                <li id="contacts-list-element" class="hover-darkblue"><a class="list-nav-element" href="#"><img
                             src="/assets/img/aside_and_header/contacts-icons.png"><span
                             class="nav-list-span">Contacts</span></a></li>
             </ul>
@@ -78,16 +61,13 @@
                             placeholder="Enter a Description"></textarea>
                     </div>
                     <div id="assigned-to-div" class="add-task-font-styling">
-                        <label for="contacts-assignment">Assigned to</label><br>
-                        <div id="assign-holder">
-                            <select id="contact-to-assign" class="add-task-font-styling" name="assignment">
-                                <option>Assign a Person</option>
-                                <option value="personA">Person A</option>
-                                <option value="personB">Person B</option>
-                                <option value="personC">Person C</option>
-                            </select>
+                        <span class="add-task-font-styling">Assigned to</span>
+                        <div id="assigned-dropdown-div" onclick="toggleDropDown()">
+                            <span class="add-task-font-styling">Select contacts to assign</span>
+                            <img id="drop-down-arrow" src="./assets/img/add_task/arrow_drop_down.svg" ">
                         </div>
-
+                        <div id="drop-down-content">
+                        </div>
                     </div>
                 </div>
                 <div id="upper-form-right">
@@ -95,46 +75,45 @@
                         <div>
                             <span class="add-task-font-styling">Due date</span>
                             <span class="red-star-styling">*</span>
-
                         </div>
                         <div id="div-dateformchange">
-                            <input required id="due-date-input" onfocus="changeToRealDate()" type="text"
+                            <input id="due-date-input" onfocus="(this.type='date')"
+                            onblur="(this.type='text')" 
                                 placeholder="dd/mm/yyyy">
                             <img id="calendar-image" src="./assets/img/add_task/calendar.png">
                         </div>
                     </div>
                     <div id="prio-div">
-                        <div id="headeing-pri-div">
+                        <div id="heading-prio-div">
                             <span class="add-task-font-styling">Prio</span>
                         </div>
                         <div id="prio-buttons-div">
-                            <button class="priority-button">
+                            <button  class="priority-button toggle-prio-button" id="urgent-button">
                                 <span class="add-task-font-styling">Urgent
                                 </span>
-                                <img id="urgent-image" src="./assets/img/add_task/urgent.png">
+                                <img id="urgent-image" src="./assets/img/add_task/urgent-red.svg">
                             </button>
-                            <button class="priority-button">
+                            <button  class="priority-button toggle-prio-button" id="medium-button">
                                 <span class="add-task-font-styling">Medium
-
                                 </span>
-                                <img id="medium-image" src="./assets/img/add_task/equity.png">
+                                <img id="medium-image" src="./assets/img/add_task/equity_yellow.svg">
                             </button>
-                            <button class="priority-button">
+                            <button  class="priority-button toggle-prio-button" id="low-button">
                                 <span class="add-task-font-styling">Low</span>
-                                <img id="low-image" src="./assets/img/add_task/low.png">
+                                <img id="low-image" src="./assets/img/add_task/low-green.svg">
                             </button>
                         </div>
                     </div>
                     <div id="category-div">
                         <label for="contacts-assignment">
                             <span class="add-task-font-styling">Category</span>
-                            <span class="red-star-styling">*</span></label>
+                            <span class="red-star-styling">*</span>
+                        </label>
                         <div class="category-border-div">
-                            <select  name="assignment" class="category-flex add-task-font-styling ">
+                            <select name="assignment" class="category-flex add-task-font-styling ">
                                 <option>Select Task Category</option>
-                                <option value="task1">Task 1</option>
-                                <option value="task2">Task 2</option>
-                                <option value="task3">Task 3</option>
+                                <option value="task1">Technical Task</option>
+                                <option  value="task2">User Story</option>
                             </select>
                         </div>
                     </div>
@@ -142,9 +121,9 @@
                         <span class="add-task-font-styling" id="subtask-title-span">Subtask</span>
                         <div id="subtask-input-div">
                             <input class="add-task-font-styling" id="subtask-input-field" placeholder="Add new Subtask">
-                            <img id="subtask-add-button" src="./assets/img/add_task/add.png">
+                            <img onclick="addNewSubtask()" id="subtask-add-button" src="./assets/img/add_task/add.png">
                         </div>
-
+                        <div id="created-subtasks"></div>
                     </div>
                 </div>
             </div>
@@ -160,15 +139,21 @@
                             id="create-task-button-image" src="./assets/img/add_task/check.png"></button>
                 </div>
             </div>
-
         </form>
-
-
     </main>
+    <script src="./assets/scripts/data.js"></script>
+    <script src="./assets/scripts/add_task.js"></script>
+    <link rel="stylesheet" href="./style_desktop.css">
+    <link rel="stylesheet" href="./style_mobile.css">
     <link rel="stylesheet" href="/aside_and_head_style.css">
     <link rel="stylesheet" href="add_task_n_include.css">
-    <link rel="stylesheet" href="style.css">
-    
+
 </body>
+
+
+<!-- <select id="contact-to-assign" class="add-task-font-styling" name="assignment">
+    <option>Assign a Person</option>   
+</select> -->
+
 
 </html>
