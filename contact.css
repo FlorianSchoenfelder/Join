@@ -344,7 +344,7 @@ input:focus {
     padding: 16px;
     background-color: #2A3647;
     color: white;
-    margin-left: 250px;
+    margin-left: 280px;
     margin-top: 150px;
     border-radius: 16px;
     border: none;
@@ -359,7 +359,6 @@ input:focus {
     font-size: 24px;
     display: flex;
     margin-left: 250px;
-    margin-right: 60px;
     padding: 16px;
     border-radius: 10px;
     gap: 35px;
@@ -367,14 +366,16 @@ input:focus {
 }
 
 .initial-header {
+    width: 352px;
     font-size: 24px;
     font-weight: normal;
     display: flex;
-    margin-left: 250px;
-    margin-right: 60px;
-    padding: 16px;
+    margin-left: 280px;
+    padding: 22px;
+    padding-left: 34px;
     border-bottom: 1px solid #D7D7D7;
 }
+
 
 .names-list {
     display: flex;
@@ -383,9 +384,12 @@ input:focus {
     display: flex;
     margin-left: 250px;
     margin-right: 60px;
-    padding: 16px;
+    padding: 8px 16px 0px 16px;
     border-radius: 10px;
-    gap: 35px;
+}
+
+.names-list:hover {
+    border-radius: 10px;
 }
 
 #svg-userProfil {
@@ -393,13 +397,17 @@ input:focus {
 }
 
 .contact-item {
+    width: 352px;
     font-size: 20px;
     font-weight: 400;
+    padding: 24px;
+    margin-left: 12px;
 }
 
 .contact-item:hover {
     background-color: #F6F7F8;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 .contacts:hover {
@@ -465,6 +473,69 @@ input:focus {
 .contact-left-side {
     height: 100vh;
     overflow-y: scroll
+}
+
+.contactInfoContainer {
+    margin-top: 311px;
+    position: absolute;
+    left: 750px;
+    
+}
+
+.userprofil-top {
+    display: flex;
+    gap: 54px;
+}
+
+.userprofil-top-right-side {
+    gap: 8px;
+}
+
+.edit-and-delete {
+    width: 159px;
+    height: 24px;
+}
+
+.edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    font-size: 16px;
+    padding-right: 12px;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.current-name {
+    font-size: 47px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    width: 207px;
+    height: 74px;
+    gap: 59px;
+    font-size: 20px;
+    font-weight: 400;
+    
+}
+
+.email-and-phone {
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+    height: 128px;
+    gap: 22px;
 }
 
 .submenuContainer {

@@ -112,7 +112,7 @@ function render() {
       let avatarColor = contact["avatarColor"];
       const listItem = document.createElement("li");
       listItem.innerHTML = /*html*/ `
-      <div class="d-flex">
+      <div onclick="showContactInfo(${j}, '${initials[i]}')" class="d-flex">
         <div id="svg-userProfil">
           <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="21" cy="21" r="20" fill=${avatarColor} stroke="white" stroke-width="2"/>
@@ -120,10 +120,8 @@ function render() {
               ${userProfilInitials}
             </text>
           </svg>
-        
         </div>
       
-
         <div class="contact">
           ${contact.firstname} ${contact.name} <br>
           <a class="emailLink" href="#">${contact.email}</a>
@@ -148,4 +146,41 @@ function filterContactsByFirstLetter(contactList, firstLetter) {
     }
   }
   return filteredContacts;
+}
+
+function showContactInfo(contactIndex, initial) {
+  const contact = filterContactsByFirstLetter(contactList, initial)[contactIndex];
+  let contactInfo = document.getElementById('current-contact');
+  contactInfo.innerHTML = "";
+  contactInfo.innerHTML += /*html*/`
+      <div class="current-contact">
+        <div class="userprofil-top d-flex">
+          <div>
+          <svg width="120" height="120" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="21" cy="21" r="20" fill=${contact.avatarColor} stroke="white" stroke-width="2"/>
+            <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="12" font-family="Inter, sans-serif" font-weight="400" fill="white">
+              ${contact["firstname"].charAt(0) + contact["name"].charAt(0)}
+            </text>
+          </svg>
+          </div>
+
+          <div class="userprofil-top-right-side">
+            <div class="current-name">${contact["firstname"]} ${contact["name"]}</div>
+            <div class="edit-and-delete d-flex">
+              <div class="edit"><img src="/assets/img/edit.svg" alt=""> <span>Edit</span></div>
+              <div class="delete"><img src="/assets/img/delete.svg" alt=""> <span>Delete</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info"><span>Contact Information</span></div>
+
+        <div class="email-and-phone">
+          <span><b>Email</b></span>
+          <a class="emailLink" href="#">${contact.email}</a>
+          <span><b>Phone</b></span>
+          <div>${contact.phoneNumber}</div>
+        </div>
+      </div>
+  `;
 }
