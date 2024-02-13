@@ -30,7 +30,7 @@ function toggleDropDown(){
 
 if (DROP_DOWN_OPEN == false) {
 
-// insert filterfunction for names in input Element
+
 document.getElementById('assigned-dropdown-div').innerHTML = '';
 document.getElementById('assigned-dropdown-div').innerHTML = `
 
@@ -154,8 +154,91 @@ function resetImage(image, buttonId) {
     }
 }
 
+function addNewSubtask() {
+    // Get input field value
+    var subtaskInput = document.getElementById('subtask-input-field');
+    var subtaskValue = subtaskInput.value.trim();
+
+    // Check if the input is not empty
+    if (subtaskValue !== '') {
+        // Get the container for created subtasks
+        var createdSubtasksDiv = document.getElementById('created-subtasks');
+
+        // Check if there are already two tasks, remove the oldest one
+        if (createdSubtasksDiv.children.length >= 2) {
+            createdSubtasksDiv.removeChild(createdSubtasksDiv.firstChild);
+        }
+
+        // Create a new task element
+        var newSubtask = document.createElement('div');
+        newSubtask.className = 'created-subtask';
+        
+        // Task text
+        var subtaskText = document.createElement('span');
+        subtaskText.textContent = subtaskValue;
+        newSubtask.appendChild(subtaskText);
+
+        // Delete button
+        var deleteButton = document.createElement('span');
+        deleteButton.className = 'delete-subtask';
+        deleteButton.textContent = 'x';
+        deleteButton.onclick = function() {
+            createdSubtasksDiv.removeChild(newSubtask);
+        };
+        newSubtask.appendChild(deleteButton);
+
+        // Append the new task to the container
+        createdSubtasksDiv.appendChild(newSubtask);
+
+        // Clear the input field
+        subtaskInput.value = '';
+    }
+}
 
 
+
+
+
+
+/*
+
+function addNewSubtask() {
+    // Get input field value
+    var subtaskInput = document.getElementById('subtask-input-field');
+    var subtaskValue = subtaskInput.value.trim();
+
+    // Check if the input is not empty
+    if (subtaskValue !== '') {
+        // Get the container for created subtasks
+        var createdSubtasksDiv = document.getElementById('created-subtasks');
+
+        // Check if there are already two tasks, remove the oldest one
+        if (createdSubtasksDiv.children.length >= 2) {
+            createdSubtasksDiv.removeChild(createdSubtasksDiv.firstChild);
+        }
+
+        // Create a new task element
+        var newSubtask = document.createElement('div');
+        newSubtask.className = 'created-subtask';
+        newSubtask.textContent = subtaskValue;
+
+        // Append the new task to the container
+        createdSubtasksDiv.appendChild(newSubtask);
+
+        // Clear the input field
+        subtaskInput.value = '';
+    }
+}
+
+
+
+
+
+
+
+
+
+ /*
 function addNewSubtask(){
 let subInput = document.getElementById('subtask-input-field').value;
 
@@ -170,7 +253,7 @@ document.getElementById('subtask-input-field').value = '';
 
 }
 
-
+*/
 
 
 
