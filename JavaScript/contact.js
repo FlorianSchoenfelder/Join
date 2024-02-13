@@ -30,7 +30,7 @@ let contactList = [
   {
     firstname: "Eva",
     name: "Fischer",
-    avatarColor: "yellow",
+    avatarColor: "orange",
     phoneNumber: "496666666666",
     email: "eva@gmail.com",
   },
@@ -44,7 +44,7 @@ let contactList = [
   {
     firstname: "Marcel",
     name: "Bauer",
-    avatarColor: "darkpurple",
+    avatarColor: "purple",
     phoneNumber: "498888888888",
     email: "bauer@gmail.com",
   },
@@ -87,6 +87,7 @@ function myStopFunction() {
 }
 
 function render() {
+  // Extrahiert die Anfangsbuchstaben aus contactList-Array und speichert diese ohne Duplikate in einem neuen Array
   const initials = Array.from(
     new Set(
       contactList.map((contact) => contact.firstname.charAt(0).toUpperCase())
@@ -107,11 +108,18 @@ function render() {
     namesList.classList.add("names-list");
     for (let j = 0; j < filteredContacts.length; j++) {
       const contact = filteredContacts[j];
+      let userProfilInitials = contact["firstname"].charAt(0) + contact["name"].charAt(0);
+      let avatarColor = contact["avatarColor"];
       const listItem = document.createElement("li");
       listItem.innerHTML = /*html*/ `
       <div class="d-flex">
-        <div>
-          <img src="/assets/img/ellipse.svg" alt="">
+        <div id="svg-userProfil">
+          <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="21" cy="21" r="20" fill=${avatarColor} stroke="white" stroke-width="2"/>
+            <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="12" font-family="Inter, sans-serif" font-weight="400" fill="white">
+              ${userProfilInitials}
+            </text>
+          </svg>
         
         </div>
       
