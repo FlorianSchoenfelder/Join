@@ -57,6 +57,9 @@ let contactList = [
   },
 ];
 
+let listElementIds = [];
+let currentListItem;
+
 function stopPropagation(event) {
   event.stopPropagation();
 }
@@ -111,6 +114,9 @@ function render() {
       let userProfilInitials = contact["firstname"].charAt(0) + contact["name"].charAt(0);
       let avatarColor = contact["avatarColor"];
       const listItem = document.createElement("li");
+      const listElementId = `contactItem_${initial}_${j}`;
+      listItem.id = listElementId;
+      listElementIds.push(listElementId);
       listItem.innerHTML = /*html*/ `
       <div onclick="showContactInfo(${j}, '${initials[i]}')" class="d-flex">
         <div id="svg-userProfil">
@@ -183,4 +189,25 @@ function showContactInfo(contactIndex, initial) {
         </div>
       </div>
   `;
+
+  CurrentListElementBackground();
+}
+
+function CurrentListElementBackground(){
+// Eventlistener für jedes Element mit einer ID aus dem Array listElementIds hinzufügen
+listElementIds.forEach((id) => {
+  const listItem = document.getElementById(id);
+  listItem.addEventListener("click", function() {
+    if (currentListItem) {
+      currentListItem.style.backgroundColor = ""; // Zurück zur Standardfarbe
+      currentListItem.style.color = "";
+    }
+    setTimeout(() => {
+      this.style.backgroundColor = "#2A3647"; // Ändert die Eigenschaften des list-Elements
+      this.style.borderRadius = "10px"
+      this.style.color = "#FFFFFF"
+    }, 200);
+    currentListItem = this;
+  });
+});
 }
