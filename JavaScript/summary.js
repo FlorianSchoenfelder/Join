@@ -83,7 +83,8 @@ function delightSecondLine() {
 
 // let currentLoggedUser = [];
 
-function initUser() {
+async function initUser() {
+  await includeHTML();
   loadCurrentUser();
 }
 

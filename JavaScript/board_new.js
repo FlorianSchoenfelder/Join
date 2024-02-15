@@ -33,7 +33,8 @@ let todos = [{
 
 let currentDraggedElement;
 
-function updateHTML() {
+async function updateHTML() {
+    await includeHTML();
     let open = todos.filter(t => t['category'] == 'open');
 
     document.getElementById('open').innerHTML = '';

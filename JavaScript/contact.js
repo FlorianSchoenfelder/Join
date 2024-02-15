@@ -89,7 +89,8 @@ function myStopFunction() {
     .classList.remove("darkBackground");
 }
 
-function render() {
+async function render() {
+  await includeHTML();
   // Extrahiert die Anfangsbuchstaben aus contactList-Array und speichert diese ohne Duplikate in einem neuen Array
   const initials = Array.from(
     new Set(
