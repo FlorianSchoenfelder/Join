@@ -98,6 +98,7 @@ async function render() {
     )
   );
   const contactListContainer = document.getElementById("contactList");
+  contactListContainer.innerHTML = "";
   for (let i = 0; i < initials.length; i++) {
     const initial = initials[i];
     // Anfangsbuchstabe hinzufügen
@@ -211,4 +212,35 @@ listElementIds.forEach((id) => {
     currentListItem = this;
   });
 });
+}
+
+function createNewContact() {
+  let fullname = document.getElementById('newContactName').value;
+  let spaceIndex = fullname.indexOf(" ");
+  let firstname = fullname.substring(0, spaceIndex);
+  let name = fullname.substring(spaceIndex + 1);
+  let email = document.getElementById('newContactEmail').value;
+  let phone = document.getElementById('newContactPhone').value;
+
+  firstname = firstname.charAt(0).toUpperCase() + firstname.slice(1);
+  name = name.charAt(0).toUpperCase() + name.slice(1);
+
+  const newContact = {
+    firstname: firstname,
+    name: name,
+    avatarColor: getRandomAvatarColor(),
+    email: email,
+    phoneNumber: phone
+  };
+  
+
+  contactList.push(newContact);
+
+  render();
+}
+
+function getRandomAvatarColor() {
+  const colors = ["blue", "green", "orange", "pink", "purple", "red", "turquoise"];
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
 }

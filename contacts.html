@@ -79,19 +79,19 @@
         <div class="createContactSection">
           <div class="inputContainer">
             <div class="inputFrame">
-              <input required type="text" placeholder="Name" />
+              <input id="newContactName" required type="text" placeholder="Name" />
               <img src="./assets/img/signUpNameIcon.svg" />
             </div>
           </div>
           <div class="inputContainer">
             <div class="inputFrame">
-              <input required type="email" placeholder="Email" />
+              <input id="newContactEmail" required type="email" placeholder="Email" />
               <img src="./assets/img/mail.svg" />
             </div>
           </div>
           <div class="inputContainer">
             <div class="inputFrame">
-              <input required type="tel" placeholder="Phone" />
+              <input id="newContactPhone" required type="tel" placeholder="Phone" />
               <img src="./assets/img/Phone.svg" />
             </div>
           </div>
@@ -103,7 +103,7 @@
                 <img class="cancelX" src="./assets/img/x.svg" alt="" />
               </div>
             </button>
-            <button class="createContactButton">
+            <button onclick="createNewContact()" class="createContactButton">
               <div>
                 <p>Create contact</p>
                 <img src="./assets/img/check.svg" alt="" />
