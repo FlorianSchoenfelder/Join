@@ -501,17 +501,27 @@ input:focus {
 }
 
 .edit-and-delete {
-    width: 159px;
-    height: 24px;
+      display: flex;
+      gap: 4px;
 }
 
 .edit {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 13px;
+    gap: 8px;
     font-size: 16px;
     padding-right: 12px;
+}
+
+.edit:hover {
+    cursor: pointer;
+    font-weight: bold;
+    color: #29ABE2;
+}
+
+.edit:hover #editIcon {
+    filter: invert(49%) sepia(100%) saturate(3169%) hue-rotate(193deg) brightness(98%) contrast(95%);
 }
 
 .delete {
@@ -520,6 +530,16 @@ input:focus {
     align-items: center;
     gap: 8px;
     font-size: 16px;
+}
+
+.delete:hover {
+    cursor: pointer;
+    font-weight: bold;
+    color: #29ABE2;
+}
+
+.delete:hover #deleteIcon {
+    filter: invert(49%) sepia(100%) saturate(3169%) hue-rotate(193deg) brightness(98%) contrast(95%);
 }
 
 .current-name {

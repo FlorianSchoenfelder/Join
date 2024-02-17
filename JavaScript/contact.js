@@ -175,8 +175,8 @@ function showContactInfo(contactIndex, initial) {
           <div class="userprofil-top-right-side">
             <div class="current-name">${contact["firstname"]} ${contact["name"]}</div>
             <div class="edit-and-delete d-flex">
-              <div class="edit"><img src="/assets/img/edit.svg" alt=""> <span>Edit</span></div>
-              <div class="delete"><img src="/assets/img/delete.svg" alt=""> <span>Delete</span></div>
+              <div onclick="editCurrentContact()" class="edit"><img id="editIcon" src="/assets/img/edit.svg" alt=""> <span>Edit</span></div>
+              <div onclick="deleteCurrentContact()" class="delete"><img id="deleteIcon" src="/assets/img/delete.svg" alt=""> <span>Delete</span></div>
             </div>
           </div>
         </div>
@@ -243,4 +243,12 @@ function getRandomAvatarColor() {
   const colors = ["blue", "green", "orange", "pink", "purple", "red", "turquoise"];
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
+}
+
+function editCurrentContact() {
+
+}
+
+function deleteCurrentContact() {
+
 }
