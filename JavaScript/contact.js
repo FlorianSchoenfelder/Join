@@ -60,6 +60,7 @@ let contactList = [
 let listElementIds = [];
 let currentListItem;
 
+
 function stopPropagation(event) {
   event.stopPropagation();
 }
@@ -113,12 +114,15 @@ async function render() {
     namesList.classList.add("names-list");
     for (let j = 0; j < filteredContacts.length; j++) {
       const contact = filteredContacts[j];
-      let userProfilInitials = contact["firstname"].charAt(0) + contact["name"].charAt(0);
+      let userProfilInitials =
+        contact["firstname"].charAt(0) + contact["name"].charAt(0);
       let avatarColor = contact["avatarColor"];
       const listItem = document.createElement("li");
       const listElementId = `contactItem_${initial}_${j}`;
+      if (!listElementIds.includes(listElementId)) {
       listItem.id = listElementId;
       listElementIds.push(listElementId);
+      }
       listItem.innerHTML = /*html*/ `
       <div onclick="showContactInfo(${j}, '${initials[i]}')" class="d-flex">
         <div id="svg-userProfil">
@@ -141,6 +145,11 @@ async function render() {
     }
     contactListContainer.appendChild(namesList);
   }
+
+  // Fügt das neue Attribut 'id' hinzu
+  for (let i = 0; i < contactList.length; i++) {
+    contactList[i].id = i;
+  }
 }
 
 function filterContactsByFirstLetter(contactList, firstLetter) {
@@ -157,15 +166,19 @@ function filterContactsByFirstLetter(contactList, firstLetter) {
 }
 
 function showContactInfo(contactIndex, initial) {
-  const contact = filterContactsByFirstLetter(contactList, initial)[contactIndex];
-  let contactInfo = document.getElementById('current-contact');
+  const contact = filterContactsByFirstLetter(contactList, initial)[
+    contactIndex
+  ];
+  let contactInfo = document.getElementById("current-contact");
   contactInfo.innerHTML = "";
-  contactInfo.innerHTML += /*html*/`
+  contactInfo.innerHTML += /*html*/ `
       <div class="current-contact">
         <div class="userprofil-top d-flex">
           <div>
           <svg width="120" height="120" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="21" cy="21" r="20" fill=${contact.avatarColor} stroke="white" stroke-width="2"/>
+            <circle cx="21" cy="21" r="20" fill=${
+              contact.avatarColor
+            } stroke="white" stroke-width="2"/>
             <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="12" font-family="Inter, sans-serif" font-weight="400" fill="white">
               ${contact["firstname"].charAt(0) + contact["name"].charAt(0)}
             </text>
@@ -176,7 +189,7 @@ function showContactInfo(contactIndex, initial) {
             <div class="current-name">${contact["firstname"]} ${contact["name"]}</div>
             <div class="edit-and-delete d-flex">
               <div onclick="editCurrentContact()" class="edit"><img id="editIcon" src="/assets/img/edit.svg" alt=""> <span>Edit</span></div>
-              <div onclick="deleteCurrentContact()" class="delete"><img id="deleteIcon" src="/assets/img/delete.svg" alt=""> <span>Delete</span></div>
+              <div onclick="deleteCurrentContact(${contact.id})" class="delete"><img id="deleteIcon" src="/assets/img/delete.svg" alt=""> <span>Delete</span></div>
             </div>
           </div>
         </div>
@@ -192,35 +205,46 @@ function showContactInfo(contactIndex, initial) {
       </div>
   `;
 
-  CurrentListElementBackground();
+
+  ListElementBackground();
+
 }
 
-function CurrentListElementBackground(){
-// Eventlistener für jedes Element mit einer ID aus dem Array listElementIds hinzufügen
-listElementIds.forEach((id) => {
-  const listItem = document.getElementById(id);
-  listItem.addEventListener("click", function() {
-    if (currentListItem) {
-      currentListItem.style.backgroundColor = ""; // Zurück zur Standardfarbe
-      currentListItem.style.color = "";
+function ListElementBackground() {
+  // Durch jedes Listenelement iterieren
+  for (let i = 0; i < listElementIds.length; i++) {
+    const id = listElementIds[i];
+    const listItem = document.getElementById(id);
+    
+    // Wenn das Listenelement gefunden wurde
+    if (listItem) {
+      // Eventlistener hinzufügen
+      listItem.onclick = function() {
+        // Zurücksetzen der vorherigen Auswahl
+        if (currentListItem) {
+          currentListItem.style.backgroundColor = ""; // Zurück zur Standardfarbe
+          currentListItem.style.color = "";
+        }
+
+        // Aktualisierung des aktuellen Listenelements
+        setTimeout(() => {
+          this.style.backgroundColor = "#2A3647"; // Ändert die Eigenschaften des list-Elements
+          this.style.borderRadius = "10px";
+          this.style.color = "#FFFFFF";
+        }, 200);
+        currentListItem = this;
+      };
     }
-    setTimeout(() => {
-      this.style.backgroundColor = "#2A3647"; // Ändert die Eigenschaften des list-Elements
-      this.style.borderRadius = "10px"
-      this.style.color = "#FFFFFF"
-    }, 200);
-    currentListItem = this;
-  });
-});
+  }
 }
 
 function createNewContact() {
-  let fullname = document.getElementById('newContactName').value;
+  let fullname = document.getElementById("newContactName").value;
   let spaceIndex = fullname.indexOf(" ");
   let firstname = fullname.substring(0, spaceIndex);
   let name = fullname.substring(spaceIndex + 1);
-  let email = document.getElementById('newContactEmail').value;
-  let phone = document.getElementById('newContactPhone').value;
+  let email = document.getElementById("newContactEmail").value;
+  let phone = document.getElementById("newContactPhone").value;
 
   firstname = firstname.charAt(0).toUpperCase() + firstname.slice(1);
   name = name.charAt(0).toUpperCase() + name.slice(1);
@@ -230,9 +254,8 @@ function createNewContact() {
     name: name,
     avatarColor: getRandomAvatarColor(),
     email: email,
-    phoneNumber: phone
+    phoneNumber: phone,
   };
-  
 
   contactList.push(newContact);
 
@@ -240,15 +263,33 @@ function createNewContact() {
 }
 
 function getRandomAvatarColor() {
-  const colors = ["blue", "green", "orange", "pink", "purple", "red", "turquoise"];
+  const colors = [
+    "blue",
+    "green",
+    "orange",
+    "pink",
+    "purple",
+    "red",
+    "turquoise",
+  ];
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
 }
 
-function editCurrentContact() {
+function editCurrentContact() {}
 
-}
+function deleteCurrentContact(contactID) {
 
-function deleteCurrentContact() {
+  for (let i = 0; i < contactList.length; i++) {
+    if (contactList[i].id === contactID) {
+      contactList.splice(contactID, 1);
+      listElementIds.splice(contactID, 1);
+      break;
+    }
+  }
 
+  let currentContactContainer = document.getElementById("current-contact");
+  currentContactContainer.innerHTML = "";
+
+  render();
 }
