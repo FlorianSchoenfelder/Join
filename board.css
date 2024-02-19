@@ -227,7 +227,7 @@
 
 }
 
-.task-descriptio-span {
+.task-description-span {
     font-size: 400;
     font-weight: 16px;
     line-height: 19.2px;
@@ -352,4 +352,19 @@
 
 .technical-task-category-style{
     
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.round-user-profile{
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    margin-left: -16px;
 }
