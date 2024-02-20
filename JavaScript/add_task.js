@@ -10,10 +10,6 @@ function addNameInitialToContacts(dataContacts) {
     }
 }
 
-
-
-
-
 function addInitialsOfFirstNames(dataContacts) {
     for (let i = 0; i < dataContacts.length; i++) {
         let first = dataContacts[i].first;
@@ -21,9 +17,10 @@ function addInitialsOfFirstNames(dataContacts) {
         dataContacts[i].ini_first = inits;
     }
 }
+
+
 addNameInitialToContacts(dataContacts);
 addInitialsOfFirstNames(dataContacts);
-
 
 
 function toggleDropDown(){
