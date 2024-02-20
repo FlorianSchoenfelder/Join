@@ -1,9 +1,5 @@
 
-
-
-
 let DROP_DOWN_OPEN = false;
-
 
 
 function addNameInitialToContacts(contactData) {

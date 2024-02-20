@@ -1,5 +1,6 @@
 let checkbox = false;
 let currentUser = [];
+let guest = false;
 
 function changeCheckbox() {
     if (!checkbox == true) {

@@ -1,7 +1,7 @@
 
 function updateHTML(){
-
-    filterTasksByCategory()
+    includeHTML();
+    filterTasksByCategory();
     renderToDos();
 }
 
