@@ -59,6 +59,7 @@ let contactList = [
 
 let listElementIds = [];
 let currentListItem;
+let currentContactId;
 
 
 function stopPropagation(event) {
@@ -169,6 +170,7 @@ function showContactInfo(contactIndex, initial) {
   const contact = filterContactsByFirstLetter(contactList, initial)[
     contactIndex
   ];
+  currentContactId = contact.id;
   let contactInfo = document.getElementById("current-contact");
   contactInfo.innerHTML = "";
   contactInfo.innerHTML += /*html*/ `
@@ -188,7 +190,7 @@ function showContactInfo(contactIndex, initial) {
           <div class="userprofil-top-right-side">
             <div class="current-name">${contact["firstname"]} ${contact["name"]}</div>
             <div class="edit-and-delete d-flex">
-              <div onclick="editCurrentContact()" class="edit"><img id="editIcon" src="/assets/img/edit.svg" alt=""> <span>Edit</span></div>
+              <div onclick="editCurrentContact(${contact.id})" class="edit"><img id="editIcon" src="/assets/img/edit.svg" alt=""> <span>Edit</span></div>
               <div onclick="deleteCurrentContact(${contact.id})" class="delete"><img id="deleteIcon" src="/assets/img/delete.svg" alt=""> <span>Delete</span></div>
             </div>
           </div>
@@ -276,7 +278,37 @@ function getRandomAvatarColor() {
   return colors[randomIndex];
 }
 
-function editCurrentContact() {}
+function editCurrentContact(contactID) {
+  openEditCurrentContactPopUp();
+  
+  for (let i = 0; i < contactList.length; i++) {
+    if (contactList[i].id === contactID) {
+      document.getElementById('editContactName').value = contactList[i].firstname + " " + contactList[i].name;
+      document.getElementById('editContactEmail').value = contactList[i].email;
+      document.getElementById('editContactPhone').value = contactList[i].phoneNumber;
+      break;
+    }
+  }
+}
+
+function openEditCurrentContactPopUp() {
+document
+  .getElementById("darkBackgroundContainer")
+  .classList.remove("swipeOut");
+document
+  .getElementById("darkBackgroundContainer")
+  .classList.add("darkBackground"); //Hintergrundfarbe grau hinzufügen
+document.getElementById("darkBackgroundContainer").classList.remove("d-none"); // Container sichtbar machen
+document.getElementById("editContactPopup").style = "transform: translateX(0)"; // Popup hereinswipen
+
+}
+
+function closeEditContactPopup() {
+  document.getElementById("editContactPopup").style =
+    "transform: translateX(100%)"; // Popup herausswipen
+  document.getElementById("darkBackgroundContainer").classList.add("swipeOut");
+  setTimeout(myStopFunction, 250);
+}
 
 function deleteCurrentContact(contactID) {
 
@@ -291,5 +323,30 @@ function deleteCurrentContact(contactID) {
   let currentContactContainer = document.getElementById("current-contact");
   currentContactContainer.innerHTML = "";
 
+  render();
+}
+
+function saveCurrentContact() {
+  
+  for (let i = 0; i < contactList.length; i++) {
+    let contactID = currentContactId;
+
+    let newFullName = document.getElementById('editContactName').value;
+    let spaceIndex = newFullName.indexOf(" ");
+    let newFirstname = newFullName.substring(0, spaceIndex);
+    let newName = newFullName.substring(spaceIndex + 1);
+
+    let newEmail = document.getElementById('editContactEmail').value;
+    let newPhone = document.getElementById('editContactPhone').value;
+    if (contactList[i].id === contactID) {
+      contactList[contactID].firstname = newFirstname;
+      contactList[contactID].name = newName;
+      contactList[contactID].email = newEmail;
+      contactList[contactID].phoneNumber = newPhone;
+      break;
+    }
+  }
+
+  closeEditContactPopup()
   render();
 }

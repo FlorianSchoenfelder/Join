@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/board.css" />
 
   <link rel="stylesheet" href="fonts.css">
-  <script src="/JavaScript/board.js"></script>
+  <script src="/assets/scripts/board.js"></script>
   <script src="/JavaScript/contact.js"></script>
   <script src="/JavaScript/templates.js"></script>
   <script src="script.js"></script>
@@ -106,6 +106,68 @@
             <button onclick="createNewContact()" class="createContactButton">
               <div>
                 <p>Create contact</p>
+                <img src="./assets/img/check.svg" alt="" />
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="addContactIcon">
+          <img src="./assets/img/contactProfileImage.svg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--PopUp für Contact Edit -->
+
+  <div id="editContactPopup" onclick="closeEditContactPopup()">
+    <div class="addContactPopup" onclick="stopPropagation(event)">
+      <div class="addContactLeftSide">
+        <div class="addContactLeftSideImage">
+          <img src="./assets/img/joinLogoWhite.svg" />
+        </div>
+        <div class="editContactLeftSideTextLine">
+          <div class="editContactLeftSideText">
+            <span>Edit contact</span>
+          </div>
+        </div>
+      </div>
+      <div class="addContactRightSide">
+        <div class="closePopup" onclick="closeEditContactPopup()">
+          <img src="./assets/img/x.svg" alt="" />
+        </div>
+
+        <div class="createContactSection">
+          <div class="inputContainer">
+            <div class="inputFrame">
+              <input id="editContactName" required type="text" placeholder ="Name" />
+              <img src="./assets/img/signUpNameIcon.svg" />
+            </div>
+          </div>
+          <div class="inputContainer">
+            <div class="inputFrame">
+              <input id="editContactEmail" required type="email" placeholder="Email" />
+              <img src="./assets/img/mail.svg" />
+            </div>
+          </div>
+          <div class="inputContainer">
+            <div class="inputFrame">
+              <input id="editContactPhone" required type="tel" placeholder="Phone" />
+              <img src="./assets/img/Phone.svg" />
+            </div>
+          </div>
+
+          <div class="buttonsForAddContact">
+            <button onclick="deleteCurrentContact()" class="cancelButton">
+              <div>
+                <p>Delete</p>
+                <img class="cancelX" src="./assets/img/x.svg" alt="" />
+              </div>
+            </button>
+            <button onclick="saveCurrentContact()" class="createContactButton">
+              <div>
+                <p>Save</p>
                 <img src="./assets/img/check.svg" alt="" />
               </div>
             </button>
