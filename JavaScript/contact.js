@@ -238,7 +238,7 @@ function ListElementBackground() {
       };
     }
   }
-}
+} 
 
 function createNewContact() {
   let fullname = document.getElementById("newContactName").value;
@@ -322,7 +322,7 @@ function deleteCurrentContact(contactID) {
 
   let currentContactContainer = document.getElementById("current-contact");
   currentContactContainer.innerHTML = "";
-
+  
   render();
 }
 
