@@ -601,6 +601,49 @@ input:focus {
     gap: 22px;
 }
 
+.succesfullyCreatedPopUp {
+    position: absolute;
+    top: 80%;
+    right: 0;
+    transform: translateX(150%); /* Startposition: rechts außerhalb des Bildschirms */
+    width: 326px;
+    height: 74px;
+    text-align: center;
+
+    background-color: #2A3647;
+    color: #FFFFFF;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slideIn {
+    animation: slideInAndOut 2s forwards ease;
+  }
+  
+.slideOut {
+    animation: none; /* Animation standardmäßig deaktiviert */
+  }
+
+@keyframes slideInAndOut {
+    0%, 100% {
+      transform: translateX(150%); /* Start- und Endposition: rechts außerhalb des Bildschirms */
+    }
+    25% {
+        transform: translateX(-187%); /* Element wird sichtbar */
+      }
+      50% {
+        transform: translateX(-187%); /* Mittelpunkt der Animation: Element bleibt sichtbar */
+      }
+      75% {
+        transform: translateX(-187%); /* Element bleibt sichtbar */
+      }
+  }
+
 .submenuContainer {
     width: 100vw;
     height: 100vh;

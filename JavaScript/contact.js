@@ -265,6 +265,8 @@ function createNewContact() {
 
   contactList.push(newContact);
 
+  closeAddContactPopup()
+  contactSuccesfullyCreatedPopUp();
   render();
 }
 
@@ -354,6 +356,18 @@ function saveCurrentContact() {
   let currentContactContainer = document.getElementById("current-contact");
   currentContactContainer.innerHTML = "";
 
-  closeEditContactPopup()
+  closeEditContactPopup();
   render();
+}
+
+function contactSuccesfullyCreatedPopUp() {
+  let succesfullyCreatedPopUp = document.getElementById('contactSuccesfullyCreatedPopUp');
+
+  setTimeout(() => {
+    succesfullyCreatedPopUp.classList.add('d-none');
+  }, 2000);
+
+  succesfullyCreatedPopUp.classList.remove('d-none');
+  succesfullyCreatedPopUp.classList.remove('slideOut');
+  succesfullyCreatedPopUp.classList.add('slideIn');
 }
