@@ -82,6 +82,21 @@ input:focus {
     
 }
 
+#editContactPopup {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* remove to work on */
+
+    transition: all 500ms ease-in-out;
+    transform: translateX(100%);
+    
+}
+
 .addContactPopup {
     display: flex;
     width: 1212px;
@@ -129,6 +144,26 @@ input:focus {
     display: block;
     width: 90px;
     padding-top: 14px;
+    border-bottom: 3px solid #29ABE2;
+}
+
+.editContactLeftSideText {
+    color: white;
+    width: 371px;
+    height: 113px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 61px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+.editContactLeftSideTextLine::after {
+    /* Blaue line hier*/
+    content: "";
+    display: block;
+    width: 90px;
     border-bottom: 3px solid #29ABE2;
 }
 
@@ -502,7 +537,6 @@ input:focus {
 
 .edit-and-delete {
       display: flex;
-      gap: 4px;
 }
 
 .edit {
@@ -511,7 +545,7 @@ input:focus {
     align-items: center;
     gap: 8px;
     font-size: 16px;
-    padding-right: 12px;
+    padding-right: 16px;
 }
 
 .edit:hover {

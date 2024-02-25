@@ -92,48 +92,121 @@ let contactData = [{
                     "avatarColor": "pink"
                 },
             ],
-            "dueDate": "2024-03-23",        //convert  date to string before
+            "dueDate": "2024-03-23",
             "category": "User Story",
+            "prio": 0,
+
             "subtasks": [
-           
+                {
+                    "subtask1": "done",
+                    "subtask2": "notDone"
+                }
+            ]
+        }],
+        'inProgress': [{
+            "taskID": 2,
+            "title": "For In Progress",
+            "description": "Testdescriptionfor in progress",
+            "assigned_contacts": [
+                {
+                    "id": 2,
+                    "first": "Kalle",
+                    "name": "Hausen",
+                    "email": "benedikt@gmail.com",
+                    "phone": "+49 3333 333 33 3",
+                    "avatarColor": "yellow"
+                },
+                {
+                    "id": 3,
+                    "first": "Lea",
+                    "name": "Kranz",
+                    "email": "davidberg@gmail.com",
+                    "phone": "+49 4444 444 44 4",
+                    "avatarColor": "lightblue"
+                },
             ],
-            "prio": 0,
+            "dueDate": "2024-03-25",
+            "category": "Technical Task",
+            "prio": 2,
 
-            "subtasks": []
+            "subtasks": [
+                {
+                    "subtask1": "done",
+                    "subtask2": "done"
+                }
+            ]
         }],
-        'inProgress': [],
-        'awaitFeedback': [],
-        'done': []
+        'awaitFeedback': [
+            {
+                "taskID": 3,
+                "title": "For Await Feedback",
+                "description": "Testdescriptionfor in progress",
+                "assigned_contacts": [
+                    {
+                        "id": 3,
+                        "first": "Kalle",
+                        "name": "Hausen",
+                        "email": "benedikt@gmail.com",
+                        "phone": "+49 3333 333 33 3",
+                        "avatarColor": "yellow"
+                    },
+                    {
+                        "id": 3,
+                        "first": "Lea",
+                        "name": "Kranz",
+                        "email": "davidberg@gmail.com",
+                        "phone": "+49 4444 444 44 4",
+                        "avatarColor": "lightblue"
+                    },
+                ],
+                "dueDate": "2024-03-25",
+                "category": "Technical Task",
+                "prio": 2,
+
+                "subtasks": [
+                    {
+                        "subtask1": "done",
+                        "subtask2": "done"
+                    }
+                ]
+            }
+        ],
+        'done': [
+            {
+                "taskID": 4,
+                "title": "For Done",
+                "description": "Testdescriptionfor in progress",
+                "assigned_contacts": [
+                    {
+                        "id": 2,
+                        "first": "Kalle",
+                        "name": "Hausen",
+                        "email": "benedikt@gmail.com",
+                        "phone": "+49 3333 333 33 3",
+                        "avatarColor": "yellow"
+                    },
+                    {
+                        "id": 3,
+                        "first": "Lea",
+                        "name": "Kranz",
+                        "email": "davidberg@gmail.com",
+                        "phone": "+49 4444 444 44 4",
+                        "avatarColor": "lightblue"
+                    },
+                ],
+                "dueDate": "2024-03-25",
+                "category": "Technical Task",
+                "prio": 2,
+
+                "subtasks": [
+                    {
+                        "subtask1": "done",
+                        "subtask2": "done"
+                    }
+                ]
+            }
+        ]
     }],
 }]
 
 
-
-
-
-
-/*
-
- "tasks": [{
-        'toDo': [{
-            "taskID": 1,
-            "title": "Title",
-            "description": "Testdescription",
-            "assigned_contacts": [],
-            "dueDate": "",        //convert  date to string before
-            "category": "User Story",
-            "subtasks": ["Subtask 1", "Subtask2"],
-            "prio": 0,
-
-            "subtasks": []
-        }],
-        'inProgress': [],
-        'awaitFeedback': [],
-        'done': []
-    }],
-}]
-
-
-
-
-*/
