@@ -66,84 +66,21 @@
                 </div>
             </div>
 
-            <!-- tasks Bereich -->
+        
 
 
             <div id="tasks-div">
-                <div id="to-do-column" class="task-column" ondrop="">
-
-                    <div id="to-do-cardholder" class="no-task cursor-pointer">
-                        <span class="no-task-span">No tasks To do</span>
-                    </div>
+                <div id="to-do-column" class="task-column" ondrop="moveTo('toDo')" ondragover="allowDrop(event)">
                 </div>
-
-                <div id="in-progress-column" class="task-column" ondrop="">
-
-                    <div id="in-progress-cardholder" class="no-task d-none cursor-pointer">
-                        <span class="no-task-span">No tasks In progress</span>
-                    </div>
-                    <!-- below test card for style in progress -->
-                    <div class="card-for-task cursor-pointer">
-                        <span class="task-category-span">
-                            User Story
-                        </span>
-                        <div class="task-board-div">
-                            <span class="task-heading-span">
-                                Kochwelt Page and Recipe Recommender
-                            </span>
-                            <span class="task-description-span">
-                                Build start page with recipe recommendation...
-                            </span>
-                        </div>
-                        <div class="board-subtask-div">
-                            <div class="balken">
-                                <div class="fuellung" style="width: 50%;"></div>
-                            </div>
-                            <div class="sub-span-div">
-                                <div class="sub-span-subtasks">
-                                    <span class="subtask-number-class">1</span>
-                                    <span class="slash">/</span>
-                                    <span class="total-numbers-subtask-class">2</span>
-                                </div>
-                                &nbsp;
-                                <span class="subtasks-span">Subtasks</span>
-                            </div>
-                        </div>
-                        <div class="assigned-tasks-and-prio-div">
-                            <div id="assigned-users" class="assigned-users-div">
-                                <div class="testuser-orange">
-                                    <span class="assigned-testuser">AM</span>
-                                </div>
-                                <div class="testuser-cyan">
-                                    <span class="assigned-testuser">EM</span>
-                                </div>
-                                <div class="testuser-purple">
-                                    <span class="assigned-testuser">MB</span>
-                                </div>
-
-                            </div>
-                            <div id="priority-div-taskcard">
-                                <img class="priority-symbold-taskcard" src="./assets/img/board/prio_equation.svg">
-                            </div>
-                        </div>
-                    </div>
+                <div id="in-progress-column" class="task-column" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)">
                 </div>
-
-
-                <!-- below await feedback column -->
-                <div id="await-feedback-column" class="task-column" ondrop="">
-                    <div id="await-feedback-cardholder" class="no-task cursor-pointer">
-                        <span class="no-task-span">No tasks Await feedback</span>
-                    </div>
+                <div id="await-feedback-column" class="task-column" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)">
                 </div>
-
-                <!-- below done column -->
-                <div id="done-column" class="task-column" ondrop="">
-                    <div id="done-cardholder" class="no-task cursor-pointer">
-                        <span class="no-task-span">No tasks Done</span>
-                    </div>
+                <div id="done-column" class="task-column" ondrop="moveTo('done')" ondragover="allowDrop(event)">
                 </div>
             </div>
+
+
         </main>
         <script src="/appdata.js"></script>
         <script src="/assets/scripts/board.js"></script>
