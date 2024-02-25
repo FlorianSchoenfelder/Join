@@ -75,6 +75,10 @@ function openAddContactPopup() {
     .classList.add("darkBackground"); //Hintergrundfarbe grau hinzufügen
   document.getElementById("darkBackgroundContainer").classList.remove("d-none"); // Container sichtbar machen
   document.getElementById("addContactPopup").style = "transform: translateX(0)"; // Popup hereinswipen
+
+  document.getElementById('newContactName').value = "";
+  document.getElementById('newContactEmail').value = "";
+  document.getElementById('newContactPhone').value = "";
 }
 
 function closeAddContactPopup() {
@@ -346,6 +350,9 @@ function saveCurrentContact() {
       break;
     }
   }
+
+  let currentContactContainer = document.getElementById("current-contact");
+  currentContactContainer.innerHTML = "";
 
   closeEditContactPopup()
   render();
