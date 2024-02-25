@@ -1,7 +1,9 @@
 let contactData = [{
     "userID": 1,
-    "password": "beispiel",
-    "email": "beispiel",
+    "password": "beispielpasswort",
+    "email": "beispielemail",
+    "userName":"Tom",
+    "userFirstName":"Herrlich",
     "contacts": [{
         "id": 0,
         "first": "Anton",
