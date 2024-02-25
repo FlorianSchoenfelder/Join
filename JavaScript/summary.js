@@ -86,6 +86,9 @@ function delightSecondLine() {
 async function initUser() {
   await includeHTML();
   loadCurrentUser();
+  includeHTML();
+  filterTasksByCategory();
+  renderToDos();
 }
 
 async function loadCurrentUser() {
