@@ -6,6 +6,10 @@ body {
     overflow: hidden;
 }
 
+header {
+    background-color: #FFFFFF;
+}
+
 ::placeholder {
     font-size: 20px;
     line-height: 24px;
@@ -368,19 +372,23 @@ input:focus {
     width: 120px;
 }
 
+.newContactButtonContainer {
+    margin-left: 280px;
+    margin-top: 120px;
+    margin-bottom: 16px;
+    gap: 16px;
+}
+
 .textbutton {
     width: 352px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
     font-size: 21px;
     box-sizing: border-box;
     padding: 16px;
     background-color: #2A3647;
     color: white;
-    margin-left: 280px;
-    margin-top: 150px;
     border-radius: 16px;
     border: none;
     box-shadow: 0px 0px 14px 3px #0000000A;
@@ -522,8 +530,12 @@ input:focus {
 }
 
 .contact-left-side {
-    height: 100vh;
-    overflow-y: scroll
+    height: 80vh;
+}
+
+#contactList {
+    max-height: 100%; /* Die Kontaktliste kann die Höhe des übergeordneten Containers nicht überschreiten */
+    overflow-y: auto;
 }
 
 .userprofil-top {

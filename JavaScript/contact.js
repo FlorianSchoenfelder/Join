@@ -103,6 +103,9 @@ async function render() {
       contactList.map((contact) => contact.firstname.charAt(0).toUpperCase())
     )
   );
+  // Sortiert die Anfangsbuchstaben
+  initials.sort();
+
   const contactListContainer = document.getElementById("contactList");
   contactListContainer.innerHTML = "";
   for (let i = 0; i < initials.length; i++) {
@@ -339,13 +342,13 @@ function saveCurrentContact() {
 
     let newFullName = document.getElementById('editContactName').value;
     let spaceIndex = newFullName.indexOf(" ");
-    let newFirstname = newFullName.substring(0, spaceIndex);
+    let newFirstName = newFullName.substring(0, spaceIndex);
     let newName = newFullName.substring(spaceIndex + 1);
 
     let newEmail = document.getElementById('editContactEmail').value;
     let newPhone = document.getElementById('editContactPhone').value;
     if (contactList[i].id === contactID) {
-      contactList[contactID].firstname = newFirstname;
+      contactList[contactID].firstname = newFirstName;
       contactList[contactID].name = newName;
       contactList[contactID].email = newEmail;
       contactList[contactID].phoneNumber = newPhone;
