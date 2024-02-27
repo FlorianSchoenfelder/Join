@@ -81,7 +81,6 @@ input:focus {
     align-items: center;
     /* remove to work on */
 
-    transition: all 500ms ease-in-out;
     transform: translateX(100%);
     
 }
@@ -96,7 +95,6 @@ input:focus {
     align-items: center;
     /* remove to work on */
 
-    transition: all 500ms ease-in-out;
     transform: translateX(100%);
     
 }
@@ -110,7 +108,7 @@ input:focus {
 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); 
     /* box-shadow: 4px 4px 9px 19px  black;
     border-radius: 30px; */
 }
@@ -392,6 +390,10 @@ input:focus {
     border-radius: 16px;
     border: none;
     box-shadow: 0px 0px 14px 3px #0000000A;
+    margin-left: 280px;
+    margin-top: 120px;
+    margin-bottom: 16px;
+    gap: 16px;
 }
 
 .textbutton:hover {

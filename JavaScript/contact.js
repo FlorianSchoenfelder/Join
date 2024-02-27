@@ -75,6 +75,7 @@ function openAddContactPopup() {
     .classList.add("darkBackground"); //Hintergrundfarbe grau hinzufügen
   document.getElementById("darkBackgroundContainer").classList.remove("d-none"); // Container sichtbar machen
   document.getElementById("addContactPopup").style = "transform: translateX(0)"; // Popup hereinswipen
+  document.getElementById('addContactPopup').style.transition = "all 500ms ease-in-out";
 
   document.getElementById('newContactName').value = "";
   document.getElementById('newContactEmail').value = "";
@@ -84,6 +85,7 @@ function openAddContactPopup() {
 function closeAddContactPopup() {
   document.getElementById("addContactPopup").style =
     "transform: translateX(100%)"; // Popup herausswipen
+  document.getElementById('addContactPopup').style.transition = "all 500ms ease-in-out";
   document.getElementById("darkBackgroundContainer").classList.add("swipeOut");
   setTimeout(myStopFunction, 250);
 }
@@ -309,6 +311,7 @@ document
   .classList.add("darkBackground"); //Hintergrundfarbe grau hinzufügen
 document.getElementById("darkBackgroundContainer").classList.remove("d-none"); // Container sichtbar machen
 document.getElementById("editContactPopup").style = "transform: translateX(0)"; // Popup hereinswipen
+document.getElementById('editContactPopup').style.transition = "all 500ms ease-in-out";
 
 }
 
@@ -316,6 +319,7 @@ function closeEditContactPopup() {
   document.getElementById("editContactPopup").style =
     "transform: translateX(100%)"; // Popup herausswipen
   document.getElementById("darkBackgroundContainer").classList.add("swipeOut");
+  document.getElementById('editContactPopup').style.transition = "all 500ms ease-in-out";
   setTimeout(myStopFunction, 250);
 }
 
