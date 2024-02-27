@@ -87,8 +87,9 @@ async function initUser() {
   await includeHTML();
   loadCurrentUser();
   includeHTML();
-  filterTasksByCategory();
-  renderToDos();
+  // filterTasksByCategory();
+  // renderToDos();
+  initOthers();
 }
 
 async function loadCurrentUser() {
@@ -100,6 +101,16 @@ async function loadCurrentUser() {
     console.error("Loading error:", e);
   }
 }
+
+function initOthers() {
+  let whereIAM = window.location.pathname;
+
+  if (whereIAM == "/Join/summary.html") {
+    document.getElementById('summary-list-element').classList.add('active');
+  }
+  console.log(whereIAM);
+}
+
 
 // function closeDropdownMenu() {
 //   document.getElementById('submenuContainer').classList.add('d-none');

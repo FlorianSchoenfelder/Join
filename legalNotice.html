@@ -4,23 +4,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal Notice</title>
+
+    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+
+    <script src="./JavaScript/templates.js" defer></script>
+
     <link rel="stylesheet" href="fonts.css">
     <link rel="stylesheet" href="style.css">
-    
-    <title>Legal Notice</title>
-    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
-    <script src="./JavaScript/templates.js"></script>
     <link rel="stylesheet" href="privacyPolicy.css"/>
+    <link rel="stylesheet" href="aside_and_head_style.css">
   </head>
 
   <body onload="includeHTML()">
-    <div w3-include-html="./assets/templates/aside_and_head.html"></div>
+    <header w3-include-html="assets/templates/header.html">
+        
+    </header>
+    
+    <aside w3-include-html="assets/templates/aside.html">
+      
+    </aside>
 
     <div class="headline">
       <h1>Legal Notice</h1>
     </div>
 
-    <img id="arrowLeft" src="./assets/img/arrowLeft.svg" alt="" />
+
+
+    <img  onclick="histoy.back()" id="arrowLeft" src="./assets/img/arrowLeft.svg" alt="" />
 
     <div class="privacyPolicy">
       <div class="subtitle">
