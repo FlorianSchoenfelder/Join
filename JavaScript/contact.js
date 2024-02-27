@@ -75,6 +75,10 @@ function openAddContactPopup() {
     .classList.add("darkBackground"); //Hintergrundfarbe grau hinzufügen
   document.getElementById("darkBackgroundContainer").classList.remove("d-none"); // Container sichtbar machen
   document.getElementById("addContactPopup").style = "transform: translateX(0)"; // Popup hereinswipen
+
+  document.getElementById('newContactName').value = "";
+  document.getElementById('newContactEmail').value = "";
+  document.getElementById('newContactPhone').value = "";
 }
 
 function closeAddContactPopup() {
@@ -99,6 +103,9 @@ async function render() {
       contactList.map((contact) => contact.firstname.charAt(0).toUpperCase())
     )
   );
+  // Sortiert die Anfangsbuchstaben
+  initials.sort();
+
   const contactListContainer = document.getElementById("contactList");
   contactListContainer.innerHTML = "";
   for (let i = 0; i < initials.length; i++) {
@@ -261,6 +268,8 @@ function createNewContact() {
 
   contactList.push(newContact);
 
+  closeAddContactPopup()
+  contactSuccesfullyCreatedPopUp();
   render();
 }
 
@@ -333,13 +342,13 @@ function saveCurrentContact() {
 
     let newFullName = document.getElementById('editContactName').value;
     let spaceIndex = newFullName.indexOf(" ");
-    let newFirstname = newFullName.substring(0, spaceIndex);
+    let newFirstName = newFullName.substring(0, spaceIndex);
     let newName = newFullName.substring(spaceIndex + 1);
 
     let newEmail = document.getElementById('editContactEmail').value;
     let newPhone = document.getElementById('editContactPhone').value;
     if (contactList[i].id === contactID) {
-      contactList[contactID].firstname = newFirstname;
+      contactList[contactID].firstname = newFirstName;
       contactList[contactID].name = newName;
       contactList[contactID].email = newEmail;
       contactList[contactID].phoneNumber = newPhone;
@@ -347,6 +356,21 @@ function saveCurrentContact() {
     }
   }
 
-  closeEditContactPopup()
+  let currentContactContainer = document.getElementById("current-contact");
+  currentContactContainer.innerHTML = "";
+
+  closeEditContactPopup();
   render();
+}
+
+function contactSuccesfullyCreatedPopUp() {
+  let succesfullyCreatedPopUp = document.getElementById('contactSuccesfullyCreatedPopUp');
+
+  setTimeout(() => {
+    succesfullyCreatedPopUp.classList.add('d-none');
+  }, 2000);
+
+  succesfullyCreatedPopUp.classList.remove('d-none');
+  succesfullyCreatedPopUp.classList.remove('slideOut');
+  succesfullyCreatedPopUp.classList.add('slideIn');
 }

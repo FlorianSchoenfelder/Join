@@ -1,11 +1,3 @@
-*{
-    font-family: 'Inter', sans-serif;
-}
-
-.d-none {
-    display: none !important;
-}
-
 #content-summary {
     position: fixed;
     top: 206px;
@@ -365,6 +357,3 @@
     flex-direction: column;
     align-items: center;
 }
-
-
-
