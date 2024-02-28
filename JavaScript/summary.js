@@ -255,21 +255,33 @@ function findClosestDueDatePrioZero() {
 
 async function initUser() {
   await includeHTML();
+  getGreeting();
   loadCurrentUser();
+  // checkforUser();
   // filterTasksByCategory();
   // renderToDos();
   initOthers();
-  getGreeting()
+  
 }
 
 async function loadCurrentUser() {
-  try {
-    currentUser = JSON.parse(await getItem("loggedUser"));
+  
+    try {
+      currentUser = JSON.parse(await getItem("loggedUser"));
 
-    console.log(currentUser);
-  } catch (e) {
-    console.error("Loading error:", e);
+      console.log(currentUser);
+    } catch (e) {
+      console.error("Loading error:", e);
+    }
   }
+
+function checkforUser() {
+  if ((guest = true)) {
+    document.getElementById("right-lower-main").innerHTML += "Guest";
+    document.getElementById('header-userprofile').src = "./assets/img/guestAvatar.svg";
+  } else {
+    document.getElementById('header-userprofile').src = "./assets/img/aside_and_header/header-userprofile.png";
+}
 }
 
 function initOthers() {
@@ -308,24 +320,31 @@ function initOthers() {
 }
 
 function getGreeting() {
+  if (window.location.pathname == "/summary.html") {
+    
   let hours = new Date().getHours();
 
-  switch (true) { // Abfrage ob es stimmt das hours kleiner als X-Case ist.
-    case (hours <= 4):
-      document.getElementById('right-lower-main').innerHTML = "Good night User"
+  switch (
+    true // Abfrage ob es stimmt das hours kleiner als X-Case ist.
+  ) {
+    case hours <= 4:
+      document.getElementById("right-lower-main").innerHTML += "Good night";
       break;
-      case (hours <= 12):
-      document.getElementById('right-lower-main').innerHTML = "Good Morning User"
+    case hours <= 12:
+      document.getElementById("right-lower-main").innerHTML +=
+        "Good Morning";
       break;
-      case (hours <= 18):
-      document.getElementById('right-lower-main').innerHTML = /*html*/`
-        <span> Good Afternoon User </span>
+    case hours <= 18:
+      document.getElementById("right-lower-main").innerHTML += /*html*/ `
+        <span> Good Afternoon </span>
       `;
       break;
-      case (hours <= 23):
-      document.getElementById('right-lower-main').innerHTML = "Good Evening User"
+    case hours <= 23:
+      document.getElementById("right-lower-main").innerHTML +=
+        "Good Evening";
       break;
     default:
       break;
   }
+}
 }

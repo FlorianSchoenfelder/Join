@@ -2,7 +2,7 @@ let users = [];
 
 async function init(){
     await loadUsers();
-    await includeHTML();
+    // await includeHTML();
     // console.log(users);
 }
 

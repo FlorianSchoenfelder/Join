@@ -27,15 +27,18 @@ function switchCheckboxImage() {
 
 function guestLogin(event) {
   event.preventDefault();
-  location.href = "http://127.0.0.1:5502/summary.html";
+  guest = true;
+  window.open('summary.html', '_self');
 }
 
 function loginUser() {
+  guest = false;
   let email = document.getElementById("loginEmail").value;
   let password = document.getElementById("loginPassword").value;
   let user = users.find(
     (users) => users.email == email && users.password == password
   );
+  
   if (!user) {
     // alert('Wrong Email or Password');
     loginEmail.style.border = "2px solid red";
@@ -50,7 +53,8 @@ function loginUser() {
   } else {
     console.log("Gefunden");
     getLoggedUser(user);
-    location.href = "http://127.0.0.1:5502/summary.html";
+    
+    window.open('summary.html', '_self');
   }
 }
 
