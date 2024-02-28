@@ -8,31 +8,34 @@
   <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
 
   <link rel="stylesheet" href="board.css" />
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="aside_and_head_style.css" />
 
   <link rel="stylesheet" href="fonts.css">
-  <script src="./assets/scripts/board.js"></script>
-  <script src="JavaScript/contact.js"></script>
-  <script src="JavaScript/templates.js"></script>
-  <script src="script.js"></script>
+  <script src="./assets/scripts/board.js" defer></script>
+  <script src="JavaScript/contact.js" defer></script>
+  <script src="JavaScript/templates.js" defer></script>
+  <script src="JavaScript/summary.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
-<body onload="render()">
+<body onload="render(), initUser()">
   <header w3-include-html="assets/templates/header.html">
-        
+
   </header>
 
   <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
-      <div class="submenu" onclick="stopPropagation(event)">
-          <ul>
-              <a href="legalNotice.html">Legal Notice</a>
-              <a href="privacyPolicy.html">Privacy Policy</a>
-              <a href="index.html">Log Out</a>
-          </ul>
-      </div>
+    <div class="submenu" onclick="stopPropagation(event)">
+      <ul>
+        <a href="legalNotice.html">Legal Notice</a>
+        <a href="privacyPolicy.html">Privacy Policy</a>
+        <a href="index.html">Log Out</a>
+      </ul>
+    </div>
   </div>
 
   <aside w3-include-html="assets/templates/aside.html">
-      
+
   </aside>
 
   <div class="d-flex">
@@ -52,7 +55,7 @@
       </div>
 
       <div id="current-contact">
-       
+
       </div>
     </div>
   </div>
@@ -141,7 +144,7 @@
         <div class="createContactSection">
           <div class="inputContainer">
             <div class="inputFrame">
-              <input id="editContactName" required type="text" placeholder ="Name" />
+              <input id="editContactName" required type="text" placeholder="Name" />
               <img src="./assets/img/signUpNameIcon.svg" />
             </div>
           </div>
@@ -187,8 +190,7 @@
   </div>
 
 
-  <link rel="stylesheet" href="contact.css" />
-  <link rel="stylesheet" href="aside_and_head_style.css" />
+
 </body>
 
 </html>

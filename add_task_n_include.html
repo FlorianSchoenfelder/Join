@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
 
+    <link rel="stylesheet" href="style_desktop.css">
+    <link rel="stylesheet" href="style_mobile.css">
+    <link rel="stylesheet" href="aside_and_head_style.css">
+    <link rel="stylesheet" href="add_task_n_include.css">
+    <link rel="stylesheet" href="contact.css">
 
+    <script src="script.js" defer></script>
+    <script src="appdata.js" defer></script>
+    <script src="JavaScript/templates.js" defer></script>
+    <script src="JavaScript/summary.js" defer></script>
+    <!-- <script src="./assets/scripts/data.js"></script> -->
+    <script src="./assets/scripts/add_task.js" defer></script>
+    
 
 </head>
 
 <body onload="initUser()">
     <header w3-include-html="assets/templates/header.html">
-        
+
     </header>
 
     <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
@@ -26,9 +38,9 @@
     </div>
 
     <aside w3-include-html="assets/templates/aside.html">
-        
+
     </aside>
-    
+
     <main id="add-task-section">
         <h1>Add Task</h1>
         <form id="add-task-form" onsubmit="addTask(); return false">
@@ -53,7 +65,7 @@
                             <span class="add-task-font-styling">Select contacts to assign</span>
                             <img id="drop-down-arrow" src="./assets/img/add_task/arrow_drop_down.svg" ">
                         </div>
-                        <div id="drop-down-content">
+                        <div id=" drop-down-content">
                         </div>
                     </div>
                 </div>
@@ -64,8 +76,7 @@
                             <span class="red-star-styling">*</span>
                         </div>
                         <div id="div-dateformchange">
-                            <input id="due-date-input" onfocus="(this.type='date')"
-                            onblur="(this.type='text')" 
+                            <input id="due-date-input" onfocus="(this.type='date')" onblur="(this.type='text')"
                                 placeholder="dd/mm/yyyy" required>
                             <img id="calendar-image" src="./assets/img/add_task/calendar.png">
                         </div>
@@ -75,17 +86,17 @@
                             <span class="add-task-font-styling">Prio</span>
                         </div>
                         <div id="prio-buttons-div">
-                            <button  class="priority-button toggle-prio-button" id="urgent-button">
+                            <button class="priority-button toggle-prio-button" id="urgent-button">
                                 <span class="add-task-font-styling">Urgent
                                 </span>
                                 <img id="urgent-image" src="./assets/img/add_task/urgent-red.svg">
                             </button>
-                            <button  class="priority-button toggle-prio-button" id="medium-button">
+                            <button class="priority-button toggle-prio-button" id="medium-button">
                                 <span class="add-task-font-styling">Medium
                                 </span>
                                 <img id="medium-image" src="./assets/img/add_task/equity_yellow.svg">
                             </button>
-                            <button  class="priority-button toggle-prio-button" id="low-button">
+                            <button class="priority-button toggle-prio-button" id="low-button">
                                 <span class="add-task-font-styling">Low</span>
                                 <img id="low-image" src="./assets/img/add_task/low-green.svg">
                             </button>
@@ -97,10 +108,11 @@
                             <span class="red-star-styling">*</span>
                         </label>
                         <div class="category-border-div">
-                            <select required id="task-category-select" name="assignment" class="category-flex add-task-font-styling ">
+                            <select required id="task-category-select" name="assignment"
+                                class="category-flex add-task-font-styling ">
                                 <option>Select Task Category</option>
                                 <option value="task1">Technical Task</option>
-                                <option  value="task2">User Story</option>
+                                <option value="task2">User Story</option>
                             </select>
                         </div>
                     </div>
@@ -120,10 +132,11 @@
                     <span>This field is required</span>
                 </div>
                 <div id="lower-form-right">
-                    <button  id="clear-button"><span class="add-task-font-styling">Clear</span><img
+                    <button id="clear-button"><span class="add-task-font-styling">Clear</span><img
                             id="clear-button-close-image" src="./assets/img/add_task/cancel_image.png"></button>
-                    <button type="submit" id="create-task-button" disabled><span class="create-task-button-styling">Create Task</span><img
-                            id="create-task-button-image" src="./assets/img/add_task/check.png"></button>
+                    <button type="submit" id="create-task-button" disabled><span
+                            class="create-task-button-styling">Create Task</span><img id="create-task-button-image"
+                            src="./assets/img/add_task/check.png"></button>
                 </div>
             </div>
         </form>
@@ -131,16 +144,8 @@
     <button id="success-button" class="task-added-information">
         <span class="task-added-nformation-span">Task added to board</span>
     </button>
-   
-    <script src="appdata.js"></script>
-    <script src="JavaScript/templates.js"></script>
-    <script src="JavaScript/summary.js"></script>
-    <!-- <script src="./assets/scripts/data.js"></script> -->
-    <script src="./assets/scripts/add_task.js"></script>
-    <link rel="stylesheet" href="style_desktop.css">
-    <link rel="stylesheet" href="style_mobile.css">
-    <link rel="stylesheet" href="aside_and_head_style.css">
-    <link rel="stylesheet" href="add_task_n_include.css">
+
+
 
 </body>
 

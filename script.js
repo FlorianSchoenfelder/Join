@@ -70,7 +70,3 @@ function openDropdownMenu() {
   document.getElementById("submenuContainer").classList.remove("d-none");
 }
 
-async function load() {
-  await includeHTML();
-}
-

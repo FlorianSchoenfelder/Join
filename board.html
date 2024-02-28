@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
+
     <link rel="stylesheet" href="style_desktop.css">
     <link rel="stylesheet" href="style_mobile.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="aside_and_head_style.css">
+    <link rel="stylesheet" href="board.css">
 
-    <script src="JavaScript/summary.js"></script>
-    <script src="JavaScript/templates.js"></script>
+    <script src="appdata.js" defer></script>
+    <script src="./assets/scripts/board.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="JavaScript/summary.js" defer></script>
+    <script src="JavaScript/templates.js" defer></script>
 </head>
 
 
@@ -69,26 +76,25 @@
             </div>
         </div>
 
-        
 
 
-            <div id="tasks-div">
-                <div id="to-do-column" class="task-column" ondrop="moveTo('toDo')" ondragover="allowDrop(event)">
-                </div>
-                <div id="in-progress-column" class="task-column" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)">
-                </div>
-                <div id="await-feedback-column" class="task-column" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)">
-                </div>
-                <div id="done-column" class="task-column" ondrop="moveTo('done')" ondragover="allowDrop(event)">
-                </div>
+
+        <div id="tasks-div">
+            <div id="to-do-column" class="task-column" ondrop="moveTo('toDo')" ondragover="allowDrop(event)">
             </div>
+            <div id="in-progress-column" class="task-column" ondrop="moveTo('inProgress')"
+                ondragover="allowDrop(event)">
+            </div>
+            <div id="await-feedback-column" class="task-column" ondrop="moveTo('awaitFeedback')"
+                ondragover="allowDrop(event)">
+            </div>
+            <div id="done-column" class="task-column" ondrop="moveTo('done')" ondragover="allowDrop(event)">
+            </div>
+        </div>
 
 
-        </main>
-        <script src="appdata.js"></script>
-        <script src="./assets/scripts/board.js"></script>
-        <link rel="stylesheet" href="aside_and_head_style.css">
-        <link rel="stylesheet" href="board.css">
-    </body>
+    </main>
+
+</body>
 
 </html>

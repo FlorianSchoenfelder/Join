@@ -661,7 +661,8 @@ input:focus {
 .submenuContainer {
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: end;
     padding: 96px 24px 0 0;
