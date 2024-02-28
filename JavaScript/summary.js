@@ -259,6 +259,7 @@ async function initUser() {
   // filterTasksByCategory();
   // renderToDos();
   initOthers();
+  getGreeting()
 }
 
 async function loadCurrentUser() {
@@ -306,10 +307,25 @@ function initOthers() {
   console.log(whereIAM);
 }
 
-// function closeDropdownMenu() {
-//   document.getElementById('submenuContainer').classList.add('d-none');
-// }
+function getGreeting() {
+  let hours = new Date().getHours();
 
-// function openDropdownMenu() {
-//   document.getElementById('submenuContainer').classList.remove('d-none');
-// }
+  switch (true) { // Abfrage ob es stimmt das hours kleiner als X-Case ist.
+    case (hours <= 4):
+      document.getElementById('right-lower-main').innerHTML = "Good night User"
+      break;
+      case (hours <= 12):
+      document.getElementById('right-lower-main').innerHTML = "Good Morning User"
+      break;
+      case (hours <= 18):
+      document.getElementById('right-lower-main').innerHTML = /*html*/`
+        <span> Good Afternoon User </span>
+      `;
+      break;
+      case (hours <= 23):
+      document.getElementById('right-lower-main').innerHTML = "Good Evening User"
+      break;
+    default:
+      break;
+  }
+}
