@@ -182,6 +182,7 @@ function showContactInfo(contactIndex, initial) {
   currentContactId = contact.id;
   let contactInfo = document.getElementById("current-contact");
   contactInfo.innerHTML = "";
+
   contactInfo.innerHTML += /*html*/ `
       <div class="current-contact">
         <div class="userprofil-top d-flex">
@@ -215,9 +216,8 @@ function showContactInfo(contactIndex, initial) {
         </div>
       </div>
   `;
-
-
-  ListElementBackground();
+  
+ListElementBackground();
 
 }
 

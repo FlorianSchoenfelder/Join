@@ -647,14 +647,8 @@ input:focus {
     0%, 100% {
       transform: translateX(150%); /* Start- und Endposition: rechts außerhalb des Bildschirms */
     }
-    25% {
+    25%, 50%, 75% {
         transform: translateX(-187%); /* Element wird sichtbar */
-      }
-      50% {
-        transform: translateX(-187%); /* Mittelpunkt der Animation: Element bleibt sichtbar */
-      }
-      75% {
-        transform: translateX(-187%); /* Element bleibt sichtbar */
       }
   }
 
