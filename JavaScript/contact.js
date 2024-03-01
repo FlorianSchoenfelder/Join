@@ -216,12 +216,12 @@ function showContactInfo(contactIndex, initial) {
         </div>
       </div>
   `;
-  
-ListElementBackground();
+
+ListElementBackground(currentContactId);
 
 }
 
-function ListElementBackground() {
+function ListElementBackgroundOLD() {
   // Durch jedes Listenelement iterieren
   for (let i = 0; i < listElementIds.length; i++) {
     const id = listElementIds[i];
@@ -248,6 +248,36 @@ function ListElementBackground() {
     }
   }
 } 
+
+
+
+function ListElementBackground(currentContactId) {
+  console.log(currentContactId);
+  for (let i = 0; i < listElementIds.length; i++) {
+    const id = listElementIds[i];
+    const listItem = document.getElementById(id);
+    listItem.addEventListener('click', function() {
+      // Setzt zuerst die Stile aller Elemente zurück
+      resetListElementStyles();
+
+      // Setzt die Stile für das ausgewählte Element
+      this.style.backgroundColor = "#2A3647";
+      this.style.borderRadius = "10px";
+      this.style.color = "#FFFFFF";
+    });   
+  }
+}
+
+function resetListElementStyles() {
+  listElementIds.forEach(id => {
+      const listItem = document.getElementById(id);
+      if (listItem) {
+          listItem.style.backgroundColor = "";
+          listItem.style.borderRadius = "";
+          listItem.style.color = "";
+      }
+  });
+}
 
 function createNewContact() {
   let fullname = document.getElementById("newContactName").value;
@@ -336,7 +366,7 @@ function deleteCurrentContact(contactID) {
   let currentContactContainer = document.getElementById("current-contact");
   currentContactContainer.innerHTML = "";
   
-  render();
+  render(); 
 }
 
 function saveCurrentContact() {
