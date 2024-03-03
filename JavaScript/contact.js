@@ -129,8 +129,8 @@ async function render() {
       let avatarColor = contact["avatarColor"];
       const listItem = document.createElement("li");
       const listElementId = `contactItem_${initial}_${j}`;
-      if (!listElementIds.includes(listElementId)) {
       listItem.id = listElementId;
+      if (!listElementIds.includes(listElementId)) {
       listElementIds.push(listElementId);
       }
       listItem.innerHTML = /*html*/ `
@@ -179,6 +179,7 @@ function showContactInfo(contactIndex, initial) {
   const contact = filterContactsByFirstLetter(contactList, initial)[
     contactIndex
   ];
+  currentListItem = "contactItem_" + initial + "_" + contactIndex;
   currentContactId = contact.id;
   let contactInfo = document.getElementById("current-contact");
   contactInfo.innerHTML = "";
@@ -217,7 +218,7 @@ function showContactInfo(contactIndex, initial) {
       </div>
   `;
 
-ListElementBackground(currentContactId);
+ListElementBackground(currentListItem);
 
 }
 
@@ -250,11 +251,10 @@ function ListElementBackgroundOLD() {
 } 
 
 
-
-function ListElementBackground(currentContactId) {
-  console.log(currentContactId);
+function ListElementBackground(currentListItem) {
   for (let i = 0; i < listElementIds.length; i++) {
     const id = listElementIds[i];
+    console.log(currentListItem);
     const listItem = document.getElementById(id);
     listItem.addEventListener('click', function() {
       // Setzt zuerst die Stile aller Elemente zurück
