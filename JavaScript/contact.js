@@ -189,9 +189,7 @@ function showContactInfo(contactIndex, initial) {
         <div class="userprofil-top d-flex">
           <div>
           <svg width="120" height="120" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="21" cy="21" r="20" fill=${
-              contact.avatarColor
-            } stroke="white" stroke-width="2"/>
+            <circle cx="21" cy="21" r="20" fill=${contact.avatarColor} stroke="white" stroke-width="2"/>
             <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="12" font-family="Inter, sans-serif" font-weight="400" fill="white">
               ${contact["firstname"].charAt(0) + contact["name"].charAt(0)}
             </text>
@@ -304,6 +302,16 @@ function editCurrentContact(contactID) {
       document.getElementById('editContactName').value = contactList[i].firstname + " " + contactList[i].name;
       document.getElementById('editContactEmail').value = contactList[i].email;
       document.getElementById('editContactPhone').value = contactList[i].phoneNumber;
+
+      const editContactIconDiv = document.getElementById("editContactIconDiv");
+      editContactIconDiv.innerHTML = `
+      <svg width="120" height="120" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="21" cy="21" r="20" fill="${contactList[i]["avatarColor"]}" stroke="white" stroke-width="2"/>
+        <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="12" font-family="Inter, sans-serif" font-weight="400" fill="white">
+          ${contactList[i]["firstname"].charAt(0) + contactList[i]["name"].charAt(0)}
+        </text>
+      </svg>`;
+
       break;
     }
   }
@@ -342,7 +350,8 @@ function deleteCurrentContact(contactID) {
 
   let currentContactContainer = document.getElementById("current-contact");
   currentContactContainer.innerHTML = "";
-  
+
+  closeEditContactPopup();
   render(); 
 }
 
