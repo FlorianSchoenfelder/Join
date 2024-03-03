@@ -218,53 +218,30 @@ function showContactInfo(contactIndex, initial) {
       </div>
   `;
 
-ListElementBackground(currentListItem);
+ListElementBackground();
 
 }
 
-function ListElementBackgroundOLD() {
-  // Durch jedes Listenelement iterieren
-  for (let i = 0; i < listElementIds.length; i++) {
-    const id = listElementIds[i];
-    const listItem = document.getElementById(id);
-    
-    // Wenn das Listenelement gefunden wurde
-    if (listItem) {
-      // Eventlistener hinzufügen
-      listItem.onclick = function() {
-        // Zurücksetzen der vorherigen Auswahl
-        if (currentListItem) {
-          currentListItem.style.backgroundColor = ""; // Zurück zur Standardfarbe
-          currentListItem.style.color = "";
-        }
+function ListElementBackground() {
+  // Zuerst die Stile aller Elemente zurücksetzen
+  resetListElementStyles();
 
-        // Aktualisierung des aktuellen Listenelements
+  // Durch das Array listElementIds iterieren
+  for (let i = 0; i < contactList.length; i++) {
+    const id = contactList[i]["id"];
+    // Überprüfen, ob die aktuelle ID mit currentContactId übereinstimmt
+    if (id === currentContactId) {
+      const listItem = document.getElementById(currentListItem);
+      if (listItem) {
+        // Setze die Stile für das ausgewählte Element
         setTimeout(() => {
-          this.style.backgroundColor = "#2A3647"; // Ändert die Eigenschaften des list-Elements
-          this.style.borderRadius = "10px";
-          this.style.color = "#FFFFFF";
-        }, 200);
-        currentListItem = this;
-      };
+          listItem.style.backgroundColor = "#2A3647";
+          listItem.style.borderRadius = "10px";
+          listItem.style.color = "#FFFFFF";
+        }, 100);
+      }
+      break; // Beende die Schleife, da das gesuchte Element gefunden wurde
     }
-  }
-} 
-
-
-function ListElementBackground(currentListItem) {
-  for (let i = 0; i < listElementIds.length; i++) {
-    const id = listElementIds[i];
-    console.log(currentListItem);
-    const listItem = document.getElementById(id);
-    listItem.addEventListener('click', function() {
-      // Setzt zuerst die Stile aller Elemente zurück
-      resetListElementStyles();
-
-      // Setzt die Stile für das ausgewählte Element
-      this.style.backgroundColor = "#2A3647";
-      this.style.borderRadius = "10px";
-      this.style.color = "#FFFFFF";
-    });   
   }
 }
 
