@@ -224,7 +224,7 @@ function ListElementBackground() {
   // Zuerst die Stile aller Elemente zurücksetzen
   resetListElementStyles();
 
-  // Durch das Array listElementIds iterieren
+  // Durch das Array contactList iterieren
   for (let i = 0; i < contactList.length; i++) {
     const id = contactList[i]["id"];
     // Überprüfen, ob die aktuelle ID mit currentContactId übereinstimmt
