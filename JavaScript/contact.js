@@ -160,6 +160,12 @@ async function render() {
   for (let i = 0; i < contactList.length; i++) {
     contactList[i].id = i;
   }
+
+  // Erstelle einen Klon der ContactList für Mobile Version
+  const mobileContactList = contactListContainer.cloneNode(true);
+  mobileContactList.id = 'mobileContactList';
+  mobileContactList.style.display = 'none';
+  document.body.appendChild(mobileContactList);
 }
 
 function filterContactsByFirstLetter(contactList, firstLetter) {

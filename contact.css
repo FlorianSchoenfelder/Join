@@ -694,3 +694,29 @@ input:focus {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+/* CSS for mobile Version */
+
+@media(max-width: 450px ) {
+    .hide-mobile {
+        display: none !important;
+    }
+
+    #mobileContactList {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    body {
+        overflow: scroll;
+    }
+
+    .initial-header {
+        margin-left: 50px;
+    }
+
+    .names-list {
+        margin-left: 20px;
+        margin-right: 0;
+    }
+}

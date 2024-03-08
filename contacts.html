@@ -20,7 +20,7 @@
 </head>
 
 <body onload="render(), initUser()">
-  <header w3-include-html="assets/templates/header.html">
+  <header class="hide-mobile" w3-include-html="assets/templates/header.html">
 
   </header>
 
@@ -34,11 +34,11 @@
     </div>
   </div>
 
-  <aside w3-include-html="assets/templates/aside.html">
+  <aside class="hide-mobile" w3-include-html="assets/templates/aside.html">
 
   </aside>
 
-  <div class="d-flex">
+  <div class="d-flex hide-mobile">
     <div class="contact-left-side">
       <button class="textbutton" onclick="openAddContactPopup()">
         Add new contact
@@ -60,9 +60,10 @@
     </div>
   </div>
 
+    <!--PopUp für Add Contact -->
   <div class="darkBackgroundContainer d-none" id="darkBackgroundContainer"></div>
-  <div id="addContactPopup" onclick="closeAddContactPopup()">
-    <div class="addContactPopup" onclick="stopPropagation(event)">
+  <div id="addContactPopup" class="hide-mobile" onclick="closeAddContactPopup()">
+    <div class="addContactPopup hide-mobile" onclick="stopPropagation(event)">
       <div class="addContactLeftSide">
         <div class="addContactLeftSideImage">
           <img src="./assets/img/joinLogoWhite.svg" />
@@ -123,9 +124,8 @@
   </div>
 
   <!--PopUp für Contact Edit -->
-
-  <div id="editContactPopup" onclick="closeEditContactPopup()">
-    <div class="addContactPopup" onclick="stopPropagation(event)">
+  <div id="editContactPopup" class="hide-mobile" onclick="closeEditContactPopup()">
+    <div class="addContactPopup hide-mobile" onclick="stopPropagation(event)">
       <div class="addContactLeftSide">
         <div class="addContactLeftSideImage">
           <img src="./assets/img/joinLogoWhite.svg" />
@@ -185,11 +185,12 @@
   </div>
 
   <!--PopUp für Contact Succesfully Created -->
-  <div id="contactSuccesfullyCreatedPopUp" class="succesfullyCreatedPopUp slideOut">
+  <div id="contactSuccesfullyCreatedPopUp" class="succesfullyCreatedPopUp slideOut hide-mobile">
     <span>Contact succesfully created</span>
   </div>
 
-
+  <!-- Div's for Mobile Version Contacts  -->
+  
 
 </body>
 
