@@ -1,6 +1,270 @@
 @media (max-height: 700px) {
-    .privacyPolicyContainer{
-        position: absolute;
-        bottom: 0px;
+  .privacyPolicyContainer {
+    position: absolute;
+    bottom: 0px;
+  }
+}
+
+/* Large Sizes */
+
+@media (max-width: 1200px) {
+  .signUpFromLoginPage {
+    right: 100px;
+  }
+}
+
+/* Laptop */
+
+@media (max-width: 992px) {
+
+/* Login Page  */
+  .signUpFromLoginPage {
+    position: absolute;
+    margin-inline: auto;
+    top: auto;
+    bottom: 180px;
+    /* width: 100vw; */
+    right: auto;
+  }
+
+  .loginFrame {
+    width: 77%;
+  }
+
+  .privacyPolicyContainer {
+    bottom: 50px;
+  }
+
+  @keyframes identifier {
+    from {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50vw;
+      height: 70vh;
     }
+    to {
+      position: absolute;
+      top: 30px;
+      left: 77px;
+      width: 80px;
+      height: 122px;
+      transform: none;
+    }
+  }
+
+  .signUpFromLoginPage {
+    width: 292px;
+    height: 49px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    bottom: 80px;
+  }
+
+  .privacyPolicyContainer {
+    height: 35px;
+    bottom: 8px;
+    gap: 8px;
+  }
+
+  /* Sign up Page */
+
+  .logoSignUpImage {
+    position: absolute;
+    top: 22px;
+    left: 38px;
+    width: 64px;
+    height: 78px;
+}
+}
+
+/* Mobile  */
+
+@media (max-width: 600px) {
+  /* Login Page */
+  @keyframes identifier {
+    from {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50vw;
+      height: 70vh;
+    }
+    to {
+      position: absolute;
+      top: 37px;
+      left: 38px;
+      width: 64px;
+      height: 78px;
+      transform: none;
+    }
+  }
+
+  .loginFrame {
+    width: 90%;
+    height: 515px;
+    padding: 0px 32px;
+  }
+
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .loginHeadline p {
+    height: 73px;
+    font-size: 40px;
+  }
+
+  .loginHeadline::after {
+    content: "";
+    width: 25%;
+    border: 2px solid #29abe2;
+    background: #29abe2;
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .loginInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 196px;
+    gap: 0px;
+  }
+
+  .remeberMeSection {
+    left: 8px;
+  }
+
+  .inputField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 152px;
+    gap: 32px;
+  }
+
+  .loginButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    width: 180px;
+    height: 123px;
+  }
+
+  .loginButton,
+  .guestLoginButton {
+    font-size: 16px;
+    line-height: 19, 2px;
+    height: 51px;
+  }
+
+  .signUpFromLoginPage {
+    width: 292px;
+    height: 49px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    bottom: 80px;
+  }
+
+  .signUpFromLoginPage p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  .privacyPolicyContainer {
+    height: 35px;
+    bottom: 8px;
+    gap: 8px;
+  }
+
+  /* Sign Up Page */
+
+  .logoSignUpImage {
+    position: absolute;
+    top: 22px;
+    left: 38px;
+    width: 64px;
+    height: 78px;
+  }
+
+  .backToLoginPageContainer {
+    left: 15px;
+    top: 15px;
+}
+
+  .signUpFrame {
+    width: 90%;
+    height: 595px;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: start;
+}
+
+.signUpInputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    align-items: center;
+    height: fit-content;
+    margin-top: 48px;
+}
+
+.signUpHeadline {
+    height: 72px;
+    width: 173px;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.signUpHeadline::after {
+    border: 2px solid #29ABE2;
+}
+
+.signUpinputField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    height: fit-content;
+    gap: 24px;
+}
+
+.signUpHeadline p {
+    height: 56px;
+    font-size: 47px;
+    font-weight: 700;
+    line-height: 56px;
+}
+
+.signUpinputField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 152px;
+    gap: 24px;
+}
+
+.acceptPrivacyPolicyContainer {
+    position: absolute;
+    bottom: 110px;
+}
+
+.signUpButtonContainer {
+    bottom: 32px;
+    position: absolute;
+}
+
 }

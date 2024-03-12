@@ -44,6 +44,7 @@ function loginUser() {
     loginEmail.style.border = "2px solid red";
     loginPassword.style.border = "2px solid red";
     document.getElementById("wrongPassword").classList.remove("d-none");
+    rememberMe.classList.add("remember");
     document
       .getElementById("loginForm")
       .addEventListener("click", function (event) {

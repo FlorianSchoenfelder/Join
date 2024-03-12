@@ -20,7 +20,8 @@ async function registerUser() {
         
         password.style.border = '2px solid red';
         confirmPassword.style.border = '2px solid red';
-        alert('The Passwords does not match to each other!');
+        document.getElementById("passwordNotMatch").classList.remove("d-none");
+        PPContainer.style.bottom = '92px';
     } else {
         if (checkbox !== true) {
             alert('Please accept the Privacy Policy!');

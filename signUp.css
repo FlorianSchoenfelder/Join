@@ -29,6 +29,10 @@
     height: 122px;
 }
 
+.addSpace {
+    margin-top: 32px;
+}
+
 .signUpFrame {
     width: 598px;
     height: 630px;
@@ -42,6 +46,10 @@
     flex-direction: column;
     gap: 32px;
     position: relative;
+}
+
+.passwordNotMatch {
+    color: red;
 }
 
 .signUpHeadline p {

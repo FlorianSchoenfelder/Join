@@ -257,6 +257,10 @@ p {
     gap: 35px;
 }
 
+.remember {
+    margin-top: 32px;
+}
+
 .loginButton {
     display: flex;
     align-items: center;
