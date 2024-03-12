@@ -69,21 +69,6 @@ function checkRequiredFields() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function filterContacts() {
     addNameInitialToContacts(contactData);
     addInitialsOfFirstNames(contactData);

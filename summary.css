@@ -157,9 +157,15 @@
 
 /* generic classes */
 
-.color-white {
+.color-white{
     color: white !important;
 }
+
+.new-styling{
+color: red;
+}
+
+
 
 .background-white {
     background-color: white !important;

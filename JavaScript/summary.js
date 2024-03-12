@@ -1,3 +1,5 @@
+
+
 function FOL() {
   //functions onload
   greetUser();
@@ -10,17 +12,24 @@ function FOL() {
   findClosestDueDatePrioZero();
 }
 
+
+
+
 function highlightFirstDiv() {
-  document.getElementById("first-line-left-div").classList.add("darken-div");
+
+
+  document.getElementById('first-line-left-div').classList.add("darken-div");
   changePencilHhover();
-  document
-    .getElementById("summary-pencil-image")
-    .classList.add("on-hover-pencil");
-  document.getElementById("amount-of-to-do").classList.add("color-white");
+  document.getElementById('summary-pencil-image').classList.add('on-hover-pencil');
+
+
+  
+  document.getElementById('amount-of-to-do').classList.add('color-white');
   document.getElementById("to-do-span").classList.add("color-white");
 }
 
 function delightFirstDiv() {
+
   document.getElementById("first-line-left-div").classList.toggle("darken-div");
   changePencilDishover();
   document.getElementById("amount-of-to-do").classList.remove("color-white");
@@ -92,6 +101,7 @@ function delightSecondLine() {
     .getElementById("summary-deadline-span")
     .classList.remove("color-white");
 }
+
 
 function greetUser() {
   let currentDate = new Date();
@@ -348,3 +358,6 @@ function getGreeting() {
   }
 }
 }
+
+
+
