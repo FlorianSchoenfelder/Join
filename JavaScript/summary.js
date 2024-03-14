@@ -1,5 +1,3 @@
-
-
 function FOL() {
   //functions onload
   greetUser();
@@ -12,24 +10,18 @@ function FOL() {
   findClosestDueDatePrioZero();
 }
 
-
-
-
 function highlightFirstDiv() {
-
-
-  document.getElementById('first-line-left-div').classList.add("darken-div");
+  document.getElementById("first-line-left-div").classList.add("darken-div");
   changePencilHhover();
-  document.getElementById('summary-pencil-image').classList.add('on-hover-pencil');
+  document
+    .getElementById("summary-pencil-image")
+    .classList.add("on-hover-pencil");
 
-
-  
-  document.getElementById('amount-of-to-do').classList.add('color-white');
+  document.getElementById("amount-of-to-do").classList.add("color-white");
   document.getElementById("to-do-span").classList.add("color-white");
 }
 
 function delightFirstDiv() {
-
   document.getElementById("first-line-left-div").classList.toggle("darken-div");
   changePencilDishover();
   document.getElementById("amount-of-to-do").classList.remove("color-white");
@@ -101,7 +93,6 @@ function delightSecondLine() {
     .getElementById("summary-deadline-span")
     .classList.remove("color-white");
 }
-
 
 function greetUser() {
   let currentDate = new Date();
@@ -265,33 +256,52 @@ function findClosestDueDatePrioZero() {
 
 async function initUser() {
   await includeHTML();
-  getGreeting();
+  if (window.innerWidth <= 1024) {
+    initGreeting();
+  }else {
+    getGreeting();
   loadCurrentUser();
   // checkforUser();
   // filterTasksByCategory();
   // renderToDos();
   initOthers();
+  }
   
 }
 
-async function loadCurrentUser() {
-  
-    try {
-      currentUser = JSON.parse(await getItem("loggedUser"));
+function initGreeting() {
+  let windowWidth = window.innerWidth;
 
-      console.log(currentUser);
-    } catch (e) {
-      console.error("Loading error:", e);
-    }
+  if (windowWidth <= 1024) {
+    document.getElementById('greetUser').classList.remove('d-none');
+    document.getElementById('greetUser').classList.add('greetingAnimation');
   }
+}
+
+async function initPrivacyAndLegalNotice() {
+  await includeHTML();
+  initOthers();
+}
+
+async function loadCurrentUser() {
+  try {
+    currentUser = JSON.parse(await getItem("loggedUser"));
+
+    console.log(currentUser);
+  } catch (e) {
+    console.error("Loading error:", e);
+  }
+}
 
 function checkforUser() {
   if ((guest = true)) {
     document.getElementById("right-lower-main").innerHTML += "Guest";
-    document.getElementById('header-userprofile').src = "./assets/img/guestAvatar.svg";
+    document.getElementById("header-userprofile").src =
+      "./assets/img/guestAvatar.svg";
   } else {
-    document.getElementById('header-userprofile').src = "./assets/img/aside_and_header/header-userprofile.png";
-}
+    document.getElementById("header-userprofile").src =
+      "./assets/img/aside_and_header/header-userprofile.png";
+  }
 }
 
 function initOthers() {
@@ -323,6 +333,23 @@ function initOthers() {
       document.getElementById("contacts-list-element").classList.add("active");
       break;
 
+    case "/Join/privacyPolicy.html":
+      document.getElementById("privacy-list-element").classList.add("active");
+      break;
+    case "/privacyPolicy.html":
+      document.getElementById("privacy-list-element").classList.add("active");
+      break;
+    case "/Join/legalNotice.html":
+      document
+        .getElementById("legalNotice-list-element")
+        .classList.add("active");
+      break;
+    case "/legalNotice.html":
+      document
+        .getElementById("legalNotice-list-element")
+        .classList.add("active");
+      break;
+
     default:
       break;
   }
@@ -331,33 +358,27 @@ function initOthers() {
 
 function getGreeting() {
   if (window.location.pathname == "/summary.html") {
-    
-  let hours = new Date().getHours();
+    let hours = new Date().getHours();
 
-  switch (
-    true // Abfrage ob es stimmt das hours kleiner als X-Case ist.
-  ) {
-    case hours <= 4:
-      document.getElementById("right-lower-main").innerHTML += "Good night";
-      break;
-    case hours <= 12:
-      document.getElementById("right-lower-main").innerHTML +=
-        "Good Morning";
-      break;
-    case hours <= 18:
-      document.getElementById("right-lower-main").innerHTML += /*html*/ `
+    switch (
+      true // Abfrage ob es stimmt das hours kleiner als X-Case ist.
+    ) {
+      case hours <= 4:
+        document.getElementById("right-lower-main").innerHTML += "Good night";
+        break;
+      case hours <= 12:
+        document.getElementById("right-lower-main").innerHTML += "Good Morning";
+        break;
+      case hours <= 18:
+        document.getElementById("right-lower-main").innerHTML += /*html*/ `
         <span> Good Afternoon </span>
       `;
-      break;
-    case hours <= 23:
-      document.getElementById("right-lower-main").innerHTML +=
-        "Good Evening";
-      break;
-    default:
-      break;
+        break;
+      case hours <= 23:
+        document.getElementById("right-lower-main").innerHTML += "Good Evening";
+        break;
+      default:
+        break;
+    }
   }
 }
-}
-
-
-

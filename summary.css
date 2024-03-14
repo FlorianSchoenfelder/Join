@@ -363,3 +363,34 @@ color: red;
     flex-direction: column;
     align-items: center;
 }
+
+/* .greet {
+    
+} */
+
+.greetingAnimation {
+    /* width: 100vw;
+    height: 100vh; */
+    padding: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 100px 0px;
+    background-color: white;
+
+
+    opacity: 1;
+    animation: 1.5s greeting ease-in-out forwards;
+    animation-delay: 500ms;
+}
+
+@keyframes greeting {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

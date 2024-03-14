@@ -39,6 +39,32 @@ body {
     align-items: center;
 }
 
+.greetingAnimation {
+    /* width: 100vw;
+    height: 100vh; */
+    padding: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+
+
+    opacity: 1;
+    animation: 3s greeting ease-in-out forwards;
+    /* animation-delay: 500ms; */
+}
+
+@keyframes greeting {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
 @keyframes opacity {
     from {
         opacity: 0;

@@ -28,7 +28,9 @@ function switchCheckboxImage() {
 function guestLogin(event) {
   event.preventDefault();
   guest = true;
+
   window.open('summary.html', '_self');
+  initGreeting();
 }
 
 function loginUser() {
@@ -56,7 +58,21 @@ function loginUser() {
     getLoggedUser(user);
     
     window.open('summary.html', '_self');
+    initGreeting();
   }
+}
+
+function initGreeting() {
+  let windowWidth = window.innerWidth;
+  
+  if (windowWidth <= 1024) {
+    document.getElementById('right-lower-main').classList.add('greetingAnimation');
+
+  }
+
+  // if (windowWidth <= 1024 && (!history.back("add_task_n_include.html" || "contacts.html" || "board.html"))) {
+
+  // }
 }
 
 async function getLoggedUser(user) {
