@@ -712,11 +712,27 @@ input:focus {
     }
 
     .initial-header {
-        margin-left: 50px;
+        margin-left: 40px;
     }
 
     .names-list {
-        margin-left: 20px;
+        margin-left: 10px;
         margin-right: 0;
+    }
+
+    .nav-mobile {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #2A3647;
+    }
+
+    .list-nav-element-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        font-weight: 200;
+        padding: 16px;
     }
 }
