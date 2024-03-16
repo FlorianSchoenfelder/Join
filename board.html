@@ -59,44 +59,110 @@
                     </button>
                 </div>
             </div>
-            <div id="upper-board-column-heading" >
+            <!-- <div id="upper-board-column-heading">
+            </div> -->
+        </div>
+
+        <div id="tasks-div">
+
+            <div class="newTodo">
                 <div id="to-do-heading-div">
                     <span class="column-heading-span-style">To do</span>
                     <img class="column-head-plus" src="/assets/img/board/plus_button.svg">
                 </div>
+                <div id="to-do-column" class="task-column" ondrop="moveTo('toDo')" ondragover="allowDrop(event)">
+                </div>
+            </div>
+
+            <div class="newInProgress">
                 <div id="in-progress-heading-div">
                     <span class="column-heading-span-style">In progress</span>
                     <img class="column-head-plus" src="/assets/img/board/plus_button.svg">
                 </div>
-                <div  id="await-feedback-heading-div">
+                <div id="in-progress-column" class="task-column" ondrop="moveTo('inProgress')"
+                    ondragover="allowDrop(event)">
+                </div>
+            </div>
+
+            <div class="newAwaitFeedback">
+                <div id="await-feedback-heading-div">
                     <span class="column-heading-span-style">Await feedback</span>
                     <img class="column-head-plus" src="/assets/img/board/plus_button.svg">
                 </div>
+                <div id="await-feedback-column" class="task-column" ondrop="moveTo('awaitFeedback')"
+                    ondragover="allowDrop(event)">
+                </div>
+            </div>
+
+            <div class="newDone">
                 <div id="done-heading-div">
                     <span class="column-heading-span-style">Done</span>
                 </div>
+                <div id="done-column" class="task-column" ondrop="moveTo('done')" ondragover="allowDrop(event)">
+                </div>
             </div>
-        </div>
 
-        <div id="tasks-div">
-            <div id="to-do-column" class="task-column" ondrop="moveTo('toDo')" ondragover="allowDrop(event)">
-            </div>
-            <div id="in-progress-column" class="task-column" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)">
-            </div>
-            <div id="await-feedback-column" class="task-column" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)">
-            </div>
-            <div id="done-column" class="task-column" ondrop="moveTo('done')" ondragover="allowDrop(event)">
-            </div>
         </div>
     </main>
 
     <div class="taskdetail-container" id="detailview-container">
     </div>
 
-<div id="overlay-identifier" class="overlay-d-none">
+    <div id="overlay-identifier" class="overlay-d-none">
 
-</div>
+    </div>
 
 </body>
 
 </html>
+
+
+<!-- Functional Main -->
+
+<!-- <main id="content-bord">
+    <div id="upper-board-div">
+        <div id="upper-bord-first-line">
+            <div id="heading-div">
+                <h1 id="h1-board">Board</h1>
+            </div>
+            <div id="right-upper-board">
+                <div id="board-input-div">
+                    <input onkeyup="filterTasksBoard()" placeholder="Find Task" id="board-input-field">
+                    <img id="image-mg-glass" onclick="focusSearchInput()" src="/assets/img/board/search.svg">
+                </div>
+                <button id="add-task-button">
+                    <span id="add-task-span">Add task</span>
+                    <img id="add-task-image" src="/assets/img/board/add.svg">
+                </button>
+            </div>
+        </div>
+        <div id="upper-board-column-heading" >
+            <div id="to-do-heading-div">
+                <span class="column-heading-span-style">To do</span>
+                <img class="column-head-plus" src="/assets/img/board/plus_button.svg">
+            </div>
+            <div id="in-progress-heading-div">
+                <span class="column-heading-span-style">In progress</span>
+                <img class="column-head-plus" src="/assets/img/board/plus_button.svg">
+            </div>
+            <div  id="await-feedback-heading-div">
+                <span class="column-heading-span-style">Await feedback</span>
+                <img class="column-head-plus" src="/assets/img/board/plus_button.svg">
+            </div>
+            <div id="done-heading-div">
+                <span class="column-heading-span-style">Done</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="tasks-div">
+        <div id="to-do-column" class="task-column" ondrop="moveTo('toDo')" ondragover="allowDrop(event)">
+        </div>
+        <div id="in-progress-column" class="task-column" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)">
+        </div>
+        <div id="await-feedback-column" class="task-column" ondrop="moveTo('awaitFeedback')" ondragover="allowDrop(event)">
+        </div>
+        <div id="done-column" class="task-column" ondrop="moveTo('done')" ondragover="allowDrop(event)">
+        </div>
+    </div>
+</main> -->
