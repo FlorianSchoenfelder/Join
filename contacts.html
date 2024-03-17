@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="board.css" />
   <link rel="stylesheet" href="contact.css" />
   <link rel="stylesheet" href="aside_and_head_style.css" />
-
+  <link rel="stylesheet" href="mediaQuerry.css">
   <link rel="stylesheet" href="fonts.css">
   <script src="./assets/scripts/board.js" defer></script>
   <script src="JavaScript/contact.js" defer></script>
@@ -20,7 +20,7 @@
 </head>
 
 <body onload="render(), initUser()">
-  <header class="hide-mobile" w3-include-html="assets/templates/header.html">
+  <header w3-include-html="assets/templates/header.html">
 
   </header>
 
@@ -191,6 +191,10 @@
   </div>
 
   <!-- Div's for Mobile Version Contacts  -->
+
+  <button class="textbutton-mobile" onclick="openAddContactPopup()">
+    <img src="./assets/img/person_add.svg" alt="add contact">
+  </button>
   
 
 </body>
