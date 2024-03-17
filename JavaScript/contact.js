@@ -67,6 +67,9 @@ function stopPropagation(event) {
 }
 
 function openAddContactPopup() {
+  if (window.innerWidth <= 450) {
+    document.getElementById("addContactPopupMobile").classList.remove("d-none");
+  } else {
   document
     .getElementById("darkBackgroundContainer")
     .classList.remove("swipeOut");
@@ -80,6 +83,7 @@ function openAddContactPopup() {
   document.getElementById('newContactName').value = "";
   document.getElementById('newContactEmail').value = "";
   document.getElementById('newContactPhone').value = "";
+  }
 }
 
 function closeAddContactPopup() {
@@ -400,3 +404,9 @@ function contactSuccesfullyCreatedPopUp() {
   succesfullyCreatedPopUp.classList.remove('slideOut');
   succesfullyCreatedPopUp.classList.add('slideIn');
 }
+
+/* Function for Mobile Responsive */
+
+
+
+ 

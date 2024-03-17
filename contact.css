@@ -762,7 +762,106 @@ input:focus {
     box-shadow: 0px 0px 14px 3px #0000000a;
   }
 
-  #addContactPopup {
+  .addContactPopupMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 9%;
+    height: 760px;
+    width: 400px;
+    background-color: lightgray;
+    margin: 0px 15px;
+    border-radius: 30px;
     
+
   }
+
+  .addContactLeftSideMobile {
+    display: flex;
+    align-items: center;
+    background-color: #2a3647;
+    height: 47%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 20px 15px;
+  }
+
+  .addContactLeftSideTextLine {
+    padding-left: 8px;
+  }
+
+  .addContactLeftSideText span:first-child {
+    margin-top: 30px;
+    font-size: 47px;
+    line-height: 56px;
+  }
+
+  .addContactLeftSideText span:last-child {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+  .addContactLeftSideTextLine::after {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 14px;
+    padding-top: 0;
+    width: 90px;
+    border-radius: 3px;
+  }
+
+  .closePopup {
+    display: flex !important;
+    top: 24px;
+    left: 348px;
+  }
+
+  .addContactIcon {
+    display: flex !important;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 292px;
+    left: 138px;
+    height: 120px;
+    width: 120px;
+    border-radius: 70px;
+}
+
+  .addContactRightSideMobile {
+    height: 53%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .createContactSection {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 64px;
+    width: 400px;
+    gap: 20px;
+    padding: 10px 0px;
+    scale: 0.9;
+}
+
+.inputContainer {
+  height: 41px;
+  display: flex;
+}
+
+.buttonsForAddContact {
+  width: 400px;
+  margin-top: 20px;
+  gap: 0;
+}
+
+.createContactButton {
+  height: 51px;
+  padding: 18px 10px;
+}
+
 }
