@@ -27,6 +27,10 @@
     padding-bottom: 32px;
     width: 100%;
   }
+
+  .task-column {
+    width: 100%;
+  }
 }
 
 @media (max-width: 750px) {
@@ -77,11 +81,11 @@
   /* Add Task */
 
   #add-task-section {
-    overflow: scroll;
+    /* overflow: scroll; */
   }
 
   #add-task-form {
-    overflow: scroll;
+    /* overflow: scroll; */
   }
 
   #upper-form {
@@ -176,6 +180,10 @@
   }
 
   /* Summary */
+
+  #right-lower-main {
+    display: none !important;
+  }
 
   #summary-heading {
     font-size: 42px !important;
@@ -551,6 +559,7 @@
 
   #content-summary {
     padding: 32px 16px 100px 16px !important;
+    overflow: scroll;
   }
 
   aside {

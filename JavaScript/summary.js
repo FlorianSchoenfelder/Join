@@ -253,34 +253,21 @@ function findClosestDueDatePrioZero() {
 }
 
 // let currentLoggedUser = [];
+// let currentUser = [];
 
 async function initUser() {
   await includeHTML();
-  if (window.innerWidth <= 1024) {
-    initGreeting();
-  }else {
-    getGreeting();
-  loadCurrentUser();
-  // checkforUser();
+  // loadCurrentUser();
+  initOthers();
+  // if (guest == true) {
+  //   initGreeting(guest);
+  // }
+  // initGreeting(currentUser);
+  // greetUser();
+  // getGreeting();
+  checkforUser();
   // filterTasksByCategory();
   // renderToDos();
-  initOthers();
-  }
-  
-}
-
-function initGreeting() {
-  let windowWidth = window.innerWidth;
-
-  if (windowWidth <= 1024) {
-    document.getElementById('greetUser').classList.remove('d-none');
-    document.getElementById('greetUser').classList.add('greetingAnimation');
-  }
-}
-
-async function initPrivacyAndLegalNotice() {
-  await includeHTML();
-  initOthers();
 }
 
 async function loadCurrentUser() {
@@ -293,16 +280,16 @@ async function loadCurrentUser() {
   }
 }
 
-function checkforUser() {
-  if ((guest = true)) {
-    document.getElementById("right-lower-main").innerHTML += "Guest";
-    document.getElementById("header-userprofile").src =
-      "./assets/img/guestAvatar.svg";
-  } else {
-    document.getElementById("header-userprofile").src =
-      "./assets/img/aside_and_header/header-userprofile.png";
-  }
-}
+// function checkforUser() {
+//   if ((guest == true)) {
+//     document.getElementById("right-lower-main").innerHTML += "Guest";
+//     document.getElementById("header-userprofile").src =
+//       "./assets/img/guestAvatar.svg";
+//   } else {
+//     document.getElementById("header-userprofile").src =
+//       "./assets/img/aside_and_header/header-userprofile.png";
+//   }
+// }
 
 function initOthers() {
   let whereIAM = window.location.pathname;
@@ -359,7 +346,7 @@ function initOthers() {
 function getGreeting() {
   if (window.location.pathname == "/summary.html") {
     let hours = new Date().getHours();
-
+    // document.getElementById("right-lower-main").style.display = "block";
     switch (
       true // Abfrage ob es stimmt das hours kleiner als X-Case ist.
     ) {
@@ -370,9 +357,8 @@ function getGreeting() {
         document.getElementById("right-lower-main").innerHTML += "Good Morning";
         break;
       case hours <= 18:
-        document.getElementById("right-lower-main").innerHTML += /*html*/ `
-        <span> Good Afternoon </span>
-      `;
+        document.getElementById("right-lower-main").innerHTML +=
+          "Good Afternoon";
         break;
       case hours <= 23:
         document.getElementById("right-lower-main").innerHTML += "Good Evening";

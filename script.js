@@ -1,6 +1,7 @@
 let checkbox = false;
-let currentUser = [];
-let guest = false;
+// let currentUser = [];
+let helloUser = [];
+
 
 function changeCheckbox() {
   if (!checkbox == true) {
@@ -25,16 +26,17 @@ function switchCheckboxImage() {
   }
 }
 
-function guestLogin(event) {
+function guestLogin(event, guest) {
   event.preventDefault();
-  guest = true;
-
+  // let guest = true;
+  console.log(guest);
+initGreeting(guest);
   window.open('summary.html', '_self');
-  initGreeting();
+  
 }
 
-function loginUser() {
-  guest = false;
+function loginUser(logged) {
+  
   let email = document.getElementById("loginEmail").value;
   let password = document.getElementById("loginPassword").value;
   let user = users.find(
@@ -42,45 +44,96 @@ function loginUser() {
   );
   
   if (!user) {
-    // alert('Wrong Email or Password');
-    loginEmail.style.border = "2px solid red";
-    loginPassword.style.border = "2px solid red";
-    document.getElementById("wrongPassword").classList.remove("d-none");
-    rememberMe.classList.add("remember");
-    document
-      .getElementById("loginForm")
-      .addEventListener("click", function (event) {
-        event.stopPropagation();
-      });
+    getErrorMessage();
     console.log("Falsch");
-  } else {
+  } 
+  else {
     console.log("Gefunden");
-    getLoggedUser(user);
-    
+    // let guest = false;
+
+    // getLoggedUser(user);
+    console.log(user.userName);
+    // currentUser.push(user);
+    initGreeting(logged);
     window.open('summary.html', '_self');
-    initGreeting();
+    
   }
 }
 
-function initGreeting() {
+
+
+// async function initUser() {
+//   await includeHTML();
+//   // loadCurrentUser();
+//   initOthers();
+//   // if (guest == true) {
+//   //   initGreeting(guest);
+//   // }
+//   // initGreeting(currentUser);
+//   // greetUser();
+//   // getGreeting();
+//   // checkforUser();
+//   // filterTasksByCategory();
+//   // renderToDos();
+// }
+
+function initGreeting(userOrGuest) {
   let windowWidth = window.innerWidth;
-  
-  if (windowWidth <= 1024) {
-    document.getElementById('right-lower-main').classList.add('greetingAnimation');
-
+  // userOrGuest.push(helloUser);
+  console.log(userOrGuest);
+// debugger;
+  if (userOrGuest == "guest" && windowWidth <= 1024) {
+    // debugger
+    document.getElementById('greetUser').classList.remove('d-none');
+    document.getElementById('greetUser').classList.add('greetingAnimation');
+    document.getElementById('greetUser').innerHTML = /*html*/`
+      <h1>Hello Guest</h1>
+    `;
+  }else 
+  if (userOrGuest == "user" && windowWidth <= 1024) {
+    document.getElementById('greetUser').classList.remove('d-none');
+    document.getElementById('greetUser').classList.add('greetingAnimation');
+    document.getElementById('greetUser').innerHTML = /*html*/`
+      <h1>Hello ${userOrGuest}</h1>
+    `;
   }
 
-  // if (windowWidth <= 1024 && (!history.back("add_task_n_include.html" || "contacts.html" || "board.html"))) {
-
-  // }
+  return userOrGuest;
 }
 
-async function getLoggedUser(user) {
-  currentUser.push({
-    name: user.userName,
-    email: user.email,
-  });
-  await setItem("loggedUser", JSON.stringify(currentUser));
+// async function getLoggedUser(user) {
+//   currentUser.push({
+//     name: user.userName,
+//     email: user.email,
+//   });
+
+  
+//   await setItem("loggedUser", JSON.stringify(currentUser));
+//   // return currentUser;
+// }
+
+function getErrorMessage() {
+  // alert('Wrong Email or Password');
+  loginEmail.style.border = "2px solid red";
+  loginPassword.style.border = "2px solid red";
+  document.getElementById("wrongPassword").classList.remove("d-none");
+  rememberMe.classList.add("remember");
+  document
+    .getElementById("loginForm")
+    .addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+}
+
+function checkforUser() {
+  if ((guest == true)) {
+    document.getElementById("right-lower-main").innerHTML += "Guest";
+    document.getElementById("header-userprofile").src =
+      "./assets/img/guestAvatar.svg";
+  } else {
+    document.getElementById("header-userprofile").src =
+      "./assets/img/aside_and_header/header-userprofile.png";
+  }
 }
 
 function closeDropdownMenu() {
