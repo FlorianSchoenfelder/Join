@@ -2,7 +2,6 @@ let checkbox = false;
 // let currentUser = [];
 let helloUser = [];
 
-
 function changeCheckbox() {
   if (!checkbox == true) {
     checkbox = true;
@@ -26,41 +25,36 @@ function switchCheckboxImage() {
   }
 }
 
-function guestLogin(event, guest) {
+async function guestLogin(event) {
   event.preventDefault();
-  // let guest = true;
-  console.log(guest);
-initGreeting(guest);
-  window.open('summary.html', '_self');
-  
+  await setItem('currentUser', 'guest');
+  window.open("summary.html", "_self");
 }
 
-function loginUser(logged) {
-  
+async function loginUser() {
   let email = document.getElementById("loginEmail").value;
   let password = document.getElementById("loginPassword").value;
   let user = users.find(
     (users) => users.email == email && users.password == password
   );
-  
+
   if (!user) {
     getErrorMessage();
     console.log("Falsch");
-  } 
-  else {
+  } else {
     console.log("Gefunden");
     // let guest = false;
 
     // getLoggedUser(user);
     console.log(user.userName);
+    await setItem('currentUser', JSON.stringify(user));
+    helloUser = JSON.parse(await getItem('currentUser'));
+
     // currentUser.push(user);
-    initGreeting(logged);
-    window.open('summary.html', '_self');
-    
+    // initGreeting();
+    // window.open("summary.html", "_self");
   }
 }
-
-
 
 // async function initUser() {
 //   await includeHTML();
@@ -81,19 +75,18 @@ function initGreeting(userOrGuest) {
   let windowWidth = window.innerWidth;
   // userOrGuest.push(helloUser);
   console.log(userOrGuest);
-// debugger;
+  // debugger;
   if (userOrGuest == "guest" && windowWidth <= 1024) {
     // debugger
-    document.getElementById('greetUser').classList.remove('d-none');
-    document.getElementById('greetUser').classList.add('greetingAnimation');
-    document.getElementById('greetUser').innerHTML = /*html*/`
+    document.getElementById("greetUser").classList.remove("d-none");
+    document.getElementById("greetUser").classList.add("greetingAnimation");
+    document.getElementById("greetUser").innerHTML = /*html*/ `
       <h1>Hello Guest</h1>
     `;
-  }else 
-  if (userOrGuest == "user" && windowWidth <= 1024) {
-    document.getElementById('greetUser').classList.remove('d-none');
-    document.getElementById('greetUser').classList.add('greetingAnimation');
-    document.getElementById('greetUser').innerHTML = /*html*/`
+  } else if (userOrGuest == "user" && windowWidth <= 1024) {
+    document.getElementById("greetUser").classList.remove("d-none");
+    document.getElementById("greetUser").classList.add("greetingAnimation");
+    document.getElementById("greetUser").innerHTML = /*html*/ `
       <h1>Hello ${userOrGuest}</h1>
     `;
   }
@@ -107,7 +100,6 @@ function initGreeting(userOrGuest) {
 //     email: user.email,
 //   });
 
-  
 //   await setItem("loggedUser", JSON.stringify(currentUser));
 //   // return currentUser;
 // }
@@ -126,7 +118,7 @@ function getErrorMessage() {
 }
 
 function checkforUser() {
-  if ((guest == true)) {
+  if (guest == true) {
     document.getElementById("right-lower-main").innerHTML += "Guest";
     document.getElementById("header-userprofile").src =
       "./assets/img/guestAvatar.svg";
@@ -143,4 +135,3 @@ function closeDropdownMenu() {
 function openDropdownMenu() {
   document.getElementById("submenuContainer").classList.remove("d-none");
 }
-

@@ -38,7 +38,7 @@
             <p>Log in</p>
         </div>
 
-        <form onsubmit="loginUser('user'); return false;" class="loginForm" id="loginForm">
+        <form onsubmit="loginUser(); return false;" class="loginForm" id="loginForm">
             <div class="loginInputs">
                 <div class="inputField">
                     <div class="emailField">
@@ -68,7 +68,7 @@
             
             <div class="loginButtons">
                 <button class="loginButton">Log in</button>
-                <button onclick="guestLogin(event, 'guest')" class="guestLoginButton">Guest Log in</button>
+                <button onclick="guestLogin(event)" class="guestLoginButton">Guest Log in</button>
 
                 
                 

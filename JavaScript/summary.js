@@ -253,10 +253,11 @@ function findClosestDueDatePrioZero() {
 }
 
 // let currentLoggedUser = [];
-// let currentUser = [];
+let currentUser = [];
 
 async function initUser() {
   await includeHTML();
+  await getUser();
   // loadCurrentUser();
   initOthers();
   // if (guest == true) {
@@ -265,31 +266,39 @@ async function initUser() {
   // initGreeting(currentUser);
   // greetUser();
   // getGreeting();
-  checkforUser();
   // filterTasksByCategory();
   // renderToDos();
 }
 
-async function loadCurrentUser() {
+async function getUser() {
   try {
-    currentUser = JSON.parse(await getItem("loggedUser"));
-
-    console.log(currentUser);
-  } catch (e) {
-    console.error("Loading error:", e);
+    currentUser = JSON.parse(await getItem('currentUser'['userName']));
+    console.log(currentUser + 'Juhuu')
+  } catch(e) {
+    console.error('Loading error:', e);
   }
+//   try {
+//     currentUser = JSON.parse(await getItem('currentUser'));
+//     console.log(currentUser + 'Juhuuu');
+// } catch(e){
+//     console.error('Loading error:', e);
+// }
 }
 
-// function checkforUser() {
-//   if ((guest == true)) {
-//     document.getElementById("right-lower-main").innerHTML += "Guest";
-//     document.getElementById("header-userprofile").src =
-//       "./assets/img/guestAvatar.svg";
-//   } else {
-//     document.getElementById("header-userprofile").src =
-//       "./assets/img/aside_and_header/header-userprofile.png";
+// async function loadCurrentUser() {
+//   try {
+//     currentUser = JSON.parse(await getItem("loggedUser"));
+
+//     console.log(currentUser);
+//   } catch (e) {
+//     console.error("Loading error:", e);
 //   }
 // }
+
+async function clearUser() {
+  await clearItem('currentUser');
+  window.open("index.html", "_self");
+}
 
 function initOthers() {
   let whereIAM = window.location.pathname;
