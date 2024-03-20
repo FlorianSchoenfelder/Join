@@ -7,25 +7,25 @@
     <title>Summary</title>
     <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
 
- 
-    
-<script src="data.js" defer></script>
-<script src="/appdata.js"></script>
+
+
+    <script src="data.js" defer></script>
+    <script src="appdata.js"></script>
     <script src="script.js" defer></script>
     <script src="JavaScript/templates.js" defer></script>
     <script src="JavaScript/signUp.js" defer></script>
     <script src="JavaScript/summary.js" defer></script>
 
-   <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="board.css">
     <link rel="stylesheet" href="aside_and_head_style.css">
     <link rel="stylesheet" href="summary.css">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="mediaQuerry.css">
 
 
 </head>
 
-<body onload="initUser()">
+<body onload=" initUser()">
     <header w3-include-html="./assets/templates/header.html">
 
     </header>
@@ -35,7 +35,7 @@
             <ul>
                 <a href="legalNotice.html">Legal Notice</a>
                 <a href="privacyPolicy.html">Privacy Policy</a>
-                <a href="index.html">Log Out</a>
+                <a onclick="clearUser()">Log Out</a>
             </ul>
         </div>
     </div>
@@ -57,7 +57,7 @@
                         <img class="summary-firstline-imagesize on-hover-pencil" id="summary-pencil-image"
                             src="./assets/img/summary/summary_pencil_image.png">
                         <div id="summary-to-do-div">
-                     
+
                         </div>
                     </div>
                     <div onmouseover="highlightSecondDiv()" onmouseleave="delightSecondDiv()" id="first-line-right-div">
@@ -83,15 +83,15 @@
                 </div>
                 <div id="left-third-line">
                     <div id="third-line-left-div">
-                       
+
                     </div>
-                    <div id="third-line-middle-div"> 
+                    <div id="third-line-middle-div">
                     </div>
                     <div id="third-line-right-div">
                     </div>
                 </div>
             </div>
-            <div id="right-lower-main">
+            <div id="right-lower-main ">
                 <!-- Greeting and User -->
             </div>
         </div>
@@ -100,12 +100,9 @@
 
     </main>
 
-    <link rel="stylesheet" href="/aside_and_head_style.css">
-    <link rel="stylesheet" href="/summary.css">
-    <link rel="stylesheet" href="style.css">
-
-    <script src="/JavaScript/summary.js"></script>
-
+    <div class="greet d-none" id="greetUser">
+        
+    </div>
 
 </body>
 

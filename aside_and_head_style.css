@@ -77,13 +77,22 @@ header{
 
 
 #legal-section{
-    padding: 243px 0px 0px 0px; 
+    padding: 243px 0px 0px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 #legal-section-flex{
     display: flex;
     flex-direction: column;
-    gap: 4px;  
+    gap: 4px;
+    width: 100%;
+}
+
+#legal-section-flex li{
+    display: flex;
+    justify-content: center;
 }
 
 aside{
@@ -151,3 +160,11 @@ nav{
     line-height: 19.2px;
 }
 /* aside */
+
+/* Mobile Version for NavBar */
+
+#flex-list-container-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+}

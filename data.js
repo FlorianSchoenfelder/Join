@@ -22,3 +22,13 @@ async function getItem(key) {
         } throw `Could not find data with key "${key}".`;
     });
 }
+
+async function clearItem(key) {
+    return setItem(key, [])
+    .then(response => {
+        console.log('Wert für Schlüssel "' + key + '" wurde geleert', response);
+    })
+    .catch(error => {
+        console.error('Fehler beim Leeren des Werts für Schlüssel "' + key + '"', error);
+    });
+}

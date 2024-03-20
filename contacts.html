@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="board.css" />
   <link rel="stylesheet" href="contact.css" />
   <link rel="stylesheet" href="aside_and_head_style.css" />
-
+  <link rel="stylesheet" href="mediaQuerry.css">
   <link rel="stylesheet" href="fonts.css">
   <script src="./assets/scripts/board.js" defer></script>
   <script src="JavaScript/contact.js" defer></script>
@@ -20,7 +20,7 @@
 </head>
 
 <body onload="render(), initUser()">
-  <header class="hide-mobile" w3-include-html="assets/templates/header.html">
+  <header w3-include-html="assets/templates/header.html">
 
   </header>
 
@@ -34,9 +34,10 @@
     </div>
   </div>
 
-  <aside class="hide-mobile" w3-include-html="assets/templates/aside.html">
+  <aside class="hide-mobile" w3-include-html="assets/templates/aside.html"></aside>
 
-  </aside>
+  <section class="nav-mobile" w3-include-html="assets/templates/asideMobile.html"></section>
+
 
   <div class="d-flex hide-mobile">
     <div class="contact-left-side">
@@ -190,6 +191,57 @@
   </div>
 
   <!-- Div's for Mobile Version Contacts  -->
+
+  <button class="textbutton-mobile" onclick="openAddContactPopup()">
+    <img src="./assets/img/person_add.svg" alt="add contact">
+  </button>
+
+  <div id="addContactPopupMobile" class="addContactPopupMobile d-none">
+    <div class="addContactLeftSideMobile">
+      <div class="addContactLeftSideTextLine">
+        <div class="addContactLeftSideText">
+          <span>Add contact</span>
+          <span>Tasks are better with a team!</span>
+        </div>
+      </div>
+      <div class="closePopup d-none" onclick="closeAddContactPopup()">
+        <img src="./assets/img/x_white.svg" alt="" />
+      </div>
+      <div class="addContactIcon d-none">
+          <img src="./assets/img/contactProfileImage.svg" alt="" />
+      </div>
+    </div>
+
+    <div class="addContactRightSideMobile">
+      <div class="createContactSection">
+        <div class="inputContainer">
+          <div class="inputFrame">
+            <input id="newContactNameMobile" required type="text" placeholder="Name" />
+            <img src="./assets/img/signUpNameIcon.svg" />
+          </div>
+        </div>
+        <div class="inputContainer">
+          <div class="inputFrame">
+            <input id="newContactEmailMobile" required type="email" placeholder="Email" />
+            <img src="./assets/img/mail.svg" />
+          </div>
+        </div>
+        <div class="inputContainer">
+          <div class="inputFrame">
+            <input id="newContactPhoneMobile" required type="tel" placeholder="Phone" />
+            <img src="./assets/img/Phone.svg" />
+          </div>
+        </div>
+
+        <div class="buttonsForAddContact">
+          <button onclick="createNewContact()" class="createContactButton">
+              <p>Create contact</p>
+              <img src="./assets/img/check.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   
 
 </body>
