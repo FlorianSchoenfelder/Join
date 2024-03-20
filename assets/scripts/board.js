@@ -1,7 +1,12 @@
 let detailwindow = false;
-let DROP_DOWN_OPEN = false;
+let DROP_DOWN_BOARD_OPEN = false;
+let DROP_DOWN_ADD_BORD_VIEW = false;
+//  let addTaskWindow = false;
 let currentPrio;
+let currentOverlayPrio;
   loadTasksFromLocalStorage();
+
+  let currentFocusedDiv = null;
 
 function updateHTML() {
    
@@ -22,7 +27,7 @@ function startDragging(taskID) {
 }
 
 function moveTo(category) {
-   // Finde den Task in der aktuellen Kategorie
+   
    let sourceCategory = null;
    let taskToMove = null;
 
@@ -37,11 +42,11 @@ function moveTo(category) {
        }
    }
 
-   // Wenn der Task gefunden wurde, entferne ihn aus der aktuellen Kategorie
+  
    if (taskToMove) {
        contactData[0].tasks[0][sourceCategory] = contactData[0].tasks[0][sourceCategory].filter(task => task.taskID !== currentDraggedElement);
 
-       // Füge den Task der gewünschten Kategorie hinzu
+     
        contactData[0].tasks[0][category].push(taskToMove);
        console.log(`Task ${currentDraggedElement} wurde von ${sourceCategory} nach ${category} verschoben.`);
 
@@ -680,10 +685,6 @@ function openTaskDetail(taskID) {
    }
 
 
-
-
-
-
    let subtasksHTML = '';
 
    if (task.subtasks && task.subtasks.length > 0) {
@@ -1106,7 +1107,6 @@ function addLowStatus() {
 }
 
 
-
 function removeUrgentStatus(){
    document.getElementById('edit-urgent-image').src = '/assets/img/board/urgent-red.svg';
    document.getElementById('edit-urgent-span').classList.remove('font-white')
@@ -1343,7 +1343,7 @@ function toggleDropDown() {
 
    document.getElementById('current-assigned-contacts').classList.add('d-none')
 
-   if (DROP_DOWN_OPEN == false) {
+   if (DROP_DOWN_BOARD_OPEN == false) {
 
        document.getElementById('assigned-dropdown-div').innerHTML = '';
        document.getElementById('assigned-dropdown-div').innerHTML = `
@@ -1352,7 +1352,7 @@ function toggleDropDown() {
 <img id="turned-drop-down-image" src="./assets/img/add_task/turned_arrow_drop_down.svg">
 `
        renderDropDown()
-       DROP_DOWN_OPEN = true;
+       DROP_DOWN_BOARD_OPEN = true;
        document.getElementById('drop-down-content').classList.remove('d-none')
 
        focusInputField()
@@ -1366,7 +1366,7 @@ function toggleDropDown() {
    `
        document.getElementById('drop-down-content').classList.add('d-none')
 
-       DROP_DOWN_OPEN = false;
+       DROP_DOWN_BOARD_OPEN = false;
    }
 }
 
@@ -1442,3 +1442,457 @@ function filterContacts() {
        }     
    }
 }
+
+
+//  open add task form
+
+
+function openAddTaskForm(){
+
+   showOverlay()
+document.getElementById('add-task-id-overlay').classList.add('showAddTask')
+
+
+let addTaskBody = document.getElementById('add-task-id-overlay');
+
+addTaskBody.innerHTML = '';
+
+addTaskBody.innerHTML = `
+
+<div>
+   <div id="add-task-board-context">
+
+       <div class="flex-space-between add-board-first-line">
+           <h2 class="add-board-heading">Add Task</h2>
+           <img class="cp scale-view-up" onclick="closeAddTaskView()" src="/assets/img/board/close.svg">
+       </div> 
+       <div class="add-board-second-line flex-row">
+
+           <div class="add-board-left-column">
+               <div id="title-board-overlay-div">
+                   <div id="title-title-board-overlay-div">
+                       <span class="add-task-font-styling">Title</span>
+                       <span class="red-star-styling">*</span>
+                   </div>
+                   <input required id="add-task-title-board-overlay-input" class="add-task-placeholder-font-styling"
+                                placeholder="Enter a title">
+               </div>
+               <div id="description-board-overlay-div">
+                   <span class="add-task-font-styling">Description</span>
+                   <textarea id="add-task-description-board-overlay-textarea" class="add-task-placeholder-font-styling"
+                        placeholder="Enter a Description"></textarea>
+               </div>
+            <div id="assigned-to-board-overlay-div" class="add-task-font-styling">
+               <span class="add-task-font-styling">Assigned to</span>
+               <div id="assigned-dropdown-board-overlay-div" onclick="toggleBoardOverlayDropDown()">
+                   <span class="add-task-font-styling">Select contacts to assign</span>
+                   <img id="drop-down-board-overlay-arrow" src="./assets/img/add_task/arrow_drop_down.svg" >
+               </div>
+               <div id="drop-down-board-overlay-content">
+               </div>
+           </div>
+       </div>
+       <div class="add-board-dividing-column">
+       </div>
+       <div class="add-board-right-column">
+           <div id="due-date-board-overlay-div">
+               <div>
+                   <span class="add-task-font-styling">Due date</span>
+                   <span class="red-star-styling">*</span>
+               </div>
+               <div id="div-board-overlay-dateformchange">
+                   <input required id="due-date-board-overlay-input" onfocus="(this.type='date')"
+                                                  onblur="(this.type='text')" 
+                                       placeholder="dd/mm/yyyy" required>
+                   <img id="calendar-image" src="./assets/img/add_task/calendar.png">
+               </div>
+           </div>
+           <div id="prio-board-overlay-div">
+               <div id="heading-prio--boar-overlay-div">
+                   <span class="add-task-font-styling">Prio</span>
+               </div>
+
+               <div class="prio-buttons-board-overlay-div">
+                   <div onfocus="addUrgentOverlayStatus()" onblur="removeUrgentOverlayStatus()" class="priority-board-overlay-button toggle-prio-button" id="urgent-board-overlay-button" tabindex="4">
+                       <span id="urgent-add-board-overlay-span" class="add-task-font-styling">Urgent</span>
+                       
+                       <img id="urgent-board-overlay-image" src="./assets/img/add_task/urgent-red.svg">
+                   </div>
+                   <div  onfocus="addMediumOverlayStatus()" onblur="removeMediumOverlayStatus()" class="priority-board-overlay-button toggle-prio-board-overlay-button" id="medium-board-overlay-button" tabindex="5">
+                       <span id="medium-add-board-overlay-span" class="add-task-font-styling">Medium </span>
+                      
+                       <img id="medium-board-overlay-image" src="./assets/img/add_task/equity_yellow.svg">
+                   </div>
+                   <div  onfocus="addLowOverlayStatus()" onblur="removeLowOverlayStatus()"  class="priority-board-overlay-button toggle-prio-board-overlay-button" id="low-board-overlay-button" tabindex="6">
+                       <span id="low-add-board-overlay-span" class="add-task-font-styling">Low</span>
+                       <img id="low-board-overlay-image" src="./assets/img/add_task/low-green.svg">
+                   </div>
+               </div>
+           </div>
+       <div id="category-board-overlay-div"> 
+           <label for="contacts-assignment">
+               <span class="add-task-font-styling">Category</span>
+               <span class="red-star-styling">*</span>
+           </label>
+           <div class="category-border-div">
+               <select required id="task-category-board-overlay-select" name="assignment" class="category-board-overlay-flex add-task-font-styling ">
+                   <option>Select Task Category</option>
+                   <option value="Technical Task">Technical Task</option>
+                   <option value="User Story">User Story</option>
+               </select>
+           </div>
+
+       </div>
+       <div id="subtasks-board-overlay-div">
+           <span class="add-task-font-styling" id="subtask-title-board-overlay-span">Subtask</span>
+           <div id="subtask-input-board-overlay-div">
+               <input class="add-task-font-styling" id="subtask-input-board-overlay-field" placeholder="Add new Subtask">
+               <img onclick="addNewOverlaySubtask()" id="subtask-add-board-overlay-button" src="./assets/img/add_task/add.png">
+           </div>
+           <div id="created-board-overlay-subtasks">
+           </div>
+       </div>
+   </div>
+       </div>
+       <div class="add-board-thirdline">
+           <div class="add-board.third-line-left">
+               <span class="red-star-styling">*</span>
+               <span>This field is required</span>
+           </div>
+           <div class="add-board-third-line-right">
+               <div class="add-board-cancel-div cp" onclick=" closeAddTaskView()" onmouseover="changeCloseLightblue()" onmouseout="changeCloseToBlack()">
+                   <span class="add-board-cancel-span">Cancel</span>
+                   <img id="cancel-image-add-board" class="add-board-cancel-image" src="/assets/img/board/close.svg">
+               </div>
+               <div class="add-board-create-div cp" onclick="addTaskBoardOverlay()">
+                   <span class="add-board-create-span">Create Task</span>
+                   <img  class="add-board-check-image" src="/assets/img/board/check.svg">
+               </div>
+           </div>
+       </div>
+
+   </div>
+</div>
+`
+}
+
+
+
+function addTaskBoardOverlay(){
+
+       let titleInput = document.getElementById('add-task-title-board-overlay-input');
+       let title = titleInput.value;
+       let descriptionTextarea = document.getElementById('add-task-description-board-overlay-textarea');
+       let description = descriptionTextarea.value;
+
+       let categorySelect = document.getElementById('task-category-board-overlay-select');
+       let category = categorySelect.value;
+
+       let selectedContacts = [];
+       let checkboxInputs = document.querySelectorAll('#drop-down-board-overlay-content input[type="checkbox"]');
+       checkboxInputs.forEach(input => {
+           if (input.checked) {
+               let contactIndex = parseInt(input.id);
+               selectedContacts.push(contactData[0].contacts[contactIndex]);
+           }
+       });
+
+  
+
+
+console.log("Ist:", category)
+       let dueDateInput = document.getElementById('due-date-board-overlay-input');
+       let dueDate = dueDateInput.value;
+
+       currentOverlayPrio = getCurrentPriority();
+   
+       let subtasks = getSubtasks();
+
+       let newTask = {
+           title : title,
+           taskID: generateTaskID(), 
+           description: description,
+            assigned_contacts: selectedContacts,
+           category: category, 
+           dueDate: dueDate, 
+           prio: currentOverlayPrio, 
+           subtasks: subtasks 
+       };
+       contactData[0].tasks[0].toDo.push(newTask); 
+       closeAddTaskView();
+        saveTasksToLocalStorage();
+       updateHTML()
+      
+}
+
+
+function generateTaskID() {
+   let allTasks = [];
+   
+   contactData[0].tasks.forEach(category => {
+       Object.values(category).forEach(tasks => {
+           allTasks.push(...tasks);
+       });
+   });
+
+   let maxID = 0;
+
+   allTasks.forEach(task => {
+       if (task && typeof task === 'object' && 'taskID' in task) {
+           if (task.taskID > maxID) {
+               maxID = task.taskID;
+           }
+       } else {
+           console.error('Invalid task object:', task); 
+       }
+   });
+
+   return maxID + 1;
+}
+
+
+
+
+
+function addUrgentOverlayStatus(){
+   document.getElementById('urgent-board-overlay-image').src = '/assets/img/board/urgent.svg'
+   document.getElementById('urgent-add-board-overlay-span').classList.add('font-white')
+
+   currentOverlayPrio = 0;
+   console.log("Ist:", currentOverlayPrio)
+
+}
+
+function removeUrgentOverlayStatus(){
+   document.getElementById('urgent-board-overlay-image').src = '/assets/img/board/urgent-red.svg'
+   document.getElementById('urgent-add-board-overlay-span').classList.remove('font-white')
+  
+  
+   console.log("Ist:", currentOverlayPrio)
+}
+
+function addMediumOverlayStatus(){
+   document.getElementById('medium-board-overlay-image').src = '/assets/img/board/equity_white.svg'
+   document.getElementById('medium-add-board-overlay-span').classList.add('font-white')
+
+   currentOverlayPrio = 1;
+   console.log("Ist:", currentOverlayPrio)
+}
+
+function removeMediumOverlayStatus(){
+   document.getElementById('medium-board-overlay-image').src = '/assets/img/board/equity_yellow.svg'
+   document.getElementById('medium-add-board-overlay-span').classList.remove('font-white')
+
+  
+   console.log("Ist:", currentOverlayPrio)
+}
+
+function addLowOverlayStatus(){
+   document.getElementById('low-board-overlay-image').src = '/assets/img/board/low.svg'
+   document.getElementById('low-add-board-overlay-span').classList.add('font-white')
+
+   currentOverlayPrio = 2;
+   console.log("Ist:", currentOverlayPrio)
+}
+
+function removeLowOverlayStatus(){
+   document.getElementById('low-board-overlay-image').src = '/assets/img/board/low-green.svg'
+   document.getElementById('low-add-board-overlay-span').classList.remove('font-white')
+
+  
+   console.log("Ist:", currentOverlayPrio)
+}
+
+
+
+function getCurrentPriority() {
+
+   console.log("Ist:", currentOverlayPrio)
+   
+   if ( currentOverlayPrio == 0) {
+       return 0;
+   } else if (currentOverlayPrio == 1) {
+       return 1;
+   } else if (currentOverlayPrio == 2) {
+       return 2;
+   } else {
+       // Standardpriorität, falls keine ausgewählt ist
+       return 5;
+   }
+}
+
+
+
+
+function getSelectedContactIds() {
+   let checkboxes = document.querySelectorAll('#drop-down-board-overlay-content input[type="checkbox"]');
+   
+   let selectedIds = Array.from(checkboxes)
+       .filter(checkbox => checkbox.checked)
+       .map(checkbox => parseInt(checkbox.getAttribute('data-contact-id')));
+
+   return selectedIds;
+   
+}
+
+
+
+
+
+
+
+function renderBoardOverlayDropDown() {
+   document.getElementById('drop-down-board-overlay-content').innerHTML = '';
+
+   for (let i = 0; i < contactData[0].contacts.length; i++) {
+       let singleContact = contactData[0].contacts[i];
+
+       document.getElementById('drop-down-board-overlay-content').innerHTML += `
+           <label class="f-btw"  >
+               <div class="dropdown-span-block">
+                   <span id="specificColor${i}" class="initials-dropdown-styling" style="background-color: ${singleContact.avatarColor};">${singleContact.ini_first}${singleContact.ini_name}</span>
+                   <span>${singleContact.first} ${singleContact.name}</span>
+               </div>
+               <input type="checkbox" id="${i}">
+           </label>
+       `;
+   }
+}
+
+
+function toggleBoardOverlayDropDown() {
+
+   if (DROP_DOWN_ADD_BORD_VIEW == false) {
+
+       document.getElementById('assigned-dropdown-board-overlay-div').innerHTML = '';
+       document.getElementById('assigned-dropdown-board-overlay-div').innerHTML = `
+
+<input onkeyup="filterBoardOverlayContacts()" id="assign-search-board-overlay-input" type="text">
+<img id="turned-drop-down-board-overlay-image" src="./assets/img/add_task/turned_arrow_drop_down.svg">
+`
+       renderBoardOverlayDropDown()
+       DROP_DOWN_ADD_BORD_VIEW = true;
+       document.getElementById('drop-down-board-overlay-content').classList.remove('d-none');
+       focusboardOverlaySearchInputField()
+   }
+   else {
+
+       document.getElementById('assigned-dropdown-board-overlay-div').innerHTML = '';
+       document.getElementById('assigned-dropdown-board-overlay-div').innerHTML = `
+   <span class="add-task-font-styling">Select contacts to assign</span>
+   <img class="hover-lg" id="drop-down-board-overlay-arrow" src="./assets/img/add_task/arrow_drop_down.svg">
+   `
+       document.getElementById('drop-down-board-overlay-content').classList.add('d-none');
+
+       DROP_DOWN_ADD_BORD_VIEW = false;
+   }
+}
+
+
+function focusboardOverlaySearchInputField() {
+   let inputField = document.getElementById('assign-search-board-overlay-input');
+   inputField.focus();
+   inputField.select();
+}
+
+
+
+
+function filterBoardOverlayContacts() {
+   addNameInitialToContacts(contactData);
+   addInitialsOfFirstNames(contactData);
+
+   let search = document.getElementById('assign-search-board-overlay-input').value;
+   search = search.toLowerCase();
+   let searchedContactContainer = document.getElementById('drop-down-board-overlay-content');
+   searchedContactContainer.innerHTML = '';
+
+   console.log('Search value:', search);
+
+   for (let i = 0; i < contactData[0].contacts.length; i++) {
+       let searchedContact = contactData[0].contacts[i];
+       if (searchedContact['first'].toLowerCase().includes(search) || searchedContact['name'].toLowerCase().includes(search)) {
+           searchedContactContainer.innerHTML += `
+               <label class="f-btw" onclick="selectOption(${i})">
+                   <div class="dropdown-span-block">
+                       <span id="specificColor${i}" class="initials-dropdown-styling" style="background-color: ${searchedContact.avatarColor};">${searchedContact.ini_first}${searchedContact.ini_name}</span>
+                       <span>${searchedContact.first} ${searchedContact.name}</span>
+                   </div>
+                   <input type="checkbox">
+               </label>
+           `;
+       }     
+   }
+}
+
+
+
+
+function closeAddTaskView(){
+   hideOverlay()   
+document.getElementById('add-task-id-overlay').classList.remove('showAddTask')
+}
+
+
+function changeCloseLightblue(){
+   document.getElementById('cancel-image-add-board').src = '/assets/img/board/close_lightblue.svg'; 
+}
+
+function changeCloseToBlack(){
+   document.getElementById('cancel-image-add-board').src = '/assets/img/board/close.svg'; 
+}
+
+
+function addNewOverlaySubtask() {
+   let subtaskInput = document.getElementById('subtask-input-board-overlay-field');
+   let subtaskValue = subtaskInput.value.trim();
+
+   if (subtaskValue !== '') {
+       let createdSubtasksDiv = document.getElementById('created-board-overlay-subtasks');
+
+       if (createdSubtasksDiv.children.length >= 2) {
+           createdSubtasksDiv.removeChild(createdSubtasksDiv.firstChild);
+       }
+
+       let newSubtask = document.createElement('div');
+       newSubtask.className = 'created-subtask';
+
+       let subtaskText = document.createElement('span');
+       subtaskText.textContent = subtaskValue;
+       newSubtask.appendChild(subtaskText);
+
+       let deleteButton = document.createElement('span');
+       deleteButton.className = 'delete-subtask';
+       deleteButton.textContent = 'x';
+       deleteButton.onclick = function () {
+           createdSubtasksDiv.removeChild(newSubtask);
+       };
+       newSubtask.appendChild(deleteButton);
+
+       createdSubtasksDiv.appendChild(newSubtask);
+
+       subtaskInput.value = '';
+   }
+}
+
+
+function getSubtasks() {
+   let createdSubtasksDiv = document.getElementById('created-board-overlay-subtasks');
+   let subtaskElements = createdSubtasksDiv.getElementsByClassName('created-board-overlay-subtasks');
+   let subtaskId = 1;
+   let subtasks = Array.from(subtaskElements).map(element => {
+       let subtaskDescription = element.textContent.trim();
+       subtaskDescription = subtaskDescription.slice(0, -1).trim();
+       let subtask = {
+           "id": subtaskId,
+           "title": subtaskDescription,
+           "status": "notDone",
+           "description": subtaskDescription
+       };
+       subtaskId++;
+       return subtask;
+   });
+   return subtasks;
+}
+
+
