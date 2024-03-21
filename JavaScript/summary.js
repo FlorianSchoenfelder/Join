@@ -1,4 +1,4 @@
-function FOL() {
+function additionalFunctionsOnload() {
   //functions onload
   greetUser();
   countToDos();
