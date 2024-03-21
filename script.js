@@ -46,63 +46,15 @@ async function loginUser() {
     // let guest = false;
 
     // getLoggedUser(user);
-    console.log(user.userName);
+    // console.log(user.userName);
     await setItem('currentUser', JSON.stringify(user));
     helloUser = JSON.parse(await getItem('currentUser'));
 
     // currentUser.push(user);
     // initGreeting();
-    // window.open("summary.html", "_self");
+    window.open("summary.html", "_self");
   }
 }
-
-// async function initUser() {
-//   await includeHTML();
-//   // loadCurrentUser();
-//   initOthers();
-//   // if (guest == true) {
-//   //   initGreeting(guest);
-//   // }
-//   // initGreeting(currentUser);
-//   // greetUser();
-//   // getGreeting();
-//   // checkforUser();
-//   // filterTasksByCategory();
-//   // renderToDos();
-// }
-
-function initGreeting(userOrGuest) {
-  let windowWidth = window.innerWidth;
-  // userOrGuest.push(helloUser);
-  console.log(userOrGuest);
-  // debugger;
-  if (userOrGuest == "guest" && windowWidth <= 1024) {
-    // debugger
-    document.getElementById("greetUser").classList.remove("d-none");
-    document.getElementById("greetUser").classList.add("greetingAnimation");
-    document.getElementById("greetUser").innerHTML = /*html*/ `
-      <h1>Hello Guest</h1>
-    `;
-  } else if (userOrGuest == "user" && windowWidth <= 1024) {
-    document.getElementById("greetUser").classList.remove("d-none");
-    document.getElementById("greetUser").classList.add("greetingAnimation");
-    document.getElementById("greetUser").innerHTML = /*html*/ `
-      <h1>Hello ${userOrGuest}</h1>
-    `;
-  }
-
-  return userOrGuest;
-}
-
-// async function getLoggedUser(user) {
-//   currentUser.push({
-//     name: user.userName,
-//     email: user.email,
-//   });
-
-//   await setItem("loggedUser", JSON.stringify(currentUser));
-//   // return currentUser;
-// }
 
 function getErrorMessage() {
   // alert('Wrong Email or Password');

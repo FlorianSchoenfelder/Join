@@ -252,7 +252,6 @@ function findClosestDueDatePrioZero() {
   `;
 }
 
-// let currentLoggedUser = [];
 let currentUser = [];
 
 async function initUser() {
@@ -264,7 +263,7 @@ async function initUser() {
   //   initGreeting(guest);
   // }
   // initGreeting(currentUser);
-  // greetUser();
+  greetUser();
   // getGreeting();
   // filterTasksByCategory();
   // renderToDos();
@@ -272,28 +271,17 @@ async function initUser() {
 
 async function getUser() {
   try {
-    currentUser = JSON.parse(await getItem('currentUser'['userName']));
-    console.log(currentUser + 'Juhuu')
+    const currentUserData = JSON.parse(await getItem('currentUser'));
+    console.log(currentUserData.userName);
+    currentUser.push(currentUserData.userName);
   } catch(e) {
     console.error('Loading error:', e);
   }
-//   try {
-//     currentUser = JSON.parse(await getItem('currentUser'));
-//     console.log(currentUser + 'Juhuuu');
-// } catch(e){
-//     console.error('Loading error:', e);
-// }
+
+
 }
 
-// async function loadCurrentUser() {
-//   try {
-//     currentUser = JSON.parse(await getItem("loggedUser"));
 
-//     console.log(currentUser);
-//   } catch (e) {
-//     console.error("Loading error:", e);
-//   }
-// }
 
 async function clearUser() {
   await clearItem('currentUser');
