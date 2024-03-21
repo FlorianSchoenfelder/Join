@@ -99,7 +99,7 @@ input:focus {
 
 .addContactPopup {
   display: flex;
-  width: 1212px;
+  width: 100%;
   height: 592px;
   position: absolute;
   /* remove to work on */

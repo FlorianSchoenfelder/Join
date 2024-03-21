@@ -31,6 +31,19 @@
   .task-column {
     width: 100%;
   }
+
+  #greeting-username {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  #greeting-with-daytime {
+    font-size: 40px;
+  }
+
+  #lower-main-summery {
+    gap: 40px;
+  }
 }
 
 @media (max-width: 750px) {
@@ -66,12 +79,21 @@
   #lower-main-summery {
     display: flex;
     flex-direction: column;
+    gap: 16px;
   }
 
   #content-summary {
     position: fixed !important;
     margin-inline: auto;
     left: 260px !important;
+    bottom: 0;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    overflow-y: auto;
+    margin-top: -48px;
+    margin-inline: auto;
+    right: 0;
+    
   }
 
   .headerLogoResponsive {
@@ -181,8 +203,36 @@
 
   /* Summary */
 
+
+
   #right-lower-main {
-    display: none !important;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgba(246, 247, 248, 1);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 64px;
+    opacity: 1;
+    animation: 3s greet ease-in-out forwards;
+    animation-delay: .5s;
+  }
+
+  @keyframes greet {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  #greeting-username {
+    font-size: 48px;
   }
 
   #summary-heading {
@@ -198,12 +248,8 @@
     display: flex;
     flex-direction: column;
     bottom: 0px !important;
+    margin-top: 0px;
   }
-
-  /* #lower-main-summery {
-    height: 100% !important;
-    padding-bottom: 120px !important;
-  } */
 
   #lower-main-summery {
     height: 485px;
@@ -559,7 +605,7 @@
 
   #content-summary {
     padding: 32px 16px 100px 16px !important;
-    overflow: scroll;
+    overflow: hidden;
   }
 
   aside {

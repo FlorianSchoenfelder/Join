@@ -2,6 +2,7 @@ let users = [];
 
 async function init(){
     await loadUsers();
+    // signdeUpSuccess();
     // await includeHTML();
     // console.log(users);
 }
@@ -33,10 +34,20 @@ async function registerUser() {
             confirmPassword: confirmPassword.value
             });
             await setItem('users', JSON.stringify(users));
+            signdeUpSuccess();
             resetForm();
             console.info('Erfolgreich registriert!');
+            window.open("index.html", "_self");
         }
     }
+}
+
+function signdeUpSuccess() {
+    let popUp = document.getElementById('animationSignUp');
+    popUp.classList.add('show'); // Füge die Klasse .show hinzu, um den Container anzuzeigen
+    setTimeout(function() {
+        popUp.classList.remove('show'); // Entferne die Klasse .show nach einer gewissen Zeit, um den Container auszublenden
+    }, 2000); // Anpassen Sie die Zeit in Millisekunden nach Bedarf
 }
 
 function resetForm() {

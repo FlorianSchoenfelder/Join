@@ -1,5 +1,4 @@
 let checkbox = false;
-// let currentUser = [];
 let helloUser = [];
 
 function changeCheckbox() {
@@ -27,7 +26,11 @@ function switchCheckboxImage() {
 
 async function guestLogin(event) {
   event.preventDefault();
-  await setItem('currentUser', 'guest');
+  let guest = {
+    userName: 'Guest',
+    email: 'guest@test.de'
+  };
+  await setItem('currentUser', guest);
   window.open("summary.html", "_self");
 }
 
@@ -43,15 +46,7 @@ async function loginUser() {
     console.log("Falsch");
   } else {
     console.log("Gefunden");
-    // let guest = false;
-
-    // getLoggedUser(user);
-    // console.log(user.userName);
     await setItem('currentUser', JSON.stringify(user));
-    helloUser = JSON.parse(await getItem('currentUser'));
-
-    // currentUser.push(user);
-    // initGreeting();
     window.open("summary.html", "_self");
   }
 }

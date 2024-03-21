@@ -105,13 +105,16 @@ function greetUser() {
   } else {
     greeting = "Guten Abend";
   }
-  let userName = contactData[0].userName;
-  let userFirstName = contactData[0].userFirstName;
+  // let userName = contactData[0].userName;
+  // let userFirstName = contactData[0].userFirstName;
   document.getElementById("right-lower-main").innerHTML = "";
   document.getElementById("right-lower-main").innerHTML = `
 
   <span id="greeting-with-daytime">${greeting},</span>
-  <span id="greeting-username">  ${userFirstName} ${userName} </span>
+  <span id="greeting-username">  
+  
+  ${currentUser}
+  </span>
   
   `;
 }
@@ -257,30 +260,39 @@ let currentUser = [];
 async function initUser() {
   await includeHTML();
   await getUser();
-  // loadCurrentUser();
-  initOthers();
-  // if (guest == true) {
-  //   initGreeting(guest);
-  // }
-  // initGreeting(currentUser);
-  greetUser();
-  // getGreeting();
-  // filterTasksByCategory();
-  // renderToDos();
+  initNavbarHighlight();
+  getUserLogo();
+  if (document.getElementById("right-lower-main") !== null) {
+    greetUser();
+  }
+
 }
+
 
 async function getUser() {
   try {
-    const currentUserData = JSON.parse(await getItem('currentUser'));
+    let currentUserData = JSON.parse(await getItem('currentUser'));
     console.log(currentUserData.userName);
     currentUser.push(currentUserData.userName);
   } catch(e) {
     console.error('Loading error:', e);
   }
-
-
 }
 
+function getUserLogo() {
+  let firstLetters = currentUser[0].slice(0, 2);
+  let initials = firstLetters.toUpperCase();
+
+  if (currentUser != 'Guest') {
+    document.getElementById("header-userprofile").innerHTML = /*html*/`
+      <p>${initials}</p>
+    `;
+  }else {
+    document.getElementById("header-userprofile").innerHTML = /*html*/`
+      <p>G</p>
+    `;
+  }
+}
 
 
 async function clearUser() {
@@ -288,7 +300,7 @@ async function clearUser() {
   window.open("index.html", "_self");
 }
 
-function initOthers() {
+function initNavbarHighlight() {
   let whereIAM = window.location.pathname;
 
   switch (whereIAM) {
