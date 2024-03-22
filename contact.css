@@ -31,6 +31,7 @@ input:focus {
   position: fixed;
   top: 0;
   left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .d-none {
@@ -39,12 +40,6 @@ input:focus {
 
 .active {
   background-color: #091931;
-}
-
-.darkBackground {
-  transition: all 500ms ease-in-out;
-  background-color: rgba(0, 0, 0, 0.5);
-  animation: identifier 500ms ease-in-out;
 }
 
 .swipeOut {
@@ -708,7 +703,11 @@ input:focus {
   padding: 100px 0;
 }
 
-@media (max-width: 450px) {
+.textbutton-mobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
   .hide-mobile {
     display: none !important;
   }

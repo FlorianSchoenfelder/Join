@@ -70,12 +70,7 @@ function openAddContactPopup() {
   if (window.innerWidth <= 450) {
     document.getElementById("addContactPopupMobile").classList.remove("d-none");
   } else {
-  document
-    .getElementById("darkBackgroundContainer")
-    .classList.remove("swipeOut");
-  document
-    .getElementById("darkBackgroundContainer")
-    .classList.add("darkBackground"); //Hintergrundfarbe grau hinzufügen
+  document.getElementById("darkBackgroundContainer").classList.remove("swipeOut");
   document.getElementById("darkBackgroundContainer").classList.remove("d-none"); // Container sichtbar machen
   document.getElementById("addContactPopup").style = "transform: translateX(0)"; // Popup hereinswipen
   document.getElementById('addContactPopup').style.transition = "all 500ms ease-in-out";
@@ -289,6 +284,7 @@ function createNewContact() {
   closeAddContactPopup()
   contactSuccesfullyCreatedPopUp();
   render();
+  initUser();
 }
 
 function getRandomAvatarColor() {
@@ -363,7 +359,8 @@ function deleteCurrentContact(contactID) {
   currentContactContainer.innerHTML = "";
 
   closeEditContactPopup();
-  render(); 
+  render();
+  initUser();
 }
 
 function saveCurrentContact() {
@@ -392,6 +389,7 @@ function saveCurrentContact() {
 
   closeEditContactPopup();
   render();
+  initUser();
 }
 
 function contactSuccesfullyCreatedPopUp() {
