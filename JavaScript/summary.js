@@ -293,7 +293,7 @@ function getUserLogo() {
     `;
   }else {
     document.getElementById("header-userprofile").innerHTML = /*html*/`
-      <p>G</p>
+      <p>${initials}</p>
     `;
   }
 }
