@@ -260,13 +260,18 @@ let currentUser = [];
 async function initUser() {
   await includeHTML();
   await getUser();
+  additionalFunctionsOnload();
   initNavbarHighlight();
   getUserLogo();
   if (document.getElementById("right-lower-main") !== null) {
     greetUser();
   }
-
 }
+
+
+
+
+
 
 
 async function getUser() {
