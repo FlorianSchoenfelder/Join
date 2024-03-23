@@ -1,7 +1,7 @@
 let detailwindow = false;
 let DROP_DOWN_BOARD_OPEN = false;
 let DROP_DOWN_ADD_BORD_VIEW = false;
-//  let addTaskWindow = false;
+
 let currentPrio;
 let currentOverlayPrio;
   loadTasksFromLocalStorage();
@@ -15,8 +15,38 @@ function updateHTML() {
    renderInProgress()
    renderAwaitFeedback()
    renderDone()
-
 }
+
+
+
+updateHTML()
+
+
+//  Florian
+
+
+
+
+
+
+
+
+
+
+
+// Florian
+
+
+
+
+
+
+
+
+
+
+
+
 
 let currentDraggedElement;
 

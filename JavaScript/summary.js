@@ -260,7 +260,6 @@ let currentUser = [];
 async function initUser() {
   await includeHTML();
   await getUser();
-  additionalFunctionsOnload();
   initNavbarHighlight();
   getUserLogo();
   if (document.getElementById("right-lower-main") !== null) {
@@ -314,6 +313,7 @@ function initNavbarHighlight() {
       break;
     case "/summary.html":
       document.getElementById("summary-list-element").classList.add("active");
+      additionalFunctionsOnload();
       break;
     case "/Join/add_task_n_include.html":
       document.getElementById("addTask-list-element").classList.add("active");
@@ -323,6 +323,7 @@ function initNavbarHighlight() {
       break;
     case "/Join/board.html":
       document.getElementById("board-list-element").classList.add("active");
+      updateHTML()
       break;
     case "/board.html":
       document.getElementById("board-list-element").classList.add("active");
