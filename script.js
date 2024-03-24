@@ -10,6 +10,10 @@ function changeCheckbox() {
   switchCheckboxImage();
 }
 
+function stopPropagation(event) {
+  event.stopPropagation();
+}
+
 function switchCheckboxImage() {
   if (!checkbox == false) {
     document.getElementById("notChecked").classList.add("d-none");

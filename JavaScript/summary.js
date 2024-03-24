@@ -267,12 +267,6 @@ async function initUser() {
   }
 }
 
-
-
-
-
-
-
 async function getUser() {
   try {
     let currentUserData = JSON.parse(await getItem('currentUser'));
@@ -284,18 +278,25 @@ async function getUser() {
 }
 
 function getUserLogo() {
-  let firstLetters = currentUser[0].slice(0, 2);
-  let initials = firstLetters.toUpperCase();
-
+  getInitials();
   if (currentUser != 'Guest') {
     document.getElementById("header-userprofile").innerHTML = /*html*/`
       <p>${initials}</p>
     `;
   }else {
     document.getElementById("header-userprofile").innerHTML = /*html*/`
-      <p>G</p>
+      <p>${initials}</p>
     `;
   }
+}
+
+function getInitials() {
+  if (currentUser[0].includes(' ')) {
+    initials = currentUser[0].split(' ').map(word => word.charAt(0)).join('');
+} else {
+    initials = currentUser[0].toUpperCase().slice(0, 2);
+}
+console.log(initials);
 }
 
 

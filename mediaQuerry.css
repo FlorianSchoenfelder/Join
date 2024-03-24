@@ -93,7 +93,6 @@
     margin-top: -48px;
     margin-inline: auto;
     right: 0;
-    
   }
 
   .headerLogoResponsive {
@@ -103,12 +102,12 @@
   /* Add Task */
 
   #add-task-section {
-    /* overflow: scroll; */
+    overflow: scroll;
   }
 
-  #add-task-form {
-    /* overflow: scroll; */
-  }
+  /* #add-task-form {
+    overflow: scroll;
+  } */
 
   #upper-form {
     display: flex;
@@ -127,6 +126,11 @@
     width: 100%;
     padding-top: 16px;
     padding-left: 0px;
+  }
+
+  #lower-form {
+    margin-bottom: 80px;
+    margin-top: 24px;
   }
 
   #prio-buttons-div {
@@ -203,7 +207,34 @@
 
   /* Summary */
 
+  #amount-of-to-do,
+  #summary-amount-done,
+  #summary-amount-urgent,
+  .third-line-number-style {
+    font-size: 47px;
+  }
 
+  #to-do-span,
+  #summary-done-span,
+  #summary-urgent-span,
+  .third-line-span-style {
+    font-size: 14px;
+  }
+
+  #third-line-left-div,
+  #third-line-middle-div,
+  #third-line-right-div {
+    padding: 0px;
+    gap: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .third-line-number-style,
+  .third-line-span-style {
+    line-height: normal;
+  }
 
   #right-lower-main {
     position: absolute;
@@ -218,7 +249,7 @@
     padding-bottom: 64px;
     opacity: 1;
     animation: 3s greet ease-in-out forwards;
-    animation-delay: .5s;
+    animation-delay: 0.5s;
   }
 
   @keyframes greet {
@@ -325,6 +356,8 @@
     display: flex;
     justify-content: space-between !important;
     padding: 20px 32px !important;
+    z-index: 1;
+    background-color: white;
   }
 
   header span {
@@ -337,12 +370,17 @@
 
   /* AddTask */
 
+  .addTaskDiv {
+    padding-left: 0px;
+  }
+
   #add-task-section {
     /* margin: 100px 0px 0px 0px !important; */
     margin: 0 !important;
     padding: 132px 32px !important;
     overflow: scroll !important;
     height: 100vh !important;
+    width: 100%;
   }
 
   #add-task-form {
@@ -386,6 +424,7 @@
     display: flex;
     align-items: center;
     margin-top: 16px !important;
+    margin-bottom: 120px;
   }
 
   #content-bord {
@@ -412,6 +451,54 @@
   #await-feedback-heading-div,
   #done-heading-div {
     width: 100%;
+  }
+
+  /* Legal Notice & Privacy Policy */
+
+  #arrowLeft {
+    position: fixed;
+    top: 130px;
+    right: 32px;
+  }
+
+  .headline {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    height: 140px;
+    /* padding-top: 32px; */
+  }
+
+  .headlinetext {
+    position: relative !important;
+    left: 0;
+    top: 0;
+  }
+
+  .legalNoticeContainer,
+  .privacyBox {
+    position: fixed;
+    overflow-y: scroll;
+    top: 0px;
+    left: 0;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    margin-bottom: 132px;
+    padding: 116px 16px;
+  }
+
+  .privacyPolicy {
+    left: 0px;
+    top: 0px;
+    position: relative;
+    bottom: 0px;
+    margin-bottom: 100px;
+    /* padding: 0px 16px 16px 16px; */
+    flex-wrap: nowrap;
+    /* overflow-y: scroll; */
+    margin: 0px;
+    /* margin-top: -200px; */
   }
 }
 
@@ -616,6 +703,10 @@
     width: 100%;
   }
 
+  #right-lower-main span{
+    text-align: center;
+  }
+
   nav ul li a {
     display: flex;
     flex-direction: column;
@@ -670,11 +761,15 @@
   }
 
   #left-third-line div {
-    width: 116px;
+    width: 100px;
     height: 116px;
   }
 
   /* Add Task */
+
+  main h1 {
+    font-size: 47px;
+  }
 
   #upper-form {
     display: flex;
@@ -696,10 +791,19 @@
   }
 
   #lower-form {
-    padding-bottom: 100px !important;
+    padding-bottom: 40px !important;
     display: flex;
     flex-direction: column;
     gap: 8px;
+  }
+
+  #lower-form-left,
+  #lower-form-right {
+    height: 40px;
+  }
+
+  #clear-button {
+    display: none;
   }
 
   /* Board */

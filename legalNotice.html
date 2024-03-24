@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Legal Notice</title>
 
-    <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal Notice</title>
 
-    <script src="./JavaScript/templates.js" defer></script>
-    <script src="JavaScript/summary.js" defer></script>
+  <link rel="shortcut icon" href="./assets/img/favicon.svg" type="image/x-icon">
 
-    <link rel="stylesheet" href="fonts.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="privacyPolicy.css"/>
-    <link rel="stylesheet" href="aside_and_head_style.css">
-  </head>
+  <script src="./JavaScript/templates.js" defer></script>
+  <script src="JavaScript/summary.js" defer></script>
+  <script src="data.js"></script>
 
-  <body onload="initPrivacyAndLegalNotice()">
-    <header w3-include-html="assets/templates/header.html">
-        
-    </header>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="privacyPolicy.css" />
+  <link rel="stylesheet" href="aside_and_head_style.css">
+  <link rel="stylesheet" href="mediaQuerry.css">
+</head>
+
+<body onload="initUser()">
+  <header w3-include-html="assets/templates/header.html">
+
+  </header>
+
+  <aside w3-include-html="assets/templates/aside.html">
+
+  </aside>
+
+  <main class="legalNoticeContainer">
     
-    <aside w3-include-html="assets/templates/aside.html">
-      
-    </aside>
-
     <div class="headline">
-      <h1>Legal Notice</h1>
+      <h1 class="headlinetext">Legal Notice</h1>
     </div>
 
 
@@ -124,5 +129,8 @@
         </p>
       </div>
     </div>
-  </body>
+
+  </main>
+</body>
+
 </html>

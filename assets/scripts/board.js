@@ -17,35 +17,10 @@ function updateHTML() {
    renderDone()
 }
 
-
-
 updateHTML()
-
-
 //  Florian
 
-
-
-
-
-
-
-
-
-
-
 // Florian
-
-
-
-
-
-
-
-
-
-
-
 
 
 let currentDraggedElement;
