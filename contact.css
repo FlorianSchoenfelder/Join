@@ -4,6 +4,9 @@
 
 body {
   overflow: hidden;
+  min-height: initial;
+  display: block;
+
 }
 
 header {
@@ -67,29 +70,29 @@ input:focus {
 }
 
 #addContactPopup {
-  height: 100vh;
-  width: 100vw;
+  width: 1212px;
   position: absolute;
-  top: 0;
+  top: 50%;
+  left: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
   /* remove to work on */
 
-  transform: translateX(100%);
+  transform: translateX(150%);
 }
 
 #editContactPopup {
-  height: 100vh;
-  width: 100vw;
+  width: 1212px;
   position: absolute;
-  top: 0;
+  top: 50%;
+  left: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
   /* remove to work on */
 
-  transform: translateX(100%);
+  transform: translateX(150%);
 }
 
 .addContactPopup {
@@ -377,13 +380,12 @@ input:focus {
   justify-content: center;
   font-size: 21px;
   box-sizing: border-box;
-  padding: 16px;
+  padding: 12px 0px 12px 0px;
   background-color: #2a3647;
   color: white;
   border-radius: 16px;
   border: none;
   box-shadow: 0px 0px 14px 3px #0000000a;
-  margin-left: 280px;
   margin-top: 120px;
   margin-bottom: 16px;
   gap: 16px;
@@ -407,9 +409,8 @@ input:focus {
   font-size: 24px;
   font-weight: normal;
   display: flex;
-  margin-left: 280px;
-  padding: 22px;
-  padding-left: 34px;
+  
+  padding: 17px 36px;
   border-bottom: 1px solid #d7d7d7;
 }
 
@@ -418,9 +419,7 @@ input:focus {
   flex-direction: column;
   font-size: 24px;
   display: flex;
-  margin-left: 250px;
-  margin-right: 60px;
-  padding: 8px 16px 0px 16px;
+  padding-top: 8px;
   border-radius: 10px;
 }
 
@@ -432,8 +431,7 @@ input:focus {
   width: 352px;
   font-size: 20px;
   font-weight: 400;
-  padding: 24px;
-  margin-left: 12px;
+  padding: 15px 24px;
 }
 
 .contact-item:hover {
@@ -463,6 +461,7 @@ input:focus {
 
 .emailLink {
   color: #007cee;
+  font-size: 16px;
 }
 
 .d-flex {
@@ -526,11 +525,21 @@ input:focus {
 }
 
 .contact-left-side {
-  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  padding-left: 230px;
+  padding-right: 24px;
+  
+
 }
 
 #contactList {
-  max-height: 100%; /* Die Kontaktliste kann die Höhe des übergeordneten Containers nicht überschreiten */
+  padding: 32px 24px ;
+  max-height: 85%; /* Die Kontaktliste kann die Höhe des übergeordneten Containers nicht überschreiten */
   overflow-y: auto;
 }
 
@@ -650,7 +659,7 @@ input:focus {
   25%,
   50%,
   75% {
-    transform: translateX(-187%); /* Element wird sichtbar */
+    transform: translateX(-110%); /* Element wird sichtbar */
   }
 }
 

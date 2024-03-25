@@ -60,6 +60,7 @@ let contactList = [
 let listElementIds = [];
 let currentListItem;
 let currentContactId;
+let isMobileContactListCloned = false;
 
 
 function stopPropagation(event) {
@@ -83,7 +84,7 @@ function openAddContactPopup() {
 
 function closeAddContactPopup() {
   document.getElementById("addContactPopup").style =
-    "transform: translateX(100%)"; // Popup herausswipen
+    "transform: translateX(150%)"; // Popup herausswipen
   document.getElementById('addContactPopup').style.transition = "all 500ms ease-in-out";
   document.getElementById("darkBackgroundContainer").classList.add("swipeOut");
   setTimeout(myStopFunction, 250);
@@ -162,10 +163,19 @@ async function render() {
   }
 
   // Erstelle einen Klon der ContactList für Mobile Version
+  if (!isMobileContactListCloned) {
   const mobileContactList = contactListContainer.cloneNode(true);
   mobileContactList.id = 'mobileContactList';
   mobileContactList.style.display = 'none';
   document.body.appendChild(mobileContactList);
+
+  isMobileContactListCloned = true;
+  } else {
+    mobileContactList.innerHTML = ""; // Bereite vor, um die aktualisierte Liste einzufügen
+  }
+
+  mobileContactList.innerHTML = contactListContainer.innerHTML;
+
 }
 
 function filterContactsByFirstLetter(contactList, firstLetter) {
@@ -284,7 +294,6 @@ function createNewContact() {
   closeAddContactPopup()
   contactSuccesfullyCreatedPopUp();
   render();
-  initUser();
 }
 
 function getRandomAvatarColor() {
@@ -332,6 +341,7 @@ document
   .getElementById("darkBackgroundContainer")
   .classList.add("darkBackground"); //Hintergrundfarbe grau hinzufügen
 document.getElementById("darkBackgroundContainer").classList.remove("d-none"); // Container sichtbar machen
+document.getElementById("editContactPopup").classList.remove("d-none");
 document.getElementById("editContactPopup").style = "transform: translateX(0)"; // Popup hereinswipen
 document.getElementById('editContactPopup').style.transition = "all 500ms ease-in-out";
 
@@ -339,7 +349,7 @@ document.getElementById('editContactPopup').style.transition = "all 500ms ease-i
 
 function closeEditContactPopup() {
   document.getElementById("editContactPopup").style =
-    "transform: translateX(100%)"; // Popup herausswipen
+    "transform: translateX(150%)"; // Popup herausswipen
   document.getElementById("darkBackgroundContainer").classList.add("swipeOut");
   document.getElementById('editContactPopup').style.transition = "all 500ms ease-in-out";
   setTimeout(myStopFunction, 250);
@@ -360,7 +370,6 @@ function deleteCurrentContact(contactID) {
 
   closeEditContactPopup();
   render();
-  initUser();
 }
 
 function saveCurrentContact() {
@@ -389,7 +398,6 @@ function saveCurrentContact() {
 
   closeEditContactPopup();
   render();
-  initUser();
 }
 
 function contactSuccesfullyCreatedPopUp() {
