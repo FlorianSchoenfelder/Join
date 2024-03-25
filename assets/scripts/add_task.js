@@ -109,13 +109,13 @@ function toggleDropDown() {
         document.getElementById('assigned-dropdown-div').innerHTML = `
 
 <input onkeyup="filterContacts()" id="assign-search-input" type="text">
-<img id="turned-drop-down-image" src="./assets/img/add_task/turned_arrow_drop_down.svg">
+<img id="turned-drop-down-image" src="assets/img/add_task/turned_arrow_drop_down.svg">
 `
-        renderDropDown()
+        renderDropDown();
         DROP_DOWN_OPEN = true;
         document.getElementById('drop-down-content').classList.remove('d-none')
 
-        focusInputField()
+        focusInputField();
     }
 
     else {
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ...
+
 });
 
 
@@ -360,21 +360,14 @@ function addTask() {
     };
     
 
-    //auslagern Button
-        
-  
-
-    //auslagern Button
-  
-    // Task zur 'toDo'-Liste hinzufügen
     contactData[0].tasks[0]['toDo'].push(newTask);
 
-
+    saveTasksToLocalStorage();
 
 
 
     
-    // deleteLastTask()
+  
  
     console.log("New Task Data:", newTask);
 
@@ -388,6 +381,7 @@ function addTask() {
         succButton.classList.remove('visible');
       }, 3000);
     
+      disableCreateTaskButton()
     // Hier können Sie weitere Aktionen durchführen, z.B. die Anzeige aktualisieren
   
 }
@@ -478,7 +472,29 @@ function clearForm() {
 
     // Set the DROP_DOWN_OPEN flag to false
     DROP_DOWN_OPEN = false;
+    disableCreateTaskButton()
 }
+
+function disableCreateTaskButton() {
+    let createTaskButton = document.getElementById("create-task-button");
+    createTaskButton.disabled = true;
+}
+
+function saveTasksToLocalStorage() {
+
+    localStorage.setItem('contactData', JSON.stringify(contactData));
+ }
+ 
+ 
+ function loadTasksFromLocalStorage() {
+    
+    let storedData = localStorage.getItem('contactData');
+    if (storedData) {
+        contactData = JSON.parse(storedData);
+    }
+ }
+ 
+
 
 // Attach the clearForm function to the Clear button
 document.getElementById('clear-button').addEventListener('click', clearForm);

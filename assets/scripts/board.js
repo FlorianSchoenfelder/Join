@@ -1086,7 +1086,7 @@ function saveTasksToLocalStorage() {
 
 function loadTasksFromLocalStorage() {
    
-   const storedData = localStorage.getItem('contactData');
+   let storedData = localStorage.getItem('contactData');
    if (storedData) {
        contactData = JSON.parse(storedData);
    }
