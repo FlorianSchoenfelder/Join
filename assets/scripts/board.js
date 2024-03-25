@@ -8,7 +8,15 @@ let currentOverlayPrio;
 
   let currentFocusedDiv = null;
 
-function updateHTML() {
+
+function initBoardFunctions(){
+
+    updateHTMLBoard()
+}
+
+
+
+function updateHTMLBoard() {
    
    filterTasksByCategory()
    renderToDos();
@@ -17,7 +25,7 @@ function updateHTML() {
    renderDone()
 }
 
-updateHTML()
+updateHTMLBoard()
 //  Florian
 
 // Florian
@@ -55,7 +63,7 @@ function moveTo(category) {
        contactData[0].tasks[0][category].push(taskToMove);
        console.log(`Task ${currentDraggedElement} wurde von ${sourceCategory} nach ${category} verschoben.`);
 
-       updateHTML();
+       updateHTMLBoard();
        console.log(`Task ${currentDraggedElement} wurde von ${sourceCategory} nach ${category} verschoben.`);
    } else {
        console.log(`Task ${currentDraggedElement} wurde nicht gefunden.`);
@@ -771,7 +779,7 @@ function toggleSubtaskStatus(taskID, subtaskIndex, checkbox) {
        subtask.status = checkbox.checked ? 'done' : 'notDone';
 
        saveTasksToLocalStorage();
-       updateHTML();  
+       updateHTMLBoard();  
    } else {
        console.error('Ungültiger Subtask-Index.');
    }
@@ -805,7 +813,7 @@ function deleteTask(taskID) {
    console.log(contactData)
   
    slideOut();
-   updateHTML();
+   updateHTMLBoard();
 }
 
 
@@ -1035,7 +1043,7 @@ function saveEditedChanges(taskID){
        saveTasksToLocalStorage();
 
       
-       updateHTML();
+       updateHTMLBoard();
    } else {
      
        console.log("Ungültiges Datum!");
@@ -1626,7 +1634,7 @@ console.log("Ist:", category)
        contactData[0].tasks[0].toDo.push(newTask); 
        closeAddTaskView();
         saveTasksToLocalStorage();
-       updateHTML()
+        updateHTMLBoard();
       
 }
 

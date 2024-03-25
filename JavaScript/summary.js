@@ -324,7 +324,7 @@ function initNavbarHighlight() {
       break;
     case "/Join/board.html":
       document.getElementById("board-list-element").classList.add("active");
-      updateHTML()
+      initBoardFunctions();
       break;
     case "/board.html":
       document.getElementById("board-list-element").classList.add("active");
