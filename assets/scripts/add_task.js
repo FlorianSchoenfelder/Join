@@ -330,3 +330,11 @@ function saveTasksToLocalStorage() { //check
  }
 
 document.getElementById('clear-button').addEventListener('click', clearForm);  //check
+
+
+document.getElementById("subtask-input-field").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); 
+        addNewSubtask();
+    }
+});
