@@ -15,7 +15,6 @@ function initBoardFunctions(){
 }
 
 
-
 function updateHTMLBoard() {
    
    filterTasksByCategory()
@@ -26,13 +25,9 @@ function updateHTMLBoard() {
 }
 
 updateHTMLBoard()
-//  Florian
-
-// Florian
 
 
 let currentDraggedElement;
-
 
 function startDragging(taskID) {
    currentDraggedElement = taskID;
@@ -40,14 +35,11 @@ function startDragging(taskID) {
 }
 
 function moveTo(category) {
-   
    let sourceCategory = null;
    let taskToMove = null;
-
    for (let categoryKey in contactData[0].tasks[0]) {
        let categoryTasks = contactData[0].tasks[0][categoryKey];
        let taskInCategory = categoryTasks.find(task => task.taskID === currentDraggedElement);
-
        if (taskInCategory) {
            sourceCategory = categoryKey;
            taskToMove = taskInCategory;
@@ -55,42 +47,31 @@ function moveTo(category) {
        }
    }
 
-  
    if (taskToMove) {
        contactData[0].tasks[0][sourceCategory] = contactData[0].tasks[0][sourceCategory].filter(task => task.taskID !== currentDraggedElement);
-
-     
        contactData[0].tasks[0][category].push(taskToMove);
        console.log(`Task ${currentDraggedElement} wurde von ${sourceCategory} nach ${category} verschoben.`);
-
        updateHTMLBoard();
        console.log(`Task ${currentDraggedElement} wurde von ${sourceCategory} nach ${category} verschoben.`);
    } else {
        console.log(`Task ${currentDraggedElement} wurde nicht gefunden.`);
    }
-
 }
 
-
 moveTo('done');
-
-
 
 function allowDrop(event) {
    event.preventDefault();
 }
 
-
 function filterTasksByCategory(category) {
    let tasks = contactData[0].tasks[0]; 
-
    let filteredTasks = {
        'toDo': tasks.toDo.filter(task => task.category === category),
        'inProgress': tasks.inProgress.filter(task => task.category === category),
        'awaitFeedback': tasks.awaitFeedback.filter(task => task.category === category),
        'done': tasks.done.filter(task => task.category === category)
    };
-
    return filteredTasks;
 }
 
@@ -114,12 +95,8 @@ function addInitialsToAssignedContacts(toDoTask) {
 function calculateFillWidth(toDoTask) {
    let doneSubtasksCount = getDoneSubtasksCount(toDoTask);
    let totalSubtasksCount = getTotalSubtasksCount(toDoTask);
-   
-  
    if (totalSubtasksCount > 0) {
-      
        let fillPercentage = (doneSubtasksCount / totalSubtasksCount) * 100;
-      
        fillPercentage = Math.min(100, Math.max(0, fillPercentage));
        return `${fillPercentage}%`;
    } else {
@@ -127,17 +104,10 @@ function calculateFillWidth(toDoTask) {
    }
 }
 
-
-
-
-
-
 function renderToDos(filteredTasks) {
    let toDoTasks = filteredTasks || contactData[0].tasks[0].toDo;
    document.getElementById('to-do-column').innerHTML = '';
    if (toDoTasks.length > 0) {
-
-
        for (let i = 0; i < toDoTasks.length; i++) {
            let toDoTask = toDoTasks[i];
            addInitialsToAssignedContacts(toDoTask);
@@ -177,8 +147,6 @@ function renderToDos(filteredTasks) {
                    categoryBackgroundColor = "#FFFFFF";
            }
 
-
-          
            let doneSubtasksCount = getDoneSubtasksCount(toDoTask);
            let totalSubtasksCount = getTotalSubtasksCount(toDoTask);
            let fillWidth = calculateFillWidth(toDoTask);
@@ -229,9 +197,6 @@ function renderToDos(filteredTasks) {
 `;
    }
 }
-
-
-
 
 
 function getDoneSubtasksCount(toDoTask) {
