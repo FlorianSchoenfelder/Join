@@ -10,6 +10,12 @@ function additionalFunctionsOnload() {
   findClosestDueDatePrioZero();
 }
 
+function redirectToBoard(){
+
+  window.location.href = "/board.html";
+}
+
+
 function highlightFirstDiv() {
   document.getElementById("first-line-left-div").classList.add("darken-div");
   changePencilHhover();
