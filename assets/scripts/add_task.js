@@ -161,11 +161,11 @@ function toggleImages(image, buttonId) {  //check
 function getBackgroundColor(index) {  //check
     switch (index) {
         case 0:
-            return 'red';
+            return '#FF3D00';
         case 1:
-            return 'yellow';
+            return '#FFA800';
         case 2:
-            return 'green';
+            return '#7AE229';
         default:
             return '';
     }

@@ -269,12 +269,6 @@ color: white;
 
 }
 
-
-
-
-
-
-
 #subtask-input-div{
     display: flex;
     justify-content: space-between;  
@@ -384,7 +378,7 @@ color: white;
     display: none !important;
 }
 
-
+/*
 .green-bg{
 background-color: #7AE229;
 }
@@ -404,11 +398,11 @@ background-color: #FFA800 ;
 }
 
 
-
+*/
 
 .toggle-prio-button.selected {
-    background-color: red; /* Beispielhafte Hervorhebungsfarbe für ausgewählten Button */
-    color: #ffffff; /* Beispielhafte Textfarbe für ausgewählten Button */
+    background-color: red; 
+    color: #ffffff; 
 }
 
 
@@ -420,7 +414,6 @@ background-color: #FFA800 ;
 
 
 
-/* */
 
 
 #subtasks-div {

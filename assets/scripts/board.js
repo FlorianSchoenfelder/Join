@@ -971,8 +971,6 @@ function editTask(taskID) {
 }
 
 
-// save changes
-
 
 function saveEditedChanges(taskID){
    let title = document.getElementById('edit-title-value-input').value;
@@ -1694,7 +1692,7 @@ function getCurrentPriority() {
    } else if (currentOverlayPrio == 2) {
        return 2;
    } else {
-       // Standardpriorität, falls keine ausgewählt ist
+     
        return 5;
    }
 }
