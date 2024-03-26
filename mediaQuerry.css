@@ -371,7 +371,7 @@
   /* AddTask */
 
   .addTaskDiv {
-    padding-left: 0px;
+    margin-left: 0px;
   }
 
   #add-task-section {

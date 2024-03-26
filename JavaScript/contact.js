@@ -98,7 +98,7 @@ function myStopFunction() {
 }
 
 async function render() {
-  await includeHTML();
+  await initUser();
   // await getUser();
   // Extrahiert die Anfangsbuchstaben aus contactList-Array und speichert diese ohne Duplikate in einem neuen Array
   const initials = Array.from(

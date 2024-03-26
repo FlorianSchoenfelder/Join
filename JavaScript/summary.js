@@ -278,7 +278,7 @@ async function getUser() {
 }
 
 function getUserLogo() {
-  getInitials();
+  getInitialsOnLogo();
   if (currentUser != 'Guest') {
     document.getElementById("header-userprofile").innerHTML = /*html*/`
       <p>${initials}</p>
@@ -290,7 +290,7 @@ function getUserLogo() {
   }
 }
 
-function getInitials() {
+function getInitialsOnLogo() {
   if (currentUser[0].includes(' ')) {
     initials = currentUser[0].split(' ').map(word => word.charAt(0)).join('');
 } else {
