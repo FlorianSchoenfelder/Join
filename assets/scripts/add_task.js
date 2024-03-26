@@ -1,6 +1,6 @@
 let DROP_DOWN_OPEN = false;
 
-function addNameInitialToContacts(contactData) {
+function addNameInitialToContacts(contactData) {   //check
     for (let i = 0; i < contactData[0].contacts.length; i++) {
         let name = contactData[0].contacts[i].name;
         let initials = name.substring(0, 1).toUpperCase();
@@ -8,7 +8,7 @@ function addNameInitialToContacts(contactData) {
     }
 }
 
-function addInitialsOfFirstNames(contactData) {
+function addInitialsOfFirstNames(contactData) {   //check
     for (let i = 0; i < contactData[0].contacts.length; i++) {
         let first = contactData[0].contacts[i].first;
         let inits = first.substring(0, 1).toUpperCase();
@@ -16,15 +16,13 @@ function addInitialsOfFirstNames(contactData) {
     }
 }
 
-addNameInitialToContacts(contactData);
-addInitialsOfFirstNames(contactData);
+addNameInitialToContacts(contactData); //check
+addInitialsOfFirstNames(contactData);  //check
 
-function renderDropDown() {
+function renderDropDown() {   //HTML auslagern, sonst kurz genug
     document.getElementById('drop-down-content').innerHTML = '';
-
     for (let i = 0; i < contactData[0].contacts.length; i++) {
         let singleContact = contactData[0].contacts[i];
-
         document.getElementById('drop-down-content').innerHTML += `
             <label class="f-btw" >
                 <div class="dropdown-span-block">
@@ -37,18 +35,16 @@ function renderDropDown() {
     }
 }
 
-
-
-document.getElementById('add-task-title-input').addEventListener('input', checkRequiredFields);
-document.getElementById('due-date-input').addEventListener('input', checkRequiredFields);
-document.getElementById('task-category-select').addEventListener('change', checkRequiredFields);
+document.getElementById('add-task-title-input').addEventListener('input', checkRequiredFields);  //check
+document.getElementById('due-date-input').addEventListener('input', checkRequiredFields);   //check
+document.getElementById('task-category-select').addEventListener('change', checkRequiredFields);  //check
 
 
 document.addEventListener('DOMContentLoaded', function () {
     checkRequiredFields();
-});
+});  //check
 
-function checkRequiredFields() {
+function checkRequiredFields() {    //check
     let titleInput = document.getElementById('add-task-title-input');
     let dueDateInput = document.getElementById('due-date-input');
     let categorySelect = document.getElementById('task-category-select');
@@ -57,12 +53,13 @@ function checkRequiredFields() {
         dueDateInput.checkValidity() && dueDateInput.value.trim() !== '' &&
         categorySelect.checkValidity() && categorySelect.value.trim() !== 'Select Task Category') {
         createTaskButton.removeAttribute('disabled');
-    } else {
+    } 
+    else {
         createTaskButton.setAttribute('disabled', 'true');
     }
 }
 
-function filterContacts() {
+function filterContacts() {    //HTML auslagern    dann 14 Zeilen lang
     addNameInitialToContacts(contactData);
     addInitialsOfFirstNames(contactData);
     let search = document.getElementById('assign-search-input').value;
@@ -86,7 +83,7 @@ function filterContacts() {
     }
 }
 
-function toggleDropDown() {
+function toggleDropDown() {   //HTML auslagern 
     if (DROP_DOWN_OPEN == false) {
         document.getElementById('assigned-dropdown-div').innerHTML = '';
         document.getElementById('assigned-dropdown-div').innerHTML = `
@@ -98,7 +95,7 @@ function toggleDropDown() {
         document.getElementById('drop-down-content').classList.remove('d-none')
         focusInputField();
     }
-    else {
+    else {   //else in separate Funktion auslagern  HTML in template auslagern
         document.getElementById('assigned-dropdown-div').innerHTML = '';
         document.getElementById('assigned-dropdown-div').innerHTML = `
     <span class="add-task-font-styling">Select contacts to assign</span>
@@ -109,19 +106,19 @@ function toggleDropDown() {
     }
 }
 
-function focusInputField() {
+function focusInputField() { //kurz genug  Namen ändern
     let inputField = document.getElementById('assign-search-input');
     inputField.focus();
     inputField.select()
 }
 
-function focusDueDate() {
+function focusDueDate() { //check
     let dateInput = document.getElementById('div-dateformchange')
     dateInput.focus();
     dateInput.focus();
 }
 
-let selectedPriorityIndex = null;
+let selectedPriorityIndex = null;   //Zweige in separate Funktionen packen
 let prioButtons = document.querySelectorAll('.priority-button');
 prioButtons.forEach(function (button, index) {
     button.addEventListener('click', function () {
@@ -147,7 +144,7 @@ prioButtons.forEach(function (button, index) {
     });
 });
 
-function toggleImages(image, buttonId) {
+function toggleImages(image, buttonId) {  //check
     switch (buttonId) {
         case 'urgent-button':
             image.src = image.src.includes('urgent-red.svg') ? './assets/img/add_task/urgent.svg' : './assets/img/add_task/urgent-red.svg';
@@ -161,7 +158,7 @@ function toggleImages(image, buttonId) {
     }
 }
 
-function getBackgroundColor(index) {
+function getBackgroundColor(index) {  //check
     switch (index) {
         case 0:
             return 'red';
@@ -174,7 +171,7 @@ function getBackgroundColor(index) {
     }
 }
 
-function resetImage(image, buttonId) {
+function resetImage(image, buttonId) {   //check
     switch (buttonId) {
         case 'urgent-button':
             image.src = './assets/img/add_task/urgent-red.svg';
@@ -188,7 +185,7 @@ function resetImage(image, buttonId) {
     }
 }
 
-function addNewSubtask() {
+function addNewSubtask() {   //gute Frage ?
     let subtaskInput = document.getElementById('subtask-input-field');
     let subtaskValue = subtaskInput.value.trim();
     if (subtaskValue !== '') {
@@ -213,7 +210,7 @@ function addNewSubtask() {
     }
 }
 
-function handleFormSubmit(event) {
+function handleFormSubmit(event) {  //check
     if (event.submitter && event.submitter.id === 'create-task-button') {
         addTask();
         deleteLastTask();
@@ -222,7 +219,7 @@ function handleFormSubmit(event) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {   //check
     let form = document.getElementById('add-task-form');
     form.addEventListener('submit', handleFormSubmit);
     let prioButtons = document.querySelectorAll('.priority-button');
@@ -234,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function addTask() {
+function addTask() {   //gute Frage ?
     let newTitle = document.getElementById("add-task-title-input").value;
     let newDescription = document.getElementById("add-task-description-textarea").value;
     let subtasks = getSubtasks();
@@ -270,7 +267,7 @@ function addTask() {
       disableCreateTaskButton() 
 }
 
-function getSelectedContactIds() {
+function getSelectedContactIds() { //check
     let checkboxes = document.querySelectorAll('#drop-down-content input[type="checkbox"]');
     let selectedIds = Array.from(checkboxes)
         .filter(checkbox => checkbox.checked)
@@ -278,14 +275,14 @@ function getSelectedContactIds() {
     return selectedIds;    
 }
 
-function deleteLastTask() {
+function deleteLastTask() {  //check
     if (contactData[0].tasks[0]['toDo'].length > 0) {  
         contactData[0].tasks[0]['toDo'].pop(); 
         console.log("Last Task Deleted:", contactData[0].tasks[0]['toDo']); 
     } 
 }
 
-function getSubtasks() {
+function getSubtasks() {   //check
     let createdSubtasksDiv = document.getElementById('created-subtasks');
     let subtaskElements = createdSubtasksDiv.getElementsByClassName('created-subtask');
     let subtasks = Array.from(subtaskElements).map(element => {
@@ -295,7 +292,7 @@ function getSubtasks() {
     return subtasks;
 }
 
-function clearForm() {
+function clearForm() {   // HTML auslagern ; Funktion zergliedern in kurze Funktionen
     document.getElementById('add-task-title-input').value = '';
     document.getElementById('add-task-description-textarea').value = '';
     document.getElementById('assigned-dropdown-div').innerHTML = `
@@ -316,20 +313,20 @@ function clearForm() {
     disableCreateTaskButton()
 }
 
-function disableCreateTaskButton() {
+function disableCreateTaskButton() { //check
     let createTaskButton = document.getElementById("create-task-button");
     createTaskButton.disabled = true;
 }
 
-function saveTasksToLocalStorage() {
+function saveTasksToLocalStorage() { //check
     localStorage.setItem('contactData', JSON.stringify(contactData));
  }
  
- function loadTasksFromLocalStorage() {
+ function loadTasksFromLocalStorage() { //check
     let storedData = localStorage.getItem('contactData');
     if (storedData) {
         contactData = JSON.parse(storedData);
     }
  }
 
-document.getElementById('clear-button').addEventListener('click', clearForm);
+document.getElementById('clear-button').addEventListener('click', clearForm);  //check
