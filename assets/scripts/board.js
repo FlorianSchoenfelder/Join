@@ -199,6 +199,7 @@ function renderToDos(filteredTasks) {
    }
 }
 
+
 function showSubtaskDetails(doneSubtasksCount, totalSubtasksCount) {
     let doneSubtasksCountText = doneSubtasksCount;
     let totalSubtasksCountText = totalSubtasksCount;
@@ -315,7 +316,7 @@ function renderInProgress(filteredTasks) {
                    <div class="balken">
                        <div class="fuellung" style="width: ${fillWidth};"></div>
                    </div>
-                   <div class="sub-span-subtask">
+                   <div class="sub-span-subtask" onmouseover="showSubtaskDetails(${doneSubtasksCount}, ${totalSubtasksCount})">
                        <span class="subtask-number-class">${doneSubtasksCount}</span>
                        <span class="slash">/</span>
                        <span class="total-numbers-subtask-class">${totalSubtasksCount }</span>
@@ -408,7 +409,7 @@ function renderAwaitFeedback(filteredTasks) {
                        <div class="balken">
                            <div class="fuellung" style="width: ${fillWidth};"></div>
                        </div>
-                       <div class="sub-span-subtask">
+                       <div class="sub-span-subtask" onmouseover="showSubtaskDetails(${doneSubtasksCount}, ${totalSubtasksCount})">
                            <span class="subtask-number-class">${doneSubtasksCount}</span>
                            <span class="slash">/</span>
                            <span class="total-numbers-subtask-class">${totalSubtasksCount}</span>
@@ -502,7 +503,7 @@ function renderDone(filteredTasks) {
                        <div class="balken">
                            <div class="fuellung" style="width: ${fillWidth};"></div>
                        </div>
-                       <div class="sub-span-subtask">
+                       <div class="sub-span-subtask" onmouseover="showSubtaskDetails(${doneSubtasksCount}, ${totalSubtasksCount})">
                            <span class="subtask-number-class">${doneSubtasksCount}</span>
                            <span class="slash">/</span>
                            <span class="total-numbers-subtask-class">${totalSubtasksCount}</span>
