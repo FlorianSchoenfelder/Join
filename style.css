@@ -453,3 +453,7 @@ p {
     font-size: 24px;
     font-weight: 700;
   }
+
+  .user-select-none{
+    user-select: none;
+  }

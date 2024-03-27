@@ -151,7 +151,7 @@ function renderToDos(filteredTasks) {
            let totalSubtasksCount = getTotalSubtasksCount(toDoTask);
            let fillWidth = calculateFillWidth(toDoTask);
            document.getElementById('to-do-column').innerHTML += `
-           <div draggable="true" ondragstart="startDragging(${toDoTask.taskID})" onclick="openTaskDetail('${toDoTask.taskID}')" class="card-for-task cursor-pointer">
+           <div draggable="true" ondragstart="startDragging('${toDoTask.taskID}')" onclick="openTaskDetail('${toDoTask.taskID}')" class="card-for-task cursor-pointer">
                <span class="task-category-span"  style="background-color: ${categoryBackgroundColor};">${toDoTask.category}
                </span>
                <div class="task-board-div">
@@ -167,13 +167,14 @@ function renderToDos(filteredTasks) {
                <div class="fuellung" style="width: ${fillWidth};">
                </div>
            </div>
-           <div class="sub-span-subtask">
+           <div class="sub-span-subtask" onmouseover="showSubtaskDetails(${doneSubtasksCount}, ${totalSubtasksCount})">
                <span class="subtask-number-class">${doneSubtasksCount}
                </span>
                <span class="slash">
                /</span>
                <span class="total-numbers-subtask-class">${totalSubtasksCount}</span>
            </div>
+           <div id="toastNotification" class="toast-notification"> </div>
            &nbsp;
            <span class="subtasks-span">Subtasks</span>
            </div>
@@ -197,6 +198,24 @@ function renderToDos(filteredTasks) {
 `;
    }
 }
+
+function showSubtaskDetails(doneSubtasksCount, totalSubtasksCount) {
+    let doneSubtasksCountText = doneSubtasksCount;
+    let totalSubtasksCountText = totalSubtasksCount;
+
+  
+    let toastNotification = document.getElementById("toastNotification");
+    toastNotification.innerText = `${doneSubtasksCountText} von ${totalSubtasksCountText} Subtasks sind schon erledigt.`;
+    toastNotification.style.display = "block";
+
+    
+    setTimeout(function() {
+        toastNotification.style.display = "none";
+    }, 2000);
+}
+
+
+
 
 
 function getDoneSubtasksCount(toDoTask) {
@@ -1102,10 +1121,6 @@ function removeLowStatus(){
 }
 
 
-// prio-btns
-
-
-
 function editsubtasks(subtaskId, currentDescription, currentSupTaskID)  {
 
 
@@ -1140,7 +1155,7 @@ console.log("Element ist:" ,  currentSubListElement)
 
 function closeCurrentSubtaskEdit(currentSupTaskID){
    let task = findTaskByID(currentSupTaskID);
-   console.log("Close Funktion task istz:", task)
+   console.log("Close Funktion task ist:", task)
 
    let subtasksHTML = '';
 
@@ -1418,9 +1433,6 @@ function filterContacts() {
        }     
    }
 }
-
-
-//  open add task form
 
 
 function openAddTaskForm(){

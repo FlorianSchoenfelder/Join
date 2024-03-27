@@ -1477,7 +1477,19 @@ line-height: 25.2px;
                 }
                 
 
-
+                .toast-notification {
+                    position: fixed;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: #333;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    display: none;
+                }
+                
+                
 
 
 
