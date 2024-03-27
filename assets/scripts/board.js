@@ -545,24 +545,33 @@ function focusSearchInput() {
 
 
 function filterTasksBoard() {
-   let search = document.getElementById('board-input-field').value.toLowerCase();
+    let search = document.getElementById('board-input-field').value.toLowerCase();
 
- 
-   if (contactData[0]?.tasks[0]) {
-       let filteredTasks = {
-           'toDo': filterTasksByCategory('toDo', search),
-           'inProgress': filterTasksByCategory('inProgress', search),
-           'awaitFeedback': filterTasksByCategory('awaitFeedback', search),
-           'done': filterTasksByCategory('done', search)
-       };
+    if (contactData[0]?.tasks[0]) {
+        let filteredTasks = {
+            'toDo': filterTasksByCategory('toDo', search),
+            'inProgress': filterTasksByCategory('inProgress', search),
+            'awaitFeedback': filterTasksByCategory('awaitFeedback', search),
+            'done': filterTasksByCategory('done', search)
+        };
 
-     
-       renderToDos(filteredTasks.toDo);
-       renderInProgress(filteredTasks.inProgress);
-       renderAwaitFeedback(filteredTasks.awaitFeedback);
-       renderDone(filteredTasks.done);
-   }
+        if (Object.values(filteredTasks).every(tasks => tasks.length === 0)) {
+            // Zeige eine Toast-Nachricht an, wenn keine Treffer gefunden wurden
+            showToastMessage("Keine Treffer gefunden.");
+        } else {
+            renderToDos(filteredTasks.toDo);
+            renderInProgress(filteredTasks.inProgress);
+            renderAwaitFeedback(filteredTasks.awaitFeedback);
+            renderDone(filteredTasks.done);
+        }
+    }
 }
+
+function showToastMessage(message) {
+    // Hier implementieren Sie den Code zum Anzeigen der Toast-Nachricht
+    console.log("Toast-Nachricht anzeigen:", message);
+}
+
 
 function filterTasksByCategory(category, search) {
    let tasksInCategory = contactData[0].tasks[0][category] || []; 

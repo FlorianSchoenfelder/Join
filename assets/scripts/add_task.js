@@ -338,3 +338,22 @@ document.getElementById("subtask-input-field").addEventListener("keydown", funct
         addNewSubtask();
     }
 });
+
+
+document.addEventListener('click', function(event) {
+    let assignedToDiv = document.getElementById('assigned-to-div');
+    let assignedDropdownDiv = document.getElementById('assigned-dropdown-div');
+    let dropDownContent = document.getElementById('drop-down-content');
+    let targetElement = event.target;
+    if (DROP_DOWN_OPEN && targetElement !== assignedToDiv && targetElement !== assignedDropdownDiv && !assignedDropdownDiv.contains(targetElement) && !dropDownContent.contains(targetElement)) {
+        toggleDropDown();
+    }
+});
+
+
+document.getElementById('assigned-dropdown-div').addEventListener('click', function(event) {
+
+    event.stopPropagation();
+});
+
+
