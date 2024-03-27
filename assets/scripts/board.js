@@ -546,7 +546,6 @@ function focusSearchInput() {
 
 function filterTasksBoard() {
     let search = document.getElementById('board-input-field').value.toLowerCase();
-
     if (contactData[0]?.tasks[0]) {
         let filteredTasks = {
             'toDo': filterTasksByCategory('toDo', search),
@@ -554,11 +553,15 @@ function filterTasksBoard() {
             'awaitFeedback': filterTasksByCategory('awaitFeedback', search),
             'done': filterTasksByCategory('done', search)
         };
-
         if (Object.values(filteredTasks).every(tasks => tasks.length === 0)) {
-            // Zeige eine Toast-Nachricht an, wenn keine Treffer gefunden wurden
             showToastMessage("Keine Treffer gefunden.");
-        } else {
+
+            renderToDos(filteredTasks.toDo);
+            renderInProgress(filteredTasks.inProgress);
+            renderAwaitFeedback(filteredTasks.awaitFeedback);
+            renderDone(filteredTasks.done);
+        }  
+        else {
             renderToDos(filteredTasks.toDo);
             renderInProgress(filteredTasks.inProgress);
             renderAwaitFeedback(filteredTasks.awaitFeedback);
@@ -568,8 +571,13 @@ function filterTasksBoard() {
 }
 
 function showToastMessage(message) {
-    // Hier implementieren Sie den Code zum Anzeigen der Toast-Nachricht
-    console.log("Toast-Nachricht anzeigen:", message);
+    let toast = document.getElementById('toastMessage');
+    toast.textContent = message;
+    toast.style.display = 'block';
+
+    setTimeout(function() {
+        toast.style.display = 'none';
+    }, 2000);
 }
 
 
