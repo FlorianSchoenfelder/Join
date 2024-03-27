@@ -151,7 +151,7 @@ function renderToDos(filteredTasks) {
            let totalSubtasksCount = getTotalSubtasksCount(toDoTask);
            let fillWidth = calculateFillWidth(toDoTask);
            document.getElementById('to-do-column').innerHTML += `
-           <div draggable="true" ondragstart="startDragging('${toDoTask.taskID}')" onclick="openTaskDetail('${toDoTask.taskID}')" class="card-for-task cursor-pointer">
+           <div draggable="true" ondragstart="startDragging(${toDoTask.taskID})" onclick="openTaskDetail('${toDoTask.taskID}')" class="card-for-task cursor-pointer">
                <span class="task-category-span"  style="background-color: ${categoryBackgroundColor};">${toDoTask.category}
                </span>
                <div class="task-board-div">
@@ -545,41 +545,24 @@ function focusSearchInput() {
 
 
 function filterTasksBoard() {
-    let search = document.getElementById('board-input-field').value.toLowerCase();
-    if (contactData[0]?.tasks[0]) {
-        let filteredTasks = {
-            'toDo': filterTasksByCategory('toDo', search),
-            'inProgress': filterTasksByCategory('inProgress', search),
-            'awaitFeedback': filterTasksByCategory('awaitFeedback', search),
-            'done': filterTasksByCategory('done', search)
-        };
-        if (Object.values(filteredTasks).every(tasks => tasks.length === 0)) {
-            showToastMessage("Keine Treffer gefunden.");
+   let search = document.getElementById('board-input-field').value.toLowerCase();
 
-            renderToDos(filteredTasks.toDo);
-            renderInProgress(filteredTasks.inProgress);
-            renderAwaitFeedback(filteredTasks.awaitFeedback);
-            renderDone(filteredTasks.done);
-        }  
-        else {
-            renderToDos(filteredTasks.toDo);
-            renderInProgress(filteredTasks.inProgress);
-            renderAwaitFeedback(filteredTasks.awaitFeedback);
-            renderDone(filteredTasks.done);
-        }
-    }
+ 
+   if (contactData[0]?.tasks[0]) {
+       let filteredTasks = {
+           'toDo': filterTasksByCategory('toDo', search),
+           'inProgress': filterTasksByCategory('inProgress', search),
+           'awaitFeedback': filterTasksByCategory('awaitFeedback', search),
+           'done': filterTasksByCategory('done', search)
+       };
+
+     
+       renderToDos(filteredTasks.toDo);
+       renderInProgress(filteredTasks.inProgress);
+       renderAwaitFeedback(filteredTasks.awaitFeedback);
+       renderDone(filteredTasks.done);
+   }
 }
-
-function showToastMessage(message) {
-    let toast = document.getElementById('toastMessage');
-    toast.textContent = message;
-    toast.style.display = 'block';
-
-    setTimeout(function() {
-        toast.style.display = 'none';
-    }, 2000);
-}
-
 
 function filterTasksByCategory(category, search) {
    let tasksInCategory = contactData[0].tasks[0][category] || []; 
