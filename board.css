@@ -1492,7 +1492,7 @@ line-height: 25.2px;
                 
 
 
-/* .toast-message-search {
+.toast-message-search {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -1502,7 +1502,8 @@ line-height: 25.2px;
     padding: 10px 20px;
     border-radius: 5px;
     z-index: 9999;
-} */
+    display: none; /* Ausgeblendet standardmäßig */
+}
 
 
 .dragarea-highlight{

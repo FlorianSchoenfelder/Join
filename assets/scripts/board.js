@@ -544,6 +544,8 @@ function focusSearchInput() {
 }
 
 
+/*
+
 function filterTasksBoard() {
    let search = document.getElementById('board-input-field').value.toLowerCase();
 
@@ -556,6 +558,7 @@ function filterTasksBoard() {
            'done': filterTasksByCategory('done', search)
        };
 
+
      
        renderToDos(filteredTasks.toDo);
        renderInProgress(filteredTasks.inProgress);
@@ -563,6 +566,50 @@ function filterTasksBoard() {
        renderDone(filteredTasks.done);
    }
 }
+
+
+*/
+    
+function filterTasksBoard() {
+    let search = document.getElementById('board-input-field').value.toLowerCase();
+
+    if (contactData[0]?.tasks[0]) {
+        let filteredTasks = {
+            'toDo': filterTasksByCategory('toDo', search),
+            'inProgress': filterTasksByCategory('inProgress', search),
+            'awaitFeedback': filterTasksByCategory('awaitFeedback', search),
+            'done': filterTasksByCategory('done', search)
+        };
+
+        if (Object.values(filteredTasks).every(tasks => tasks.length === 0)) {
+            // Zeige eine Toast-Nachricht an, wenn keine Treffer gefunden wurden
+            showToastMessage("Es wurden leider keine Treffer gefunden");
+            renderToDos(filteredTasks.toDo);
+            renderInProgress(filteredTasks.inProgress);
+            renderAwaitFeedback(filteredTasks.awaitFeedback);
+            renderDone(filteredTasks.done);
+        } else {
+            renderToDos(filteredTasks.toDo);
+            renderInProgress(filteredTasks.inProgress);
+            renderAwaitFeedback(filteredTasks.awaitFeedback);
+            renderDone(filteredTasks.done);
+        }
+    }
+}
+
+function showToastMessage(message) {
+    let toast = document.getElementById('toastMessage');
+    toast.textContent = message;
+    toast.style.display = 'block';
+
+    setTimeout(function() {
+        toast.style.display = 'none';
+    }, 2000);
+}
+
+
+
+
 
 function filterTasksByCategory(category, search) {
    let tasksInCategory = contactData[0].tasks[0][category] || []; 
