@@ -166,7 +166,7 @@ async function render() {
   if (!isMobileContactListCloned) {
   const mobileContactList = contactListContainer.cloneNode(true);
   mobileContactList.id = 'mobileContactList';
-  mobileContactList.style.display = 'none';
+  mobileContactList.classList.add('mobileContactList')
   document.body.appendChild(mobileContactList);
 
   isMobileContactListCloned = true;
@@ -197,14 +197,25 @@ function showContactInfo(contactIndex, initial) {
   ];
   currentListItem = "contactItem_" + initial + "_" + contactIndex;
   currentContactId = contact.id;
-  let contactInfo = document.getElementById("current-contact");
+
+  let mobileVersionOrDesktop = window.innerWidth <= 600 ? "current-contact-mobile" : "current-contact";
+  let contactInfo = document.getElementById(mobileVersionOrDesktop);
+  if (window.innerWidth <= 600) {
+    mobileContactList.classList.remove("mobileContactList");
+    mobileContactList.classList.add("d-none");
+    mobileContactList.classList.remove("mobileContactList");
+    mobileContactList.classList.add("d-none");
+    contactHeaderMobile.classList.remove('d-none');
+    mobileAddContactButton.classList.add('d-none');
+    editCurrentContactButton.classList.remove('d-none');
+  }
   contactInfo.innerHTML = "";
 
   contactInfo.innerHTML += /*html*/ `
       <div class="current-contact">
         <div class="userprofil-top d-flex">
           <div>
-          <svg width="120" height="120" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="current-userprofil" width="120" height="120" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="21" cy="21" r="20" fill=${contact.avatarColor} stroke="white" stroke-width="2"/>
             <text x="50%" y="50%" text-anchor="middle" alignment-baseline="middle" font-size="12" font-family="Inter, sans-serif" font-weight="400" fill="white">
               ${contact["firstname"].charAt(0) + contact["name"].charAt(0)}
@@ -216,7 +227,7 @@ function showContactInfo(contactIndex, initial) {
             <div class="current-name">${contact["firstname"]} ${contact["name"]}</div>
             <div class="edit-and-delete d-flex">
               <div onclick="editCurrentContact(${contact.id})" class="edit"><img id="editIcon" src="/assets/img/edit.svg" alt=""> <span>Edit</span></div>
-              <div onclick="deleteCurrentContact(${contact.id})" class="delete"><img id="deleteIcon" src="/assets/img/delete.svg" alt=""> <span>Delete</span></div>
+              <div onclick="deleteCurrentContact(${contact.id})" id="delete" class="delete"><img id="deleteIcon" src="/assets/img/delete.svg" alt=""> <span>Delete</span></div>
             </div>
           </div>
         </div>
