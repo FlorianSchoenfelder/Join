@@ -42,6 +42,8 @@ header{
 
 }
 
+
+
 #join-logo-light{
     height: 121.97px;
     width: 100.03px;
@@ -61,6 +63,12 @@ header{
     display: flex;
     gap: 16px;
 }
+
+#header-right-side a {
+    display: flex;
+    justify-content: center;
+}
+
 
 #help-logo{
     cursor: pointer;

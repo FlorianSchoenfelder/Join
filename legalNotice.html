@@ -12,6 +12,7 @@
   <script src="./JavaScript/templates.js" defer></script>
   <script src="JavaScript/summary.js" defer></script>
   <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
 
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="style.css">
@@ -28,6 +29,16 @@
   <aside w3-include-html="assets/templates/aside.html">
 
   </aside>
+
+  <div class="submenuContainer d-none" id="submenuContainer" onclick="closeDropdownMenu()">
+    <div class="submenu" onclick="stopPropagation(event)">
+      <ul>
+        <a href="legalNotice.html">Legal Notice</a>
+        <a href="privacyPolicy.html">Privacy Policy</a>
+        <a href="index.html">Log Out</a>
+      </ul>
+    </div>
+  </div>
 
   <main class="legalNoticeContainer">
     

@@ -137,11 +137,45 @@
     display: flex;
     justify-content: space-between;
   }
+
+  /* Contact */
+
+  .contact-header {
+    display: flex;
+    flex-direction: column;
+    align-items: start !important;
+    height: fit-content !important;
+    gap: 4px !important;
+    padding-left: 60px;
+
+  }
+
+  .contact-header h1{
+    padding: 0px;
+    font-size: 46px;
+
+  }
+
+  .font-size-paragraph {
+    font-size: 20px !important;
+  }
+
+  .blue-line {
+    height: 2px !important;
+    width: 120px;
+    order: 1;
+    margin-top: 8px;
+
+  }
 }
 
 /* Laptop */
 
 @media (max-width: 1024px) {
+  .submenuContainer {
+    padding: 100px 24px 0 0;
+  }
+
   /* Login Page  */
   .signUpFromLoginPage {
     position: absolute;
@@ -500,6 +534,14 @@
     margin: 0px;
     /* margin-top: -200px; */
   }
+
+  .contact-left-side {
+    padding: 100px 0px 100px 0px !important;
+  }
+
+  .textbutton {
+    margin-top: 0px !important;
+  }
 }
 
 /* Mobile  */
@@ -825,5 +867,15 @@
   .newAwaitFeedback,
   .newDone {
     height: 300px;
+  }
+
+  /* Legal Notice, Privacy, Help  */
+
+  .headline {
+    height: 90px;
+  }
+
+  .headlinetext {
+    font-size: 38px;
   }
 }
